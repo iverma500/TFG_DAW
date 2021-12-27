@@ -118,14 +118,42 @@ function cerrarSesion()
     session_destroy();
 }
 
-function crearNuevoUsuario($identificador, $contrasenna, $nombre, $apellidos, $email): int
+function crearNuevoUsuario($identificador, $email, $contrasenna, $nombre, $apellidos): int
 {
     $conexion = obtenerPdoConexionBD();
-    $sql = "INSERT INTO usuario VALUES (?,?,?,?,?,?,?)";
+    $sql = "INSERT INTO usuario (identificador, email, contrasenna, codigoCookie, caducidadCodigoCookie, nombre, apellidos) VALUES (?,?,?,?,?,?,?)";
     $select = $conexion->prepare($sql);
     $select->execute([$identificador, $email, $contrasenna, null, null, $nombre, $apellidos]);
     //$filasObtenidas = $select->rowCount();
  return $select->rowCount();
     //if ($filasObtenidas == 0) return null;
   //  else return $select->fetch();
+}
+
+function enviarMensajeCorreo($email, $nombre)
+{
+    //--AQUI HAGO LO DE ENVIAR EL MENSAJE AL CORREO DANDO LA BIENVENIDA Y TAL
+    $to = "destinatario@email.com";
+    $subject = "Asunto del email";
+    $headers =  'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'From: Your name <info@address.com>' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+    $message = "
+<html>
+<head>
+<title>Cuenta creada en FGL</title>
+</head>
+<body>
+<h1>Gracias por crearte una cuenta en nuestra aplicación online</h1>
+<p>Hola $nombre. La Fandom Game Library (FGL) es una librería online sin apenas ánimo de lucro</p>
+<p>en la que los mejores desarrolladores de software libre suben sus proyectos para</p>
+<p>que gente como tú puedan disfrutarlos... ¡Y la mayoría de ellos son totalmente gratis!</p>
+<br><br>
+<p>Espero que lo disfrutes y quién sabe, a lo mejor te animas a subir tu propio contenido (:</p>
+</body>
+</html>";
+
+    mail($to, $subject, $message, $headers);
+//--------------------------------
 }

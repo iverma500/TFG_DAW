@@ -18,6 +18,8 @@ entrarSiSesionIniciada();
 <body>
 <?php if (isset($_REQUEST["error"])) { ?>
     <p style="color: red">Error de autenticación, inténtelo de nuevo.</p>
+<?php } else if (isset($_REQUEST["errorCreacionSesion"])) { ?>
+    <p style="color: red">Error a la hora de crear una nueva sesión. Por favor, inténtelo de nuevo.</p>
 <?php } ?>
 <section class="bloqueInfoSesion">
     <?php if (isset($_REQUEST["sesionCerrada"])) { ?>
@@ -36,36 +38,43 @@ entrarSiSesionIniciada();
         <div id="signup">
           <h1>Regístrate gratis</h1>
 
-          <form action="SesionComprobar.php" method="post">
+          <form action="GenerarNuevaCuenta.php" method="post">
 
           <div class="top-row">
             <div class="field-wrap">
               <label>
                 Nombre<span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input type="text" name="nombre" required autocomplete="off" />
             </div>
 
             <div class="field-wrap">
               <label>
                 Apellido<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input type="text" name="apellidos" required autocomplete="off"/>
             </div>
           </div>
+
+              <div class="field-wrap">
+                  <label>
+                      Nickname<span class="req">*</span>
+                  </label>
+                  <input type="text" name="identificador" required autocomplete="off"/>
+              </div>
 
           <div class="field-wrap">
             <label>
               Email<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input type="email" name="email" required autocomplete="off"/>
           </div>
 
           <div class="field-wrap">
             <label>
               Set A Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input type="password" name="contrasenna" required autocomplete="off"/>
           </div>
 
           <button type="submit" class="button button-block"/>Empezar</button>
@@ -81,7 +90,7 @@ entrarSiSesionIniciada();
           
             <div class="field-wrap">
             <label>
-              Nombre<span class="req">*</span>
+              Nickname<span class="req">*</span>
             </label>
             <input type="text" name="identificador" required autocomplete="off"/>
           </div>
