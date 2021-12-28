@@ -13,18 +13,17 @@ enviarMensajeCorreo($_REQUEST["email"],$_REQUEST["nombre"]);
 <head>
     <meta charset="UTF-8">
     <title>Crear cuenta</title>
-    <style>
-        body {
-            background: rgba(19, 35, 47, 0.3);
-        }
-    </style>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
 <?php if ($filasNuevas == 1) {?>
-<h3 style="color:green;">Sesión creada con éxito.</h3>
+        <section class="form">
+            <h2 style="color:green; font-size: xx-large">Sesión creada con éxito.</h2>
     <br>
-    <p><a href="SesionComprobar.php?identificador=<?=$_REQUEST['identificador']?>&contrasenna=<?=$_REQUEST['contrasenna']?>">Entrar en la plataforma</a></p>
-<?php } else {
+            <h4><a class="enlaceFormato" href="SesionComprobar.php?identificador=<?=$_REQUEST['identificador']?>&contrasenna=<?=$_REQUEST['contrasenna']?>">Entrar en la plataforma</a></h4>
+       </section>
+            <?php } else {
 redireccionar("SesionFormulario.php?errorCreacionSesion");
 }?>
 </body>
