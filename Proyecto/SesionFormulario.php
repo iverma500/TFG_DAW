@@ -102,14 +102,13 @@ entrarSiSesionIniciada();
             <input type="password" name="contrasenna" required autocomplete="off"/>
           </div>
           
-          <p class="forgot"><a href="#">¿Has olvidado la contraseña?</a></p>
+          <p class="forgot"><a href="GenerarNuevaContrasenna.php">¿Contraseña Olvidada?</a></p>
           
           <button type="submit" class="button button-block"/>Acceder</button>
           
           </form>
 
         </div>
-
       </div><!-- tab-content -->
       
 </div> <!-- /form -->

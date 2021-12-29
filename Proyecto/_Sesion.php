@@ -130,6 +130,18 @@ function crearNuevoUsuario($identificador, $email, $contrasenna, $nombre, $apell
   //  else return $select->fetch();
 }
 
+function crearNuevaContrasenna($identificador, $email, $contrasenna): int
+{
+    $conexion = obtenerPdoConexionBD();
+    $sql = "UPDATE usuario SET contrasenna = ? WHERE email = ?";
+    $select = $conexion->prepare($sql);
+    $select->execute([$contrasenna, $email, $identificador]);
+    //$filasObtenidas = $select->rowCount();
+    return $select->rowCount();
+    //if ($filasObtenidas == 0) return null;
+    //  else return $select->fetch();
+}
+
 function enviarMensajeCorreo($email, $nombre):bool
 {
     //--AQUI HAGO LO DE ENVIAR EL MENSAJE AL CORREO DANDO LA BIENVENIDA Y TAL
@@ -159,5 +171,33 @@ que gente como tú puedan disfrutarlos... <b>¡Y la mayoría de ellos son totalm
 </html>";
     //mail($to, $subject, $message, $sender);
     return mail($to, $subject, $message, $headers);
+//--------------------------------
+}
+
+function enviarMensajeCorreoPassword($email,$nombre):bool
+{
+    //--AQUI HAGO LO DE ENVIAR EL MENSAJE AL CORREO DANDO LA BIENVENIDA Y TAL
+    $to = "destinatario@email.com";
+    $subject = "Asunto del email";
+    $headers =  'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'From: Your name <info@address.com>' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+    $message = "
+<html>
+<head>
+<title>Reestablecer Contraseña FGL</title>
+</head>
+<body>
+<h1>Correo de confirmación</h1>
+<p>Hola $nombre. La Fandom Game Library (FGL) es una librería online sin apenas ánimo de lucro</p>
+<p>en la que los mejores desarrolladores de software libre suben sus proyectos para</p>
+<p>que gente como tú puedan disfrutarlos... ¡Y la mayoría de ellos son totalmente gratis!</p>
+<br><br>
+<p>Espero que lo disfrutes y quién sabe, a lo mejor te animas a subir tu propio contenido (:</p>
+</body>
+</html>";
+
+    mail($to, $subject, $message, $headers);
 //--------------------------------
 }
