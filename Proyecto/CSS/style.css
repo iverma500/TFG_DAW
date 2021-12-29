@@ -65,7 +65,7 @@ a:hover {
   display: none;
 }
 
-h1 {
+h1,h3 {
   text-align: center;
   color: #ffffff;
   font-weight: 300;
