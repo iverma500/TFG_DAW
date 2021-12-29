@@ -29,7 +29,7 @@ $correoEnviado = enviarMensajeCorreo($_REQUEST["email"],$_REQUEST["nombre"]);
           <h4><a class="enlaceFormato" href="SesionComprobar.php?identificador=<?=$_REQUEST['identificador']?>&contrasenna=<?=$_REQUEST['contrasenna']?>">Entrar en la plataforma</a></h4>
         </section>
             <?php } else {
-redireccionar("SesionFormulario.php?errorCreacionSesion");
-}?>
+            redireccionar("SesionFormulario.php?errorCreacionCuenta");
+            }?>
 </body>
 </html>

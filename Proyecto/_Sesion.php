@@ -120,14 +120,26 @@ function cerrarSesion()
 
 function crearNuevoUsuario($identificador, $email, $contrasenna, $nombre, $apellidos): int
 {
+
+    /*SIGNIFICADOS RETURNS:
+    -3 -> Error al crear la cuenta (se ha realizado el "INSERT" pero algo ha salido mal) ERROR
+    1 ->  Operación realizada con ÉXITO
+    */
+
     $conexion = obtenerPdoConexionBD();
+
+    //En caso de que no esten repetidos. Creo el nuevo usuario en la BBDD
     $sql = "INSERT INTO usuario (identificador, email, contrasenna, codigoCookie, caducidadCodigoCookie, nombre, apellidos) VALUES (?,?,?,?,?,?,?)";
     $select = $conexion->prepare($sql);
     $select->execute([$identificador, $email, $contrasenna, null, null, $nombre, $apellidos]);
-    //$filasObtenidas = $select->rowCount();
- return $select->rowCount();
-    //if ($filasObtenidas == 0) return null;
-  //  else return $select->fetch();
+    $numRegistros = $select->rowCount();
+    if ($numRegistros == 1) {
+        //Devuelvo 1 que quiere decir que la operacion ha salido bien
+        return 1;
+    } else {
+        //Devuelvo -3 que quiere decir que algo ha salido mal en el insert de la BBDD
+        return -3;
+    }
 }
 
 function enviarMensajeCorreo($email, $nombre):bool

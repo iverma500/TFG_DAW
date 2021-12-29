@@ -3,6 +3,7 @@ require_once "_Varios.php";
 require_once "_Sesion.php";
 
 entrarSiSesionIniciada();
+
 ?>
 
 
@@ -16,15 +17,14 @@ entrarSiSesionIniciada();
 
 </head>
 <body>
-<?php if (isset($_REQUEST["error"])) { ?>
-    <p style="color: red">Error de autenticación, inténtelo de nuevo.</p>
-<?php } else if (isset($_REQUEST["errorCreacionSesion"])) { ?>
-    <p style="color: red">Error a la hora de crear una nueva sesión. Por favor, inténtelo de nuevo.</p>
-<?php } ?>
 <section class="bloqueInfoSesion">
-    <?php if (isset($_REQUEST["sesionCerrada"])) { ?>
+    <?php if (isset($_REQUEST["sesionCerrada"])) {?>
         <p style="color: blue">Se ha cerrado correctamente la sesión.</p>
-    <?php } ?>
+     <?php } if (isset($_REQUEST["error"])) {?>
+        <p style='color:red;'>Error al introducir los datos<p>;
+       <?php } if (isset($_REQUEST["errorCreacionCuenta"])) {?>
+        <p style='color:red;'>Se ha producido un error inesperado. Por favor, vuelve a introducir los datos<p>;
+        <?php }?>
 </section>
 <!-- partial:index.partial.html -->
 <div class="form">
@@ -45,14 +45,14 @@ entrarSiSesionIniciada();
               <label>
                 Nombre<span class="req">*</span>
               </label>
-              <input type="text" name="nombre" required autocomplete="off" />
+              <input type="text" name="nombre" id="nombre" required autocomplete="off" />
             </div>
 
             <div class="field-wrap">
               <label>
-                Apellido<span class="req">*</span>
+                Apellidos<span class="req">*</span>
               </label>
-              <input type="text" name="apellidos" required autocomplete="off"/>
+              <input type="text" name="apellidos" id="apellidos" required autocomplete="off"/>
             </div>
           </div>
 
@@ -60,24 +60,26 @@ entrarSiSesionIniciada();
                   <label>
                       Nickname<span class="req">*</span>
                   </label>
-                  <input type="text" name="identificador" required autocomplete="off"/>
+                  <input type="text" name="identificador" id="identificador" required autocomplete="off"/>
+                  <p style="color: red" id="pErrorNickName"></p>
               </div>
 
           <div class="field-wrap">
             <label>
               Email<span class="req">*</span>
             </label>
-            <input type="email" name="email" required autocomplete="off"/>
+            <input type="email" name="email" id="email" required autocomplete="off"/>
+              <p style="color: red" id="pErrorEmail"></p>
           </div>
 
           <div class="field-wrap">
             <label>
               Set A Password<span class="req">*</span>
             </label>
-            <input type="password" name="contrasenna" required autocomplete="off"/>
+            <input type="password" name="contrasenna" id="contrasenna" required autocomplete="off"/>
           </div>
 
-          <button type="submit" class="button button-block"/>Empezar</button>
+          <button type="submit" class="button button-block" id="btnCrearCuenta"/>Empezar</button>
 
           </form>
 
@@ -115,6 +117,6 @@ entrarSiSesionIniciada();
 </div> <!-- /form -->
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="JS/script.js"></script>
-
+<script src="JS/ValidacionFormularioSesion.js"></script>
 </body>
 </html>
