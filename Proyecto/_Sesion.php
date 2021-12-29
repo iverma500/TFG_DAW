@@ -130,30 +130,34 @@ function crearNuevoUsuario($identificador, $email, $contrasenna, $nombre, $apell
   //  else return $select->fetch();
 }
 
-function enviarMensajeCorreo($email, $nombre)
+function enviarMensajeCorreo($email, $nombre):bool
 {
     //--AQUI HAGO LO DE ENVIAR EL MENSAJE AL CORREO DANDO LA BIENVENIDA Y TAL
-    $to = "destinatario@email.com";
+    $to = $email;
     $subject = "Asunto del email";
     $headers =  'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'From: Your name <info@address.com>' . "\r\n";
+    $headers .= 'From: the FGL association <theFGL@platform.com>' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
+    //$sender = "theFGL@platform.com";
+   /* $headers = 'From: webmaster@example.com' . "\r\n" .
+        'Reply-To: webmaster@example.com' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();*/
     $message = "
 <html>
 <head>
 <title>Cuenta creada en FGL</title>
 </head>
 <body>
-<h1>Gracias por crearte una cuenta en nuestra aplicación online</h1>
-<p>Hola $nombre. La Fandom Game Library (FGL) es una librería online sin apenas ánimo de lucro</p>
-<p>en la que los mejores desarrolladores de software libre suben sus proyectos para</p>
-<p>que gente como tú puedan disfrutarlos... ¡Y la mayoría de ellos son totalmente gratis!</p>
-<br><br>
+<h4>Gracias por crearte una cuenta en nuestra aplicación online</h4>
+<p>
+Hola $nombre. La Fandom Game Library (FGL) es una librería online sin apenas ánimo de lucro
+en la que los mejores desarrolladores de software libre suben sus proyectos para
+que gente como tú puedan disfrutarlos... <b>¡Y la mayoría de ellos son totalmente gratis!<b>
+<br>
 <p>Espero que lo disfrutes y quién sabe, a lo mejor te animas a subir tu propio contenido (:</p>
 </body>
 </html>";
-
-    mail($to, $subject, $message, $headers);
+    //mail($to, $subject, $message, $sender);
+    return mail($to, $subject, $message, $headers);
 //--------------------------------
 }
