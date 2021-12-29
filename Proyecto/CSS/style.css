@@ -169,3 +169,13 @@ textarea {
   margin-top: -20px;
   text-align: right;
 }
+
+.enlaceFormato {
+  border-style: wave;
+  font-size: 19px;
+}
+
+.enlaceFormato:hover {
+  color: yellow;
+  font-size: 23px;
+}
