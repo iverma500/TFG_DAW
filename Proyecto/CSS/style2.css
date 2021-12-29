@@ -1,0 +1,65 @@
+body {
+    background: #c1bdba;
+    font-family: 'Titillium Web', sans-serif;}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Create a column layout with Flexbox */
+.row {
+    display: flex;
+}
+
+/* Left column (menu) */
+.left {
+    flex: 25%;
+    padding: 15px 0;
+}
+
+.left h2 {
+    padding-left: 8px;
+}
+
+/* Right column (page content) */
+.right {
+    flex: 75%;
+    padding: 15px;
+}
+
+/* Style the search box */
+#buscar {
+    width: 100%;
+    font-size: 18px;
+    padding: 11px;
+    border: 1px solid #ddd;
+}
+
+/* Style the navigation menu inside the left column */
+#menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu li a {
+    padding: 12px;
+    text-decoration: none;
+    color: black;
+    display: block
+}
+
+#menu li a:hover {
+    background-color: #eee;
+}
+
+.card {
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) ;
+}
+
+#productos {
+    display: flex;
+    justify-content: space-between;
+}
