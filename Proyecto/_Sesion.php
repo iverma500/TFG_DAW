@@ -6,7 +6,7 @@ session_start();
 
 function entrarSiSesionIniciada()
 {
-    if (comprobarRenovarSesion()) redireccionar("PersonaListado.php");
+    if (comprobarRenovarSesion()) redireccionar("Menu.php");
 }
 
 function salirSiSesionFalla()
@@ -210,6 +210,8 @@ function enviarMensajeCorreoPassword($email,$nombre):bool
 </body>
 </html>";
 
-    mail($to, $subject, $message, $headers);
+   return mail($to, $subject, $message, $headers);
+    /*TODO: TE HE AÑADIDO UN RETURN DELANTE DEL mail() PORQUE EL METODO LO REQUERIA. IMAGINO QUE
+    ESTARAS TRABAJANDO EN EL METODO ASI QUE NO TOCO NADA MAS.*/
 //--------------------------------
 }

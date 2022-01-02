@@ -1,3 +1,10 @@
+<?php
+require_once "_Varios.php";
+require_once "_Sesion.php";
+
+salirSiSesionFalla();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,10 +12,14 @@
     <link rel="stylesheet" href="CSS/style2.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="JS/script2.js" type="text/javascript"></script>
-    <title>Pagina Principal</title>
+    <title>FGM - Inicio</title>
 </head>
 <body id="bodyPrincipal">
-<h2>Pagina principal</h2>
+<h2>Fandom Game Library</h2>
+
+Sesión iniciada por <?= $_SESSION["nombre"] ?> [<?= $_SESSION["identificador"] ?>] <a href='SesionCerrar.php'>Cerrar
+    sesión</a>
+<br><br>
 <p>Aqui iria el resto.</p>
 
 <div class="row">

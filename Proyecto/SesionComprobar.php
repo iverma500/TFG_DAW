@@ -13,7 +13,7 @@
             generarRenovarSesionCookie();
         }
 
-        redireccionar("PersonaListado.php");
+        redireccionar("Menu.php");
     } else {
         redireccionar("SesionFormulario.php?error");
     }
