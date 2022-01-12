@@ -1,0 +1,19 @@
+.ip-twitter-icon {
+	background-image: url("https://assets.codepen.io/44572/twitter_1.png");
+	background-color: rgb(255, 255, 255);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 30px;
+	border-radius: 50% 0 0 0;
+	bottom: 0;
+	box-shadow: -2px -2px 5px 1px rgba(0, 0, 0, 0.5);
+	height: 50px;
+	position: fixed;
+	right: 0;
+	transition: transform 0.3s linear;
+	width: 50px;
+	z-index: 1000;
+}
+.ip-twitter-icon:hover {
+	transform: scale(1.2);
+}
