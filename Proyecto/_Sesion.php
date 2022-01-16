@@ -145,7 +145,7 @@ function crearNuevoUsuario($identificador, $email, $contrasenna, $nombre, $apell
 function crearNuevaContrasenna($identificador, $email, $contrasenna): int
 {
     $conexion = obtenerPdoConexionBD();
-    $sql = "UPDATE usuario SET contrasenna = ? WHERE email = ?";
+    $sql = "UPDATE usuario SET contrasenna = ? WHERE email = ? AND identificador = ?";
     $select = $conexion->prepare($sql);
     $select->execute([$contrasenna, $email, $identificador]);
     //$filasObtenidas = $select->rowCount();
@@ -185,14 +185,14 @@ que gente como tú puedan disfrutarlos... <b>¡Y la mayoría de ellos son totalm
     return mail($to, $subject, $message, $headers);
 //--------------------------------
 }
-
-function enviarMensajeCorreoPassword($email,$nombre):bool
+//TODO crear un token para que funcione del todo correcto
+function enviarMensajeCorreoPassword($email,$identificador):bool
 {
     //--AQUI HAGO LO DE ENVIAR EL MENSAJE AL CORREO DANDO LA BIENVENIDA Y TAL
-    $to = "destinatario@email.com";
+    $to = $email;
     $subject = "Asunto del email";
     $headers =  'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'From: Your name <info@address.com>' . "\r\n";
+    $headers .= 'From: the FGL association <theFGL@platform.com>' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
     $message = "
@@ -202,16 +202,16 @@ function enviarMensajeCorreoPassword($email,$nombre):bool
 </head>
 <body>
 <h1>Correo de confirmación</h1>
-<p>Hola $nombre. La Fandom Game Library (FGL) es una librería online sin apenas ánimo de lucro</p>
-<p>en la que los mejores desarrolladores de software libre suben sus proyectos para</p>
-<p>que gente como tú puedan disfrutarlos... ¡Y la mayoría de ellos son totalmente gratis!</p>
-<br><br>
-<p>Espero que lo disfrutes y quién sabe, a lo mejor te animas a subir tu propio contenido (:</p>
+<p>Hola $identificador.</p>
+<p>Te enviamos este correo de confirmación para reestablecer tu contraseña</p>
+<p>Accede a este enlace para cambiar tu contraseña:</p>
+<br>
+<a href='http://localhost:63342/TFG_DAW/Proyecto/CorreoContrasenna.php?_ijt=3rh7hrdeulcm2c9jb0qeps0vbh'>ACCEDER</a>
+<br>
+<p>Un saludo Fandom Game Library (FGL) (:</p>
 </body>
 </html>";
 
    return mail($to, $subject, $message, $headers);
-    /*TODO: TE HE AÑADIDO UN RETURN DELANTE DEL mail() PORQUE EL METODO LO REQUERIA. IMAGINO QUE
-    ESTARAS TRABAJANDO EN EL METODO ASI QUE NO TOCO NADA MAS.*/
 //--------------------------------
 }
