@@ -74,7 +74,7 @@ class DAO
         else return $updel->rowCount();
     }
 
-    // PRODUCTO
+    // VIDEOJUEGO
 
     private static function videojuegoCrearDesdeFila(array $fila): Videojuego
     {
