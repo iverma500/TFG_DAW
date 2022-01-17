@@ -11,7 +11,7 @@ salirSiSesionFalla();
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/style2.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="JS/script2.js" type="text/javascript"></script>
+    <script src="JS/GestionMenuPrincipal.js" type="text/javascript"></script>
     <title>FGM - Inicio</title>
 </head>
 <body id="bodyPrincipal">

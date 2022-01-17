@@ -30,7 +30,7 @@ VALUES
     (4, 'Iverma', 'dbdtodoeldia@gmail.com', 'iv', NULL, NULL, 'Ivan',   'Delas');
 
 
-
+/*  tabla videojuego   */
 CREATE TABLE IF NOT EXISTS videojuego (
     id int(11) NOT NULL AUTO_INCREMENT,
     nombre varchar(90) COLLATE utf8_spanish_ci NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS videojuego (
     ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 TRUNCATE TABLE videojuego;
 
-/*LA IDEA ES QUE el identificador de la foto sea el nombre de la foto (ej: la foto se llama AC1.jpg; pues su identificador de foto es AC1)*/
+/*LA IDEA ES QUE el identificador de la foto sea el nombre de la foto (ej: la foto se llama AC1.png; pues su identificador de foto es AC1)*/
 INSERT INTO videojuego
 (id, nombre, identificadorFoto, categoriaId)
 VALUES
@@ -53,7 +53,7 @@ VALUES
     (5, 'Assassin´s Creed', 'AC1', 2);
 
 
-
+/*  tabla categoriaVideojuego   */
 CREATE TABLE IF NOT EXISTS categoriaVideojuego (
     id int(11) NOT NULL AUTO_INCREMENT,
     categoria varchar(90) COLLATE utf8_spanish_ci NOT NULL,
