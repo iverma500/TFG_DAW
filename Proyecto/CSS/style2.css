@@ -1,9 +1,19 @@
 body {
     background: #c1bdba;
-    font-family: 'Titillium Web', sans-serif;}
+    font-family: 'Titillium Web', sans-serif;
+}
+
+body p {
+    padding-left: 10px;
+}
 
 * {
     box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+    padding-top: 20px;
 }
 
 /* Create a column layout with Flexbox */
@@ -25,6 +35,14 @@ body {
 .right {
     flex: 75%;
     padding: 15px;
+}
+
+.right h2 {
+    text-align: center;
+}
+
+#titulo {
+    padding-bottom: 100px;
 }
 
 /* Style the search box */
