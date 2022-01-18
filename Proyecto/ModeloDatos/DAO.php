@@ -78,7 +78,13 @@ class DAO
 
     private static function videojuegoCrearDesdeFila(array $fila): Videojuego
     {
-        return new Videojuego($fila["id"],$fila["nombre"], $fila["identificadorFoto"], $fila["categoriaId"]);
+        return new Videojuego($fila["id"],
+                              $fila["nombre"],
+                              $fila["descripcion"],
+                              $fila["precioActual"],
+                              $fila["precioViejo"],
+                              $fila["identificadorFoto"],
+                              $fila["categoriaId"]);
     }
 
     private static function videojuegoObtenerPorId(int $id): ?Videojuego
@@ -128,11 +134,11 @@ class DAO
         return ($filasAfectadas == 1);
     }
 
-    public static function videojuegoCrear(string $nombre, string $identificadorFoto, int $categoriaId): ?Videojuego
+    public static function videojuegoCrear(string $nombre, string $descripcion, float $precioActual, float $precioViejo,string $identificadorFoto, int $categoriaId): ?Videojuego
     {
         $idAutogenerado = Self::ejecutarInsert(
-            "INSERT INTO videojuego  VALUES (NULL ,?, ?, ?)",
-            [$nombre, $identificadorFoto, $categoriaId]
+            "INSERT INTO videojuego  VALUES (NULL , ? , ? , ? , ? , ?)",
+            [$nombre, $descripcion, $precioActual, $precioViejo ,$identificadorFoto, $categoriaId]
         );
 
         if ($idAutogenerado == null) return null;
