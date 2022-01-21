@@ -94,7 +94,7 @@ function insertarVideojuego(videojuegoActual) {
 
     var btnJuego = document.createElement("button");
         btnJuego.setAttribute("class","ticket-btn-jugar");
-        btnJuego.textContent = "JUGAR";
+        btnJuego.textContent = "Ver ficha";
 
     contenedorVideojuegos.appendChild(juego);
     juego.appendChild(poster);
