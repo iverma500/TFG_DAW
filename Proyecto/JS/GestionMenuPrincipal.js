@@ -94,8 +94,12 @@ function insertarVideojuego(videojuegoActual) {
 
     var btnJuego = document.createElement("button");
         btnJuego.setAttribute("class","ticket-btn-jugar");
-        btnJuego.textContent = "Ver ficha";
 
+    var enlaceFicha = document.createElement("a");
+    enlaceFicha.setAttribute("href", "../Proyecto/z_FichasVideojuegos/"+videojuegoActual.identificadorFoto+".html");
+    enlaceFicha.textContent = "Ver ficha";
+
+    btnJuego.appendChild(enlaceFicha);
     contenedorVideojuegos.appendChild(juego);
     juego.appendChild(poster);
     juego.appendChild(ticket);
