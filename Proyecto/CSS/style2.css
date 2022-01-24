@@ -1,5 +1,5 @@
 body {
-    background: #c1bdba;
+    background: paleturquoise;
     font-family: 'Titillium Web', sans-serif;
 }
 
@@ -23,8 +23,7 @@ h1{
 
 /* Left column (menu) */
 .left {
-    flex: 25%;
-    padding: 15px 0;
+    flex: 20%;
 }
 
 .left h2 {
@@ -33,8 +32,7 @@ h1{
 
 /* Right column (page content) */
 .right {
-    flex: 75%;
-    padding: 15px;
+    flex: 80%;
 }
 
 .right h2 {
@@ -50,7 +48,7 @@ h1{
     width: 100%;
     font-size: 18px;
     padding: 11px;
-    border: 1px solid #ddd;
+    border: 1px solid black;
 }
 
 /* Style the navigation menu inside the left column */
@@ -82,11 +80,6 @@ h1{
     justify-content: space-between;
 }
 
-.cabecera::before {
-    transform: scaleX(0);
-    transform-origin: bottom right;
-}
-
 .cabecera:hover::before {
     transform: scaleX(1);
     transform-origin: bottom left;
@@ -98,12 +91,70 @@ h1{
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
     inset: 0 0 0 0;
-    background: linear-gradient(to left, blue, white);
     z-index: -1;
     transition: transform .3s ease;
+    transform: scaleX(0);
+    transform-origin: bottom right;
 }
 
 h1 {
     position: relative;
-    font-size: 2rem;
+    font-size: 3rem;
+}
+
+header{
+    width: 100%;
+}
+
+.navegacion{
+    width: 1000px;
+    margin: 30px auto;
+    background: #fff;
+}
+
+.navegacion ul{
+    list-style: none;
+}
+
+.menu > li{
+    position: relative;
+    display: inline-block;
+}
+
+.menu > li > a, .menu > li > p{
+    display: block;
+    padding: 15px 20px;
+    color: #353535;
+    font-weight:bold;
+    font-family: 'Open sans';
+    text-decoration: none;
+}
+
+.menu li a:hover,.menu li p:hover{
+    color: #CE7D35;
+    transition: all .3s;
+}
+
+/* Submenu*/
+
+.submenu{
+    position: absolute;
+    background: #333333;
+    width: 120%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.submenu li a{
+    display: block;
+    padding: 15px;
+    color: #fff;
+    font-family: 'Open sans';
+    text-decoration: none;
+}
+
+.menu li:hover .submenu{
+    visibility: visible;
+    opacity: 1;
 }

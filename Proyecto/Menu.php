@@ -18,13 +18,23 @@ salirSiSesionFalla();
 <body id="bodyPrincipal">
 <header class="cabecera">
     <h1>Fandom Game Library</h1>
-
-    <p>Sesión iniciada por <?= $_SESSION["nombre"] ?> [<?= $_SESSION["identificador"] ?>]</p>
-    <p><a href='SesionCerrar.php'>Cerrar sesión</a></p>
+    <nav class="navegacion">
+        <ul class="menu">
+            <li><p>Hola <?= $_SESSION["identificador"]?></p>
+                <ul class="submenu">
+                    <li><a href="">Mi Cuenta</a></li>
+                    <li><a href="SesionCerrar.php">Cerrar Sesión</a></li>
+                </ul>
+            </li>
+            <li><a href="Menu.php">Inicio</a></li>
+            <li><a href="#">Mis Juegos</a></li>
+            <li><a href="#">Algo mas??¿</a></li>
+        </ul>
+    </nav>
 </header>
 <br>
 <div class="row">
-    <div class="left" style="background-color:#bbb;">
+    <div class="left" style="background:paleturquoise;">
         <h2>Menú</h2>
         <br>
         <input type="text" id="buscar" onkeyup="filtro()" placeholder="Buscar.." title="Buscar por Categoría">
@@ -39,7 +49,7 @@ salirSiSesionFalla();
         </ul>
     </div>
 
-    <div class="right" style="background-color:#ddd;">
+    <div class="right" style="background-color:paleturquoise;">
         <div id="titulo">
             <h2>Juegos</h2>
         </div>
