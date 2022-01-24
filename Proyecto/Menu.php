@@ -16,13 +16,13 @@ salirSiSesionFalla();
     <title>FGM - Inicio</title>
 </head>
 <body id="bodyPrincipal">
-<h1>Fandom Game Library</h1>
+<header class="cabecera">
+    <h1>Fandom Game Library</h1>
 
-<p>Sesión iniciada por <?= $_SESSION["nombre"] ?> [<?= $_SESSION["identificador"] ?>]</p>
-<p><a href='SesionCerrar.php'>Cerrar sesión</a></p>
-
-<br><br>
-
+    <p>Sesión iniciada por <?= $_SESSION["nombre"] ?> [<?= $_SESSION["identificador"] ?>]</p>
+    <p><a href='SesionCerrar.php'>Cerrar sesión</a></p>
+</header>
+<br>
 <div class="row">
     <div class="left" style="background-color:#bbb;">
         <h2>Menú</h2>

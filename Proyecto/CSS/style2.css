@@ -81,3 +81,29 @@ h1{
     display: flex;
     justify-content: space-between;
 }
+
+.cabecera::before {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+}
+
+.cabecera:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.cabecera::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0 0 0 0;
+    background: linear-gradient(to left, blue, white);
+    z-index: -1;
+    transition: transform .3s ease;
+}
+
+h1 {
+    position: relative;
+    font-size: 2rem;
+}
