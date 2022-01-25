@@ -1,0 +1,47 @@
+body {
+    background-color: rgba(19, 35, 47, 0.9);
+}
+.imgRedonda {
+    width:150px;
+    height:150px;
+    border-radius:150px;
+    display: flex;
+    margin-left: 8%;
+}
+
+.sectionPerfil{
+    margin-top: 5%;
+    margin-left: 35%;
+}
+a {
+    color: green;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+
+}
+#botonGuardar {
+    background-color: #1ab188;
+    border-style: none;
+    border-radius: 8px;
+    color: white;
+    margin-left: 6%;
+}
+
+label {
+   color: #1ab188;
+    font-weight: bold;
+}
+input {
+    background-color: rgba(19, 35, 47, 0.9);
+    color: #77d9ba;
+}
+form > input:focus, form > input:hover {
+    border-style: solid;
+   border-color: orange;
+}
+
+.botonGuardar:hover {
+    background-color: #34752f;
+    border-radius: 8px;
+}

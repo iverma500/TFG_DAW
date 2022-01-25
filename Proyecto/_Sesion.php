@@ -9,9 +9,9 @@ function entrarSiSesionIniciada()
     if (comprobarRenovarSesion()) redireccionar("Menu.php");
 }
 
-function salirSiSesionFalla()
+function salirSiSesionFalla($ruta)
 {
-    if (!comprobarRenovarSesion()) redireccionar("SesionFormulario.php");
+    if (!comprobarRenovarSesion()) redireccionar($ruta);
 }
 
 function comprobarRenovarSesion(): bool
@@ -41,7 +41,7 @@ function haySesionRAM(): bool
 function obtenerUsuarioPorContrasenna(string $identificador, string $contrasenna): ?array
 {
     $conexion = obtenerPdoConexionBD();
-    $sql = "SELECT id, identificador, nombre FROM usuario
+    $sql = "SELECT id, identificador, nombre, apellidos FROM usuario
             WHERE identificador=? AND BINARY contrasenna=?";
     $select = $conexion->prepare($sql);
     $select->execute([$identificador, $contrasenna]);
@@ -82,6 +82,7 @@ function generarSesionRAM(array $usuario)
     $_SESSION["id"] = $usuario["id"];
     $_SESSION["identificador"] = $usuario["identificador"];
     $_SESSION["nombre"] = $usuario["nombre"];
+    $_SESSION["apellidos"] = $usuario["apellidos"];
 }
 
 function generarRenovarSesionCookie()

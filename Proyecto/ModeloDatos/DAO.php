@@ -156,5 +156,28 @@ class DAO
         else return $videojuego;
     }
 
+     /*      USUARIO */
+    public static function usuarioActualizar($id,$identificador, $nombre, $apellidos): int
+    {
+        $filasAfectadas = Self::ejecutarUpdel(
+            "UPDATE usuario SET identificador=?, nombre=?, apellidos=? WHERE id=?",
+            [$identificador, $nombre, $apellidos, $id]
+        );
 
+        self::refrescarDatosUsuario();
+
+        return $filasAfectadas;
+    }
+
+    public static function refrescarDatosUsuario()
+    {
+        $rs = Self::ejecutarConsulta(
+            "SELECT identificador, nombre, apellidos FROM usuario WHERE id = ?",
+            [$_SESSION["id"]]
+        );
+
+           $_SESSION["nombre"] = $rs[0]["nombre"];
+           $_SESSION["apellidos"] = $rs[0]["apellidos"];
+           $_SESSION["identificador"] = $rs[0]["identificador"];
+    }
 }
