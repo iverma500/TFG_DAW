@@ -1,0 +1,153 @@
+body {
+    background: rgba(19, 35, 47, 0.9);
+}
+
+.main {
+    display: flex;
+}
+
+.sectionCarrusel {
+    flex: 40%;
+    text-align: left;
+}
+
+.sectionDescripcion{
+    flex: 60%;
+}
+
+.sectionDescripcion > p{
+    font-size: 18px;
+    display: block;
+    margin: auto;
+    color: #1ab188;
+}
+
+h1 {
+    color: #28DAD4;
+    /*padding-right: 30%;*/
+    text-align: center;
+    font-size: 38px;
+}
+
+.button {
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    background: #065f4b;
+    color: #ffffff;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
+}
+.button:hover, .button:focus {
+    background: #1ab188;
+}
+
+/* Create a column layout with Flexbox */
+.row {
+    display: flex;
+}
+
+/* Left column (menu) */
+.left {
+    flex: 60%;
+}
+
+.left h2 {
+    padding-left: 8px;
+}
+
+/* Right column (page content) */
+.right {
+    flex: 40%;
+}
+
+.right h2 {
+    text-align: center;
+}
+
+.right img {
+    padding-top: 10%;
+    display: block;
+    margin: auto;
+}
+
+.right button {
+    display: block;
+    margin: auto;
+}
+
+.left p {
+    padding-right: 40px;
+    padding-left: 100px;
+    text-align: left;
+}
+
+header {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navegacion{
+    width: 60%;
+    margin: 10px auto;
+    background: #fff;
+}
+
+.navegacion ul{
+    list-style: none;
+    text-align:center;
+
+}
+
+.menu > li{
+    display: inline-block;
+}
+
+.menu > li > a, .menu > li > p{
+    display: block;
+    position: relative;
+    padding: 15px 20px;
+    color: #353535;
+    font-weight:bold;
+    font-family: 'Open sans';
+    text-decoration: none;
+}
+
+.menu li a:hover,.menu li p:hover{
+    color: #CE7D35;
+    transition: all .3s;
+}
+
+p {
+    color: white;
+}
+
+h4 {
+    color: lightyellow;
+}
+
+span{
+    display:inline-block;
+    border-bottom:1px solid black;
+    padding-bottom:4px;
+}
+
+.datos {
+    margin-top: 50px;
+    display: inline-block;
+}
+
+.datos-juego {
+    font-weight: bold;
+    color: lightgrey;
+}
+
+.fecha {
+    display: flex;
+}

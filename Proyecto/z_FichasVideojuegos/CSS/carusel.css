@@ -6,6 +6,7 @@ h1 {
   display: flex;
   gap: 10px;
   justify-content: center;
+  padding-top: 50px;
 }
 
 .carrusel ul {
@@ -13,7 +14,7 @@ h1 {
   margin: 0;
   padding: 0;
   /*max-width: 1030px;*/
-  max-width: 510px;
+  max-width: 610px;
   scroll-behavior: smooth;
 }
 
@@ -41,17 +42,19 @@ h1 {
   }
 
   .carrusel-fotos img {
-    width: 500px;
-    height: 400px;
+    width: 600px;
+    height: 500px;
   }
   .carrusel-menu {
-    display: block;
+    display: flex;
+    justify-content: center;
   }
   .carrusel-menu img {
     box-sizing: border-box;
-    width: 50px;
-    height: 40px;
-    border: 10px solid black;
+    width: 70px;
+    height: 60px;
+    border: 5px solid black;
+    margin: 10px;
   }
   .carrusel-menu img:hover {
     border: none;
@@ -62,6 +65,10 @@ p {
   text-align: center;
 }
 .sectionCarrusel {
-padding-left: 20%;
+  padding-left: 20%;
   padding-right: 20%;
+}
+
+.fotos {
+  display: inline-block;
 }
