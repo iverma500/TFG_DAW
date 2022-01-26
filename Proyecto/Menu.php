@@ -2,7 +2,7 @@
 require_once "_Varios.php";
 require_once "_Sesion.php";
 
-salirSiSesionFalla("SesionFormulario.php");
+salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +22,8 @@ salirSiSesionFalla("SesionFormulario.php");
         <ul class="menu">
             <li><p>Hola <?= $_SESSION["identificador"]?></p>
                 <ul class="submenu">
-                    <li><a href="PerfilUsuario/Perfil.php">Mi Cuenta</a></li>
-                    <li><a href="SesionCerrar.php">Cerrar Sesión</a></li>
+                    <li><a href="GestionUsuario/PerfilUsuario/Perfil.php">Mi Cuenta</a></li>
+                    <li><a href="GestionUsuario/SesionUsuario/SesionCerrar.php">Cerrar Sesión</a></li>
                 </ul>
             </li>
             <li><a href="Menu.php">Inicio</a></li>

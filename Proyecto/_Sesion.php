@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 session_start();
 
-function entrarSiSesionIniciada()
+function entrarSiSesionIniciada($ruta)
 {
-    if (comprobarRenovarSesion()) redireccionar("Menu.php");
+    if (comprobarRenovarSesion()) redireccionar($ruta);
 }
 
 function salirSiSesionFalla($ruta)

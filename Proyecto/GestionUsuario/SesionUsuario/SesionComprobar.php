@@ -1,8 +1,8 @@
 <?php
-    require_once "_Varios.php";
-    require_once "_Sesion.php";
+    require_once "../../_Varios.php";
+    require_once "../../_Sesion.php";
 
-    entrarSiSesionIniciada();
+    entrarSiSesionIniciada("../../Menu.php");
 
     $usuario = obtenerUsuarioPorContrasenna($_REQUEST["identificador"], $_REQUEST["contrasenna"]);
 
@@ -13,7 +13,7 @@
             generarRenovarSesionCookie();
         }
 
-        redireccionar("Menu.php");
+        redireccionar("../../Menu.php");
     } else {
         redireccionar("SesionFormulario.php?error");
     }

@@ -1,8 +1,8 @@
 <?php
-require_once "_Varios.php";
-require_once "_Sesion.php";
+require_once "../../_Varios.php";
+require_once "../../_Sesion.php";
 
-entrarSiSesionIniciada();
+entrarSiSesionIniciada("../../Menu.php");
 
 ?>
 
@@ -13,7 +13,7 @@ entrarSiSesionIniciada();
   <meta charset="UTF-8">
   <title>TFG - Inicio de sesión</title>
   <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="../../CSS/style.css">
 
 </head>
 <body>
@@ -38,7 +38,7 @@ entrarSiSesionIniciada();
         <div id="signup">
           <h1>Regístrate gratis</h1>
 
-          <form action="GenerarNuevaCuenta.php" method="post">
+          <form action="../ContrasennaUsuario/GenerarNuevaCuenta.php" method="post">
 
           <div class="top-row">
             <div class="field-wrap">
@@ -104,9 +104,9 @@ entrarSiSesionIniciada();
             <input type="password" name="contrasenna" required autocomplete="off"/>
           </div>
           
-          <p class="forgot"><a href="NuevaContrasenna.php">¿Contraseña Olvidada?</a></p>
+          <p class="forgot"><a href="../ContrasennaUsuario/NuevaContrasenna.php">¿Contraseña Olvidada?</a></p>
 
-          <button type="submit" class="button button-block"/>Acceder</button>
+          <button type="submit" class="button button-block">Acceder</button>
           
           </form>
 
@@ -115,7 +115,7 @@ entrarSiSesionIniciada();
       
 </div> <!-- /form -->
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="JS/script.js"></script>
-<script src="JS/ValidacionFormularioSesion.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="../../JS/script.js"></script>
+<script src="../../JS/ValidacionFormularioSesion.js"></script>
 </body>
 </html>

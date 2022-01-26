@@ -1,8 +1,8 @@
 <?php
-require_once '_Sesion.php';
-require_once '_Varios.php';
+require_once '../../_Sesion.php';
+require_once '../../_Varios.php';
 
-entrarSiSesionIniciada();
+entrarSiSesionIniciada("../../Menu.php");
 ?>
 
 <!doctype html>
@@ -11,7 +11,7 @@ entrarSiSesionIniciada();
         <meta charset="UTF-8">
         <title>Reestablecer Contraseña</title>
         <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="../../CSS/style.css">
     </head>
     <body>
         <section class="bloqueInfoSesion">

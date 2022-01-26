@@ -1,5 +1,5 @@
 <?php
-require_once "_Varios.php";
+require_once "../../_Varios.php";
 
 function validarUsuario($identificador, $email): int
 {

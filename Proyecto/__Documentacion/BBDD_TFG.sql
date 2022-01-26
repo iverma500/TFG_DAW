@@ -49,7 +49,7 @@ INSERT INTO videojuego
 (id, nombre, descripcion, precioActual,precioViejo, categoriaId)
 VALUES
     (1, '2048', 'Mueve casillas hasta llegar a 2048 sumando valores iguales', 0.00, 7.99,5),
-    (2, 'RUN&JUMP', 'Consigue crear puentes para superar cada nivel', 0.00, 11.99, 1),
+    (2, 'RUN&JUMP', 'Divertido videojuego endless-runner con tabla de clasificación online', 0.00, 11.99, 1),
     (3, 'The Dungeon Game', 'Intenta superar nievles de gran dificultad con tu destreza', 0.00 , 4.99, 1),
     (4, 'Platforms World','Explora la Realidad Pixel para lograr escapar.', 0.00 , 4.99, 1),
     (5, 'Assassin´s Creed', 'Lleva a cabo una serie de asesinatos ordenados por Al Mualim, el líder de los asesinos.', 0.00, 29.99, 2);
