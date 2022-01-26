@@ -12,14 +12,13 @@ class Videojuego extends Dato
     protected int    $categoriaId;
 
 
-    public function __construct($id, $nombre, $descripcion, $precioActual, $precioViejo ,$identificadorFoto, $categoriaId)
+    public function __construct($id, $nombre, $descripcion, $precioActual, $precioViejo, $categoriaId)
     {
         $this->id = $id;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $this->precioActual = $precioActual;
         $this->precioViejo = $precioViejo;
-        $this->identificadorFoto = $identificadorFoto;
         $this->categoriaId = $categoriaId;
     }
 
@@ -96,22 +95,6 @@ class Videojuego extends Dato
     }
 
     /**
-     * @return string
-     */
-    public function getIdentificadorFoto(): string
-    {
-        return $this->identificadorFoto;
-    }
-
-    /**
-     * @param string $identificadorFoto
-     */
-    public function setIdentificadorFoto(string $identificadorFoto): void
-    {
-        $this->identificadorFoto = $identificadorFoto;
-    }
-
-    /**
      * @return int
      */
     public function getCategoriaId(): int
@@ -137,7 +120,6 @@ class Videojuego extends Dato
             "descripcion" => $this->descripcion,
             "precioActual" => $this->precioActual,
             "precioViejo" => $this->precioViejo,
-            "identificadorFoto" => $this->identificadorFoto,
             "categoriaId" => $this->categoriaId,
             ];
     }

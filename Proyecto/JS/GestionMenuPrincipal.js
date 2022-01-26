@@ -64,7 +64,7 @@ function insertarVideojuego(videojuegoActual) {
         imagen.setAttribute("id","img-" + videojuegoActual.id);
         imagen.setAttribute("class","poster");
         imagen.setAttribute("src","ImagenesJuegos/" +
-            videojuegoActual.identificadorFoto + ".png");
+            videojuegoActual.id + ".png");
 
     var ticket = document.createElement("div");
         ticket.setAttribute("class","ticket-container");
@@ -96,7 +96,7 @@ function insertarVideojuego(videojuegoActual) {
         btnJuego.setAttribute("class","ticket-btn-jugar");
 
     var enlaceFicha = document.createElement("a");
-    enlaceFicha.setAttribute("href", "../Proyecto/z_FichasVideojuegos/"+videojuegoActual.identificadorFoto+".html");
+    enlaceFicha.setAttribute("href", "../Proyecto/z_FichasVideojuegos/"+videojuegoActual.id+".html");
     enlaceFicha.textContent = "Ver ficha";
     enlaceFicha.setAttribute("class","enlacePagina");
 

@@ -83,7 +83,6 @@ class DAO
                               $fila["descripcion"],
                               $fila["precioActual"],
                               $fila["precioViejo"],
-                              $fila["identificadorFoto"],
                               $fila["categoriaId"]);
     }
 
@@ -93,7 +92,6 @@ class DAO
             " SELECT
                     v.id       AS v_id,
                     v.nombre   AS v_denominacion,
-                    v.identificadorFoto AS v_identificadorFoto,
                     v.categoriaId       AS v_categoriaId,
                     c.categoria   AS c_categoria
                 FROM
@@ -134,11 +132,11 @@ class DAO
         return ($filasAfectadas == 1);
     }
 
-    public static function videojuegoCrear(string $nombre, string $descripcion, float $precioActual, float $precioViejo,string $identificadorFoto, int $categoriaId): ?Videojuego
+    public static function videojuegoCrear(string $nombre, string $descripcion, float $precioActual, float $precioViejo, int $categoriaId): ?Videojuego
     {
         $idAutogenerado = Self::ejecutarInsert(
-            "INSERT INTO videojuego  VALUES (NULL , ? , ? , ? , ? , ?)",
-            [$nombre, $descripcion, $precioActual, $precioViejo ,$identificadorFoto, $categoriaId]
+            "INSERT INTO videojuego  VALUES (NULL , ? , ? , ? , ?)",
+            [$nombre, $descripcion, $precioActual, $precioViejo, $categoriaId]
         );
 
         if ($idAutogenerado == null) return null;
@@ -148,8 +146,8 @@ class DAO
     public static function videojuegoActualizar(Videojuego $videojuego): ?Videojuego
     {
         $filasAfectadas = Self::ejecutarUpdel(
-            "UPDATE videojuego SET nombre=?, identificadorFoto=?, categoriaId=? WHERE id=?",
-            [$videojuego->getNombre(), $videojuego->getIdentificadorFoto(), $videojuego->getCategoriaId(), $videojuego->getId()]
+            "UPDATE videojuego SET nombre=?, categoriaId=? WHERE id=?",
+            [$videojuego->getNombre(), $videojuego->getCategoriaId(), $videojuego->getId()]
         );
 
         if ($filasAfectadas === null) return null; // Necesario triple igual porque si no considera que 0 sí es igual a null
