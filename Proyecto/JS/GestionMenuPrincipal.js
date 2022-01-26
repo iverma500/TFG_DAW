@@ -53,52 +53,26 @@ function filtro() {
 /* GESTION  DEL DOM */
 
 function insertarVideojuego(videojuegoActual) {
+    var juego = tarjetaJuego();
+    var poster = tarjetaPoster();
+    var imagenEnlace = tarjetaImagenEnlace();
+    var imagen = tarjetaImagen(videojuegoActual);
+    var ticket = tarjetaTicket();
+    var ticketContenido = tarjetaTicketContenido();
+    var titulo = tarjetaTitulo(videojuegoActual);
+    var descripcion = tarjetaDescripccion(videojuegoActual);
+    var precioActual = tarjetaPrecioActual(videojuegoActual);
+    var precioViejo = tarjetaPrecioViejo(videojuegoActual);
+    var btnJuego = tarjetaBtnJuego();
+    var enlaceFicha = tarjetaEnlaceFicha(videojuegoActual);
+
+    insertarTarjeta(juego,poster,imagenEnlace,imagen,ticket,
+        ticketContenido,titulo,descripcion,precioActual,precioViejo,btnJuego,enlaceFicha);
+}
+
+function insertarTarjeta(juego,poster,imagenEnlace,imagen,ticket,
+                         ticketContenido,titulo,descripcion,precioActual,precioViejo,btnJuego,enlaceFicha){
     var contenedorVideojuegos = document.getElementById("games-container");
-    var juego = document.createElement("div");
-        juego.setAttribute("class","main-container");
-    var poster = document.createElement("div");
-        poster.setAttribute("class","poster-container");
-    var imagenEnlace = document.createElement("a");
-        imagenEnlace.setAttribute("href","#");
-    var imagen = document.createElement("img");
-        imagen.setAttribute("id","img-" + videojuegoActual.id);
-        imagen.setAttribute("class","poster");
-        imagen.setAttribute("src","ImagenesJuegos/" +
-            videojuegoActual.id + ".png");
-
-    var ticket = document.createElement("div");
-        ticket.setAttribute("class","ticket-container");
-
-    var ticketContenido = document.createElement("div");
-        ticketContenido.setAttribute("class","ticket-contenido");
-
-    var titulo = document.createElement("h4");
-        titulo.setAttribute("class","ticket-game-titulo");
-        titulo.textContent = videojuegoActual.nombre;
-
-    var descripcion = document.createElement("p");
-        descripcion.setAttribute("class","ticket-game-desc");
-        descripcion.textContent = videojuegoActual.descripcion;
-
-    var precioActual = document.createElement("p");
-        precioActual.setAttribute("class","ticket-precio-actual");
-        if (videojuegoActual.precioActual == 0){
-            precioActual.textContent = "GRATIS";
-        } else {
-            precioActual.textContent = videojuegoActual.precioActual + "€";
-        }
-
-    var precioViejo = document.createElement("p");
-        precioViejo.setAttribute("class","ticket-precio-viejo");
-        precioViejo.textContent = videojuegoActual.precioViejo + "€";
-
-    var btnJuego = document.createElement("button");
-        btnJuego.setAttribute("class","ticket-btn-jugar");
-
-    var enlaceFicha = document.createElement("a");
-    enlaceFicha.setAttribute("href", "../Proyecto/z_FichasVideojuegos/"+videojuegoActual.id+".html");
-    enlaceFicha.textContent = "Ver ficha";
-    enlaceFicha.setAttribute("class","enlacePagina");
 
     contenedorVideojuegos.appendChild(juego);
     juego.appendChild(poster);
@@ -112,5 +86,93 @@ function insertarVideojuego(videojuegoActual) {
     ticketContenido.appendChild(precioViejo);
     ticketContenido.appendChild(btnJuego);
     btnJuego.appendChild(enlaceFicha);
+}
 
+function tarjetaJuego(){
+    var juego = document.createElement("div");
+    juego.setAttribute("class","main-container");
+    return juego;
+}
+
+
+function tarjetaPoster(){
+    var poster = document.createElement("div");
+    poster.setAttribute("class","poster-container");
+    return poster;
+}
+
+function tarjetaImagenEnlace(){
+    var imagenEnlace = document.createElement("a");
+    imagenEnlace.setAttribute("href","#");
+    return imagenEnlace;
+}
+
+function tarjetaImagen(videojuegoActual){
+    var imagen = document.createElement("img");
+    imagen.setAttribute("id","img-" + videojuegoActual.id);
+    imagen.setAttribute("class","poster");
+    imagen.setAttribute("src","ImagenesJuegos/" +
+        videojuegoActual.id + ".png");
+    return imagen;
+}
+
+function tarjetaTicket(){
+    var ticket = document.createElement("div");
+    ticket.setAttribute("class","ticket-container");
+    return ticket;
+}
+
+function tarjetaTicketContenido(){
+    var ticketContenido = document.createElement("div");
+    ticketContenido.setAttribute("class","ticket-contenido");
+    return ticketContenido;
+}
+
+function tarjetaTitulo(videojuegoActual){
+    var titulo = document.createElement("h4");
+    titulo.setAttribute("class","ticket-game-titulo");
+    titulo.textContent = videojuegoActual.nombre;
+    return titulo;
+}
+
+function tarjetaDescripccion(videojuegoActual){
+    var descripcion = document.createElement("p");
+    descripcion.setAttribute("class","ticket-game-desc");
+    descripcion.textContent = videojuegoActual.descripcion;
+    return descripcion;
+}
+
+function tarjetaPrecioActual(videojuegoActual){
+    var precioActual = document.createElement("p");
+    precioActual.setAttribute("class","ticket-precio-actual");
+    if (videojuegoActual.precioActual == 0){
+        precioActual.textContent = "GRATIS";
+    } else {
+        precioActual.textContent = videojuegoActual.precioActual + "€";
+    }
+
+    return precioActual;
+}
+
+function tarjetaPrecioViejo(videojuegoActual){
+    var precioViejo = document.createElement("p");
+    precioViejo.setAttribute("class","ticket-precio-viejo");
+    precioViejo.textContent = videojuegoActual.precioViejo + "€";
+
+    return precioViejo;
+}
+
+function tarjetaBtnJuego(){
+    var btnJuego = document.createElement("button");
+    btnJuego.setAttribute("class","ticket-btn-jugar");
+    return btnJuego;
+}
+
+function tarjetaEnlaceFicha(videojuegoActual){
+
+    var enlaceFicha = document.createElement("a");
+    enlaceFicha.setAttribute("href", "../Proyecto/z_FichasVideojuegos/"+videojuegoActual.id+".html");
+    enlaceFicha.textContent = "Ver ficha";
+    enlaceFicha.setAttribute("class","enlacePagina");
+    return enlaceFicha;
 }
