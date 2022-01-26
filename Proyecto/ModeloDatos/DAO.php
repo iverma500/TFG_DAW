@@ -100,7 +100,7 @@ class DAO
             [$id]
         );
 
-        if($rs) return Self::productoCrearDesdeFila($rs[0]);
+        if($rs) return Self::videojuegoCrearDesdeFila($rs[0]);
         else return null;
     }
 
@@ -113,8 +113,8 @@ class DAO
 
         $datos = [];
         foreach ($rs as $fila) {
-            $producto = Self::videojuegoCrearDesdeFila($fila);
-            array_push($datos, $producto);
+            $videojuego = Self::videojuegoCrearDesdeFila($fila);
+            array_push($datos, $videojuego);
         }
 
         return $datos;
@@ -140,7 +140,7 @@ class DAO
         );
 
         if ($idAutogenerado == null) return null;
-        else return Self::productoObtenerPorId($idAutogenerado); // TODO hacer un new y ya, y así no molestamos a la BD.
+        else return Self::videojuegoObtenerPorId($idAutogenerado); // TODO hacer un new y ya, y así no molestamos a la BD.
     }
 
     public static function videojuegoActualizar(Videojuego $videojuego): ?Videojuego

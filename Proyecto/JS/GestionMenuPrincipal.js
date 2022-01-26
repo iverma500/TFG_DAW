@@ -94,7 +94,6 @@ function tarjetaJuego(){
     return juego;
 }
 
-
 function tarjetaPoster(){
     var poster = document.createElement("div");
     poster.setAttribute("class","poster-container");
