@@ -1,4 +1,4 @@
-# TFG_DAW
+# Trabajo de Fin de Grado
 
-Cosas TFG Online
-----------------------------
+José Galea Torrecilla   Iván De Las Heras Martín
+------------------------------------------------
