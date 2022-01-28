@@ -10,9 +10,9 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="CSS/style2.css">
-    <link rel="stylesheet" href="CSS/cards.css">
+    <link rel="stylesheet" href="CSS/myGames.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="JS/GestionMenuPrincipal.js" type="text/javascript"></script>
+    <script src="JS/MisJuegos.js" type="text/javascript"></script>
     <title>FGM - Inicio</title>
 </head>
 <body id="bodyPrincipal">
@@ -51,7 +51,7 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
 
     <div class="right" style="background-color:paleturquoise;">
         <div id="titulo">
-            <h2>Catálogo</h2>
+            <h2>Mi Biblioteca</h2>
         </div>
         <div id="games-container"></div>
     </div>

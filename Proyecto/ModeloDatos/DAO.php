@@ -120,7 +120,21 @@ class DAO
         return $datos;
     }
 
+    public static function misVideojuegoObtenerTodos(): array
+    {   //TODO Falta como hacer la parte BBDD
+        $rs = Self::ejecutarConsulta(
+            "SELECT * FROM videojuego ORDER BY nombre",
+            []
+        );
 
+        $datos = [];
+        foreach ($rs as $fila) {
+            $videojuego = Self::videojuegoCrearDesdeFila($fila);
+            array_push($datos, $videojuego);
+        }
+
+        return $datos;
+    }
 
     public static function videojuegoEliminarPorId(int $id): bool
     {
