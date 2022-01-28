@@ -48,11 +48,21 @@ TRUNCATE TABLE videojuego;
 INSERT INTO videojuego
 (id, nombre, descripcion, precioActual,precioViejo, categoriaId)
 VALUES
-    (1, '2048', 'Mueve casillas hasta llegar a 2048 sumando valores iguales', 0.00, 7.99,5),
-    (2, 'RUN&JUMP', 'Divertido videojuego endless-runner con tabla de clasificación online', 0.00, 11.99, 1),
-    (3, 'The Dungeon Game', 'Intenta superar nievles de gran dificultad con tu destreza', 0.00 , 4.99, 1),
-    (4, 'Platforms World','Explora la Realidad Pixel para lograr escapar.', 0.00 , 4.99, 1),
-    (5, 'Assassin´s Creed', 'Lleva a cabo una serie de asesinatos ordenados por Al Mualim, el líder de los asesinos.', 0.00, 29.99, 2);
+    (1, 'RUN&JUMP', 'Divertido videojuego endless-runner con tabla de clasificación online', 0.00, 11.99, 1),
+    (2, 'Platforms World','Explora la Realidad Pixel para lograr escapar.', 0.00 , 4.99, 1),
+    (3, 'The Dungeon Game', 'Avanza rápidamente por niveles muy difíciles.', 0.00 , 9.99, 1),
+    (4, 'Coloron','Cambia de color todas las plataformas para que la pelota logre avanzar.', 0.00 , 7.99, 1),
+    (5, 'Copycat','Consigue pasar los niveles con dos personajes.', 0.00 , 14.99, 1),
+    (6, 'El Ahorcado','Adivina la palabra antes de que sea demasiado tarde.', 0.00 , 4.99, 1),
+    (7, 'Infinite Runner','Consigue pasar todas las platafomas rápidamente.', 0.00 , 6.99, 1),
+    (8, 'Marble Labyrinth','Usa el ratón para mover la canica por distintos niveles.', 0.00 , 12.99, 1),
+    (9, 'Maze Gridpure','Usa el raon para pasar por distintos laberintos.', 0.00 , 4.99, 1),
+    (10, 'Outrun','Consigue conduciendo todas las monedas posibles.', 0.00 , 19.99, 1),
+    (11, 'Stick Hero','Crea puentes para avanzar por las distintas plataformas.', 0.00 , 11.99, 1),
+    (12, 'Sweet Memory','Busca las parejas de las distintas cartas.', 0.00 , 5.99, 1),
+    (13, 'Tower Blocks','Consigue crear la torre más alta posible.', 0.00 , 16.99, 1),
+    (14, 'Platform Game','Encuentra el camino para avanzar de nivel.', 0.00 , 24.99, 1);
+
 
 
 /*  tabla categoriaVideojuego   */
