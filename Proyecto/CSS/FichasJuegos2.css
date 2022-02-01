@@ -131,6 +131,7 @@ span{
 .datos-juego {
     font-weight: bold;
     color: lightgrey;
+    text-align: left;
 }
 
 .fecha {
