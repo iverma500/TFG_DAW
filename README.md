@@ -10,3 +10,8 @@ Versión 0.4
 3. Creación de Web Services y llamadas AJAX.
 4. Carga dinámica de los datos de la BBDD.
 5. Diseño y Maquetación del proyecto mediante CSS.
+
+Organización
+------------
+
+A la hora de organizar las actualizaciones del proyecto hemos utilizado GitHub para garantizar un eficiente control de versiones; trabajando en distintas ramas secundarias que hemos ido añadiendo a la rama pricipal. Además, las ideas y futuras actualizaciones las estamos comentando en GitHub mediante la creación de Issues.
