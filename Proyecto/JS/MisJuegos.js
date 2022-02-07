@@ -141,8 +141,14 @@ function tarjetaEnlaceFicha(videojuegoActual){
 
     var enlaceFicha = document.createElement("a");
     //TODO Renombrar carpetas de Juegos
-    enlaceFicha.setAttribute("href", "../Proyecto/Games/" +
-        videojuegoActual.id + "/" + videojuegoActual.id+".html");
+    if (videojuegoActual.id == 1 || videojuegoActual.id == 2){
+        enlaceFicha.setAttribute("href", "../Proyecto/Games/" +
+            videojuegoActual.id + "/index.html");
+    } else {
+        enlaceFicha.setAttribute("href", "../Proyecto/Games/" +
+            videojuegoActual.id + "/dist/index.html");
+    }
+
     enlaceFicha.textContent = "Jugar";
     enlaceFicha.setAttribute("class","enlacePagina");
     return enlaceFicha;
