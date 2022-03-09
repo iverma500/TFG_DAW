@@ -86,3 +86,25 @@ VALUES
     (6, 'RPG'),
     (7, 'Arcade'),
     (8, 'Sandbox');
+
+/*  tabla codigos   */
+
+DROP TABLE IF EXISTS codigos;
+CREATE TABLE IF NOT EXISTS codigos (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    identificador varchar(90) COLLATE utf8_spanish_ci NOT NULL,
+    email varchar(40) COLLATE utf8_spanish_ci NOT NULL,
+    codigo varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+    PRIMARY KEY (id)
+    )
+    ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+TRUNCATE TABLE codigos;
+
+
+INSERT INTO codigos
+(id, identificador, email, codigo)
+VALUES
+    (1, 'pLotudo', 'pepelot@gmail.com', '6227cce503a32'),
+    (2, 'Josian', 'jositron2@gmail.com', '6227cce503a32'),
+    (3, 'ManCa', 'carrasMan@gmail.com', '6227cce503a32'),
+    (4, 'Iverma', 'dbdtodoeldia@gmail.com','6227cce503a32');
