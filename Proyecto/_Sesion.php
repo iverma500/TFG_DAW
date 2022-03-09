@@ -149,10 +149,68 @@ function crearNuevaContrasenna($identificador, $email, $contrasenna): int
     $sql = "UPDATE usuario SET contrasenna = ? WHERE email = ? AND identificador = ?";
     $select = $conexion->prepare($sql);
     $select->execute([$contrasenna, $email, $identificador]);
-    //$filasObtenidas = $select->rowCount();
-    return $select->rowCount();
-    //if ($filasObtenidas == 0) return null;
-    //  else return $select->fetch();
+    $numRegistros = $select->rowCount();
+    if ($numRegistros == 1) {
+        //Devuelvo 1 que quiere decir que la operacion ha salido bien
+        return 1;
+    } else {
+        //Devuelvo -3 que quiere decir que algo ha salido mal en el insert de la BBDD
+        return -3;
+    }
+}
+
+function crearNuevoCodigo($identificador, $email, $codigo): int
+{
+
+    /*SIGNIFICADOS RETURNS:
+    -3 -> Error al crear la cuenta (se ha realizado el "INSERT" pero algo ha salido mal) ERROR
+    1 ->  Operación realizada con ÉXITO
+    */
+
+    $conexion = obtenerPdoConexionBD();
+
+    $hayCodigo = obtenerCodigo($identificador,$email);
+
+    if ($hayCodigo == null){
+        //En caso de que no esten repetidos. Creo el nuevo usuario en la BBDD
+        $sql = "INSERT INTO codigos (identificador, email, codigo) VALUES (?,?,?)";
+        $select = $conexion->prepare($sql);
+        $select->execute([$identificador, $email, $codigo]);
+        $numRegistros = $select->rowCount();
+        if ($numRegistros == 1) {
+            //Devuelvo 1 que quiere decir que la operacion ha salido bien
+            return 1;
+        } else {
+            //Devuelvo -3 que quiere decir que algo ha salido mal en el insert de la BBDD
+            return -3;
+        }
+    } else {
+        //En caso de que no esten repetidos. Creo el nuevo usuario en la BBDD
+        $sql = "UPDATE codigos SET codigo = ? WHERE email = ? AND identificador = ?";
+        $select = $conexion->prepare($sql);
+        $select->execute([$codigo, $email, $identificador]);
+        $numRegistros = $select->rowCount();
+        if ($numRegistros == 1) {
+            //Devuelvo 1 que quiere decir que la operacion ha salido bien
+            return 1;
+        } else {
+            //Devuelvo -3 que quiere decir que algo ha salido mal en el insert de la BBDD
+            return -3;
+        }
+    }
+}
+
+function obtenerCodigo(string $identificador, string $email): ?array
+{
+    $conexion = obtenerPdoConexionBD();
+    $sql = "SELECT codigo FROM codigos
+            WHERE identificador=? AND email=?";
+    $select = $conexion->prepare($sql);
+    $select->execute([$identificador, $email]);
+    $filasObtenidas = $select->rowCount();
+
+    if ($filasObtenidas == 0) return null;
+    else return $select->fetch();
 }
 
 function enviarMensajeCorreo($email, $nombre):bool
@@ -189,29 +247,32 @@ que gente como tú puedan disfrutarlos... <b>¡Y la mayoría de ellos son totalm
 //TODO crear un token para que funcione del todo correcto
 function enviarMensajeCorreoPassword($email,$identificador):bool
 {
+    $codigo = uniqid();
+
+    crearNuevoCodigo($identificador,$email,$codigo);
+
     //--AQUI HAGO LO DE ENVIAR EL MENSAJE AL CORREO DANDO LA BIENVENIDA Y TAL
     $to = $email;
     $subject = "Asunto del email";
     $headers =  'MIME-Version: 1.0' . "\r\n";
     $headers .= 'From: the FGL association <theFGL@platform.com>' . "\r\n";
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
     $message = "
-<html>
-<head>
-<title>Reestablecer Contraseña FGL</title>
-</head>
-<body>
-<h1>Correo de confirmación</h1>
-<p>Hola $identificador.</p>
-<p>Te enviamos este correo de confirmación para reestablecer tu contraseña</p>
-<p>Accede a este enlace para cambiar tu contraseña:</p>
-<br>
-<a href='http://localhost:63342/TFG_DAW/Proyecto/CorreoContrasenna.php?_ijt=3rh7hrdeulcm2c9jb0qeps0vbh'>ACCEDER</a>
-<br>
-<p>Un saludo Fandom Game Library (FGL) (:</p>
-</body>
-</html>";
+                <html>
+                    <head>
+                        <title>Reestablecer Contraseña FGL</title>
+                    </head>
+                    <body>
+                        <h1>Correo de confirmación</h1>
+                        <p>Hola $identificador.</p>
+                        <p>Te enviamos el código de verificación para reestablecer tu contraseña</p>
+                        <p>Introduce dicho código en la página que se ha mostrado:</p>
+                        <br>
+                        <h2>$codigo</h2>
+                        <br>
+                        <p>Un saludo Fandom Game Library (FGL) (:</p>
+                    </body>
+                </html>";
 
    return mail($to, $subject, $message, $headers);
 //--------------------------------

@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="form">
-
         <form action="GenerarNuevaContrasenna.php" method="post">
             <div class="top-row"></div>
 
@@ -32,6 +31,8 @@
                     Contraseña Nueva<span class="req">*</span>
                 </label>
                 <input type="password" name="contrasenna" id="contrasenna" required autocomplete="off"/>
+            </div>
+            <div class="field-wrap">
 
                 <label>
                     Confirmar Contraseña<span class="req">*</span>
