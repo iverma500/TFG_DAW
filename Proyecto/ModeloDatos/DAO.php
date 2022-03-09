@@ -192,4 +192,42 @@ class DAO
            $_SESSION["apellidos"] = $rs[0]["apellidos"];
            $_SESSION["identificador"] = $rs[0]["identificador"];
     }
+
+    public static function videojuegoObtenerFiltrados($categoria): array
+    {
+        $rs = Self::ejecutarConsulta(
+            "SELECT * FROM videojuego WHERE categoriaId = ?",
+            [$categoria]
+        );
+
+        $datos = [];
+        foreach ($rs as $fila) {
+            $videojuego = Self::videojuegoCrearDesdeFila($fila);
+            array_push($datos, $videojuego);
+        }
+
+        return $datos;
+    }
+
+/* CATEGORIA VIDEOJUEGO */
+
+    private static function categoriaCrearDesdeFila(array $fila): Categoria
+    {
+        return new Categoria($fila["id"], $fila["categoria"]);
+    }
+
+    public static function categoriaObtenerTodos(): array
+    {
+        $rs = Self::ejecutarConsulta(
+            "SELECT * FROM categoriavideojuego ORDER BY categoria",
+            []
+        );
+
+        $datos = [];
+        foreach ($rs as $fila) {
+            $categoria = Self::categoriaCrearDesdeFila($fila);
+            array_push($datos, $categoria);
+        }
+        return $datos;
+    }
 }

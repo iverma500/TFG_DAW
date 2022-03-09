@@ -1,18 +1,8 @@
 addEventListener("load", inicializar, false);
 
-function inicializar() {
-    llamadaAjax("ObtenerJuegosBBDD.php", "",
-        function(texto) {
-            // debugger
-            var videojuegos = JSON.parse(texto);
-            for (let i = 0; i < videojuegos.length; i++) {
-                insertarVideojuego(videojuegos[i]);
-            }
-        },
-        function(texto) {
-            notificarUsuario("Error Ajax al cargar las tarjetas de los juegos: " + texto);
-        });
-}
+var todosLosDatosCargados = false;
+
+var categorias = [];
 
 
 function llamadaAjax(url, parametros, manejadorOK, manejadorError) {
@@ -32,6 +22,110 @@ function llamadaAjax(url, parametros, manejadorOK, manejadorError) {
     };
     request.send(parametros);
 }
+
+
+function inicializar() {
+
+    //Obtengo todos los videojuegos de la base de datos
+    llamadaAjax("ObtenerJuegosBBDD.php", "",
+        function(texto) {
+            // debugger
+            var videojuegos = JSON.parse(texto);
+            for (let i = 0; i < videojuegos.length; i++) {
+              //  console.log(videojuegos[i]);
+                insertarVideojuego(videojuegos[i]);
+                addVideojuegoSelectFiltro("selectTipos", videojuegos[i]);
+                todosLosDatosCargados = true;
+                document.getElementById("selectTipos").addEventListener("click", realizarFiltro, false);
+            }
+        },
+        function(texto) {
+            notificarUsuario("Error Ajax al cargar las tarjetas de los juegos: " + texto);
+        });
+
+}
+
+function obtenerTodasLasCategoriasAJAX(select, videojuegoActual) {
+    //obtengo todas las categorias de la base de datos
+    //y creo los options del select (uno por cada tipo DISTINTO de categoria que aparezca)
+
+    //TODO esto creo que se puede hacer mejor porque al final estoy llamando mil veces a un metodo que necesito una vez pero bueno.
+    llamadaAjax("ObtenerCategoriasBBDD.php", "",
+        function(texto) {
+            // debugger
+            categorias = JSON.parse(texto);
+           // console.log("categorias al inicializar tiene: " + categorias.length);
+            var optionsExistentes = select.options;
+            var existe = false;
+            for (let i = 0; i < optionsExistentes.length; i++) {
+                if (optionsExistentes[i].value == videojuegoActual.categoriaId) {
+                    existe = true;
+                }
+            }
+            if (!existe) {
+                for (let i = 0; i < categorias.length; i++) {
+                    if (categorias[i].id == videojuegoActual.categoriaId) {
+                        var opcion = new Option(categorias[i].categoria, videojuegoActual.categoriaId);
+                        select.appendChild(opcion);
+                    }
+                }
+            }
+        },
+        function(texto) {
+            notificarUsuario("Error Ajax al cargar las tarjetas de los juegos: " + texto);
+        });
+}
+
+function realizarFiltro(e) {
+    eliminarTodosLosHijosDivDatos();
+    //Aqui obtengo el valor que elije el usuario para hacer el filtrado
+    var filtrarPor = e.target.value;
+    console.log("filtrar por vale: " + filtrarPor);
+    if (filtrarPor == "Todos" && !todosLosDatosCargados) {
+        //si el usuario ha filtrado por "Todos" y no estan ya cargados todos los datos entonces muestro todos los datos
+        llamadaAjax("ObtenerJuegosBBDD.php", "",
+            function(texto) {
+                productosInicio = JSON.parse(texto);
+             //   debugger
+                for (var i=0; i<productosInicio.length; i++) {
+                    insertarVideojuego(productosInicio[i]);
+                }
+                todosLosDatosCargados = true;
+                document.getElementById("selectTipos").addEventListener("click", realizarFiltro, false);
+            },
+            function(texto) {
+                //   alert(productosInicio);
+                notificarUsuario("Error Ajax al cargar al inicializar: " + texto);
+            }
+        );
+    } else {
+        console.log("filtro de: " + filtrarPor)
+        //si el usuario a seleccionado un filtro determinado aplico la busqueda segun dicho filtro
+        llamadaAjax("ObtenerJuegosFiltrados.php?filtro="+filtrarPor, "",
+            function(texto) {
+                var videojuego = JSON.parse(texto);
+
+                for (var i=0; i<videojuego.length; i++) {
+                    insertarVideojuego(videojuego[i]);
+                    addVideojuegoSelectFiltro("selectTipos",videojuego[i]); //-------------------
+                }
+            },
+            function(texto) {
+                // alert(productosInicio);
+                notificarUsuario("Error Ajax al cargar al inicializar: " + texto);
+            }
+        );
+    }
+}
+
+
+function addVideojuegoSelectFiltro(nombreSelectHTMl, videojuegoActual) {
+
+    var select = document.getElementById(nombreSelectHTMl);
+    obtenerTodasLasCategoriasAJAX(select, videojuegoActual);
+
+}
+
 
 function filtro() {
     var input, filter, ul, li, a, i;
@@ -175,3 +269,18 @@ function tarjetaEnlaceFicha(videojuegoActual){
     enlaceFicha.setAttribute("class","enlacePagina");
     return enlaceFicha;
 }
+
+
+
+//Este metodo elimina todos los div que el metodo de obtener todos los productos crea
+function eliminarTodosLosHijosDivDatos() {
+    var divHijos = document.getElementById("games-container").children;
+    var numDivs = divHijos.length;
+    var cont = numDivs - 1;
+    while (divHijos.length > 0) {
+        divHijos[cont].remove();
+        cont--;
+    }
+    todosLosDatosCargados = false;
+}
+
