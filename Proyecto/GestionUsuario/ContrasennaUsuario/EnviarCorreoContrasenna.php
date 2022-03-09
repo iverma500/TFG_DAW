@@ -2,8 +2,20 @@
 require_once '../../_Sesion.php';
 require_once '../../_Varios.php';
 
-//TODO si tenemos tiempo podemos intentar mejorar este metodo
-$correoEnviado = enviarMensajeCorreoPassword($_REQUEST["email"],$_REQUEST["identificador"]);
+
+if (isset($_REQUEST['cod'])){
+
+    $host = $_SERVER['HTTP_HOST'];
+    $ruta = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+    $html = 'CorreoContrasenna.php';
+    $url = "http://$host$ruta/$html";
+
+    header("Location: $url");
+    include redirect.php;
+    die();
+} else {
+    $correoEnviado = enviarMensajeCorreoPassword($_REQUEST["email"],$_REQUEST["identificador"]);
+}
 ?>
 
 <!doctype html>
@@ -20,6 +32,12 @@ $correoEnviado = enviarMensajeCorreoPassword($_REQUEST["email"],$_REQUEST["ident
         <br>
         <?php if ($correoEnviado) {?>
             <h4 style="color:green; font-size: medium">Se ha enviado un correo a la cuenta especificada</h4>
+
+            <form method="post">
+                <label for="cod">Código</label>
+                <input type="text" id="cod" name="cod">
+                <input type="submit" value="Enviar">
+            </form>
         <?php } else {?>
             <h4 style="color:red; font-size: medium">No se ha podido enviar un correo a la cuenta especificada</h4>
         <?php } ?>
