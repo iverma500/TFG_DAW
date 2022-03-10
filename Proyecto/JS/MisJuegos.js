@@ -92,6 +92,8 @@ function tarjetaImagen(videojuegoActual){
     var imagen = document.createElement("img");
     imagen.setAttribute("id","img-" + videojuegoActual.id);
     imagen.setAttribute("class","poster");
+    imagen.setAttribute("height","150px");
+    imagen.setAttribute("width","100px");
     imagen.setAttribute("src","Imagenes/ImagenesCardsMenu/" +
         videojuegoActual.id + ".png");
     return imagen;

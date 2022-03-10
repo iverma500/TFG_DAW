@@ -12,7 +12,7 @@
 
 .main-container {
     width: 270px;
-    height: 540px;
+    height: 400px;
     position: relative;
     display: inline-block;
     margin: 20px 20px;
@@ -34,7 +34,7 @@
 .ticket-container {
     background: #fff;
     width: 270px;
-    height: 520px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
