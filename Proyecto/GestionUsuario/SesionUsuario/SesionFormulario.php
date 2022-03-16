@@ -61,6 +61,7 @@ entrarSiSesionIniciada("../../Menu.php");
                       Nickname<span class="req">*</span>
                   </label>
                   <input type="text" name="identificador" id="identificador" required autocomplete="off"/>
+                  <br>
                   <p style="color: red" id="pErrorNickName"></p>
               </div>
 
@@ -69,6 +70,7 @@ entrarSiSesionIniciada("../../Menu.php");
               Email<span class="req">*</span>
             </label>
             <input type="email" name="email" id="email" required autocomplete="off"/>
+              <br>
               <p style="color: red" id="pErrorEmail"></p>
           </div>
 
@@ -104,7 +106,7 @@ entrarSiSesionIniciada("../../Menu.php");
             <input type="password" name="contrasenna" required autocomplete="off"/>
           </div>
           
-          <p class="forgot"><a href="../ContrasennaUsuario/NuevaContrasenna.php">¿Contraseña Olvidada?</a></p>
+          <p class="forgot"><a href="NuevaContrasenna.php">¿Contraseña Olvidada?</a></p>
 
           <button type="submit" class="button button-block">Acceder</button>
           

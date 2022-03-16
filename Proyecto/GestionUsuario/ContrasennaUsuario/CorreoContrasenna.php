@@ -45,6 +45,6 @@
         </form>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="../../JS/script.js"></script>
-    <script src="../../JS/ValidacionFormularioSesion.js"></script>
+    <script src="../../JS/ValidacionFormularioPassword.js"></script>
 </body>
 </html>
