@@ -47,13 +47,15 @@
     <div class="right">
         <img src="../Imagenes/ImagenesCardsMenu/9.png" width="250px" height="250px">
         <br><br>
-        <a class='boton-adquirir' href="#">
+        <form action="../ComprarVideojuego.php"  method="post">
+            <input type="hidden" name="idVideojuego" value="9">
+            <input type="submit" class='boton-adquirir' value="COMPRAR">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            COMPRAR
-        </a>
+            </input>
+        </form>
         <div class="datos">
             <h4><span>Desarrolladores</span></h4>
             <p class="datos-juego">Itzik Pop</p>

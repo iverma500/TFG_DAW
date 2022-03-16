@@ -35,20 +35,10 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
 <br>
 <div class="row">
     <div class="left" style="background:paleturquoise;">
-        <h2>Menú</h2>
+        <h4>Búsqueda por nombre</h4>
         <br>
-        <input type="text" id="buscar" onkeyup="filtro()" placeholder="Buscar.." title="Buscar por Categoría">
-        <ul id="menu">
-            <li><a href="#">HTML</a></li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">JavaScript</a></li>
-            <li><a href="#">PHP</a></li>
-            <li><a href="#">Python</a></li>
-            <li><a href="#">jQuery</a></li>
-            <li><a href="#">SQL</a></li>
-        </ul>
+        <input type="text" id="buscar" placeholder="Buscar.." title="Buscar por Categoría">
     </div>
-
     <div class="right" style="background-color:paleturquoise;">
         <div id="titulo">
             <h2>Mi Biblioteca</h2>

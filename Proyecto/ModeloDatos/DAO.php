@@ -1,7 +1,8 @@
 <?php
 
 require_once "Videojuego.php";
-
+//require_once "../_Sesion.php";
+session_start();
 class DAO
 {
     private static ?PDO $conexion = null;
@@ -120,20 +121,34 @@ class DAO
         return $datos;
     }
 
-    public static function misVideojuegoObtenerTodos(): array
-    {   //TODO Falta como hacer la parte BBDD
+    //En esta funcion obtengo el id de los videojuegos que tiene el usuario
+    //para luego devolver los datos de dichos videojuegos
+    public static function misVideojuegoObtenerTodos(int $id, bool $soloIdsJuegos): array
+    {
         $rs = Self::ejecutarConsulta(
-            "SELECT * FROM videojuego ORDER BY nombre",
-            []
+            "SELECT codVideojuegos FROM usuario WHERE id=?",
+            [$id]
         );
-
-        $datos = [];
+        //explode es como split() en otros lenguajes
+        $datos = explode(",", $rs[0]["codVideojuegos"]);
+        //SI EL USUARIO MANDA TRUE COMO SEGUNDO PARAMETRO ENTONCES DEVUELVO SOLO UN ARRAY CON LOS IDS DE LOS VIDEOJUEGOS
+        //EN CASO DE QUE SEA FALSE ENTONCES DEVUELVO UN ARRAY CON TODOS LOS DATOS DE LOS VIDEOJUEGOS
+    if ($soloIdsJuegos) {
+        return $datos;
+    } else {
+        $videojuegos = [];
+        foreach ($datos as $IdvideojuegoActual) {
+        $rs = Self::ejecutarConsulta(
+            "SELECT * FROM videojuego WHERE id=?",
+            [$IdvideojuegoActual]
+        );
         foreach ($rs as $fila) {
             $videojuego = Self::videojuegoCrearDesdeFila($fila);
-            array_push($datos, $videojuego);
+            array_push($videojuegos, $videojuego);
         }
-
-        return $datos;
+    }
+}
+        return $videojuegos;
     }
 
     public static function videojuegoEliminarPorId(int $id): bool
@@ -167,7 +182,15 @@ class DAO
         if ($filasAfectadas === null) return null; // Necesario triple igual porque si no considera que 0 sí es igual a null
         else return $videojuego;
     }
-
+     public static function videojuegoAnnadirIdAUsuario(string $videojuegosIds, int $idUsuario):bool
+     {
+         $filasAfectadas = Self::ejecutarUpdel(
+             "UPDATE usuario SET codVideojuegos=? WHERE id=?",
+             [$videojuegosIds,$idUsuario]
+         );
+         if ($filasAfectadas === null) return false; // Necesario triple igual porque si no considera que 0 sí es igual a null
+         else return true;
+     }
      /*      USUARIO */
     public static function usuarioActualizar($id,$identificador, $nombre, $apellidos): int
     {
@@ -191,6 +214,16 @@ class DAO
            $_SESSION["nombre"] = $rs[0]["nombre"];
            $_SESSION["apellidos"] = $rs[0]["apellidos"];
            $_SESSION["identificador"] = $rs[0]["identificador"];
+    }
+
+
+    public static function usuarioObtenerId(): int
+    {
+        $rs = Self::ejecutarConsulta(
+            "SELECT id FROM usuario WHERE identificador = ?",
+            [$_SESSION["identificador"]]
+        );
+        return $rs[0]["id"];
     }
 
     public static function videojuegoObtenerFiltrados($categoria): array
@@ -230,4 +263,5 @@ class DAO
         }
         return $datos;
     }
+
 }
