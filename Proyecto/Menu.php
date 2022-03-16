@@ -37,19 +37,10 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
     <div class="left" style="background:paleturquoise;">
         <h2>Menú</h2>
         <br>
-     <!--   <input type="text" id="buscar" onkeyup="filtro()" placeholder="Buscar.." title="Buscar por Categoría">
-        <ul id="menu">
-            <li><a href="#">HTML</a></li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">JavaScript</a></li>
-            <li><a href="#">PHP</a></li>
-            <li><a href="#">Python</a></li>
-            <li><a href="#">jQuery</a></li>
-            <li><a href="#">SQL</a></li>
-        </ul>-->
         <section id='secFiltroTipo'>
-            <p>Filtrar por tipo</p>
-            <select id='selectTipos'>
+            <h4>Filtrar por tipo</h4>
+           <br>
+            <select id='selectTipos' name="selectTipos">
                 <option value="Todos">Todos</option>
             </select>
 

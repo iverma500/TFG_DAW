@@ -1,10 +1,10 @@
 addEventListener("load", inicializar, false);
-
+var videojuegos = [];
 function inicializar() {
-    llamadaAjax("ObtenerMisJuegosBBDD.php", "",
+    llamadaAjax("ObtenerMisJuegosBBDD.php?id=", "",
         function(texto) {
             // debugger
-            var videojuegos = JSON.parse(texto);
+             videojuegos = JSON.parse(texto);
             for (let i = 0; i < videojuegos.length; i++) {
                 insertarMisVideojuego(videojuegos[i]);
             }
