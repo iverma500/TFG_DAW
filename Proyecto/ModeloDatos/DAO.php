@@ -1,8 +1,9 @@
 <?php
 
 require_once "Videojuego.php";
-//require_once "../_Sesion.php";
+//require_once "Proyecto";
 session_start();
+
 class DAO
 {
     private static ?PDO $conexion = null;

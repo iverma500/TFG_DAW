@@ -1,6 +1,13 @@
 addEventListener("load", inicializar, false);
 var videojuegos = [];
+var input;
+var textoAviso;
+var todosLosDatosCargados = false;
+
 function inicializar() {
+    input = document.getElementById("buscar");
+    input.addEventListener("keyup", realizarBusqueda, false);
+
     llamadaAjax("ObtenerMisJuegosBBDD.php?id=", "",
         function(texto) {
             // debugger
@@ -13,6 +20,46 @@ function inicializar() {
             notificarUsuario("Error Ajax al cargar las tarjetas de los juegos: " + texto);
         });
 }
+
+
+function realizarBusqueda() {
+    nombreActual = input.value;
+console.log("el filtro a buscar es: " + nombreActual)
+    llamadaAjax("BuscarJuegoPorNombre.php?nombreActual="+nombreActual.toUpperCase(), "",
+        function(texto) {
+            // debugger
+            var videojuegos = JSON.parse(texto);
+            eliminarTodosLosHijosDivDatos();
+            if (videojuegos.length != 0) {
+                eliminarTodosLosHijosDivDatos();
+                for (var i=0; i<videojuegos.length; i++) {
+                    insertarMisVideojuego(videojuegos[i]);
+                }
+            } else {
+                textoAviso = document.createElement("h3");
+                textoAviso.textContent = "No se han encontrado videojuegos que empiecen por <<"+nombreActual+">>";
+                document.getElementById("games-container").appendChild(textoAviso);
+            }
+        },
+        function(texto) {
+            notificarUsuario("Error Ajax al cargar personas al inicializar: " + texto);
+        }
+    );
+}
+
+
+//Este metodo elimina todos los div que el metodo de obtener todos los productos crea
+function eliminarTodosLosHijosDivDatos() {
+    var divHijos = document.getElementById("games-container").children;
+    var numDivs = divHijos.length;
+    var cont = numDivs - 1;
+    while (divHijos.length > 0) {
+        divHijos[cont].remove();
+        cont--;
+    }
+    todosLosDatosCargados = false;
+}
+
 
 
 function llamadaAjax(url, parametros, manejadorOK, manejadorError) {
