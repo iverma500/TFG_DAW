@@ -34,7 +34,7 @@
 .ticket-container {
     background: #fff;
     width: 270px;
-    height: 325px;
+    height: 375px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,7 +88,26 @@
     border-bottom-right-radius: 5px;
 }
 
+.ticket-btn-borrar {
+    cursor: pointer;
+    width: 100%;
+    background: white;
+    color: red;
+    padding: 15px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 a.enlacePagina:link, a.enlacePagina:visited, a.enlacePagina:active {
     text-decoration:none;
     color: white;
+}
+
+a.enlaceBorrar:link, a.enlaceBorrar:visited, a.enlaceBorrar:active {
+    text-decoration:none;
+    color: red;
 }

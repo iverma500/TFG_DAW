@@ -84,7 +84,7 @@ function llamadaAjax(url, parametros, manejadorOK, manejadorError) {
 /* GESTION  DEL DOM */
 
 function insertarMisVideojuego(videojuegoActual) {
-    var juego = tarjetaJuego();
+    var juego = tarjetaJuego(videojuegoActual);
     var poster = tarjetaPoster();
     var imagenEnlace = tarjetaImagenEnlace();
     var imagen = tarjetaImagen(videojuegoActual);
@@ -94,14 +94,17 @@ function insertarMisVideojuego(videojuegoActual) {
     var descripcion = tarjetaDescripccion(videojuegoActual);
     var enPropiedad = tarjetaEnPropiedad();
     var btnJuego = tarjetaBtnJuego();
+    var btnJuegoBorrar = tarjetaBtnJuegoBorrar();
     var enlaceFicha = tarjetaEnlaceFicha(videojuegoActual);
+    var enlaceBorrar = tarjetaEnlaceBorrar(videojuegoActual);
 
     insertarTarjeta(juego,poster,imagenEnlace,imagen,ticket,
-        ticketContenido,titulo,descripcion,enPropiedad,btnJuego,enlaceFicha);
+        ticketContenido,titulo,descripcion,enPropiedad,btnJuego,btnJuegoBorrar,enlaceFicha,enlaceBorrar);
 }
 
 function insertarTarjeta(juego,poster,imagenEnlace,imagen,ticket,
-                         ticketContenido,titulo,descripcion,enPropiedad,btnJuego,enlaceFicha){
+                         ticketContenido,titulo,descripcion,enPropiedad,btnJuego,
+                         btnJuegoBorrar,enlaceFicha,enlaceBorrar){
     var contenedorVideojuegos = document.getElementById("games-container");
 
     contenedorVideojuegos.appendChild(juego);
@@ -114,12 +117,16 @@ function insertarTarjeta(juego,poster,imagenEnlace,imagen,ticket,
     ticketContenido.appendChild(descripcion);
     ticketContenido.appendChild(enPropiedad);
     ticketContenido.appendChild(btnJuego);
+    ticketContenido.appendChild(btnJuegoBorrar);
     btnJuego.appendChild(enlaceFicha);
+    btnJuegoBorrar.appendChild(enlaceBorrar);
+
 }
 
-function tarjetaJuego(){
+function tarjetaJuego(videojuegoActual){
     var juego = document.createElement("div");
     juego.setAttribute("class","main-container");
+    juego.setAttribute("id",videojuegoActual.id);
     return juego;
 }
 
@@ -186,6 +193,13 @@ function tarjetaBtnJuego(){
     return btnJuego;
 }
 
+function tarjetaBtnJuegoBorrar(){
+    var btnJuego = document.createElement("button");
+    btnJuego.setAttribute("class","ticket-btn-borrar");
+
+    return btnJuego;
+}
+
 function tarjetaEnlaceFicha(videojuegoActual){
 
     var enlaceFicha = document.createElement("a");
@@ -200,5 +214,18 @@ function tarjetaEnlaceFicha(videojuegoActual){
 
     enlaceFicha.textContent = "Jugar";
     enlaceFicha.setAttribute("class","enlacePagina");
+    return enlaceFicha;
+}
+
+function tarjetaEnlaceBorrar(videojuegoActual){
+
+    var enlaceFicha = document.createElement("a");
+
+    enlaceFicha.setAttribute("href", "BorrarJuego.php?id=" +
+            videojuegoActual.id);
+
+
+    enlaceFicha.textContent = "Eliminar";
+    enlaceFicha.setAttribute("class","enlaceBorrar");
     return enlaceFicha;
 }
