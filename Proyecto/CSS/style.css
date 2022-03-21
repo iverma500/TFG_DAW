@@ -179,3 +179,11 @@ textarea {
   color: yellow;
   font-size: 23px;
 }
+
+.ocultar {
+  display: none;
+}
+
+.mostrar {
+  display: block;
+}

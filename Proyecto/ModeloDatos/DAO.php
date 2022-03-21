@@ -134,22 +134,44 @@ class DAO
         $datos = explode(",", $rs[0]["codVideojuegos"]);
         //SI EL USUARIO MANDA TRUE COMO SEGUNDO PARAMETRO ENTONCES DEVUELVO SOLO UN ARRAY CON LOS IDS DE LOS VIDEOJUEGOS
         //EN CASO DE QUE SEA FALSE ENTONCES DEVUELVO UN ARRAY CON TODOS LOS DATOS DE LOS VIDEOJUEGOS
-    if ($soloIdsJuegos) {
-        return $datos;
-    } else {
-        $videojuegos = [];
-        foreach ($datos as $IdvideojuegoActual) {
-        $rs = Self::ejecutarConsulta(
-            "SELECT * FROM videojuego WHERE id=?",
-            [$IdvideojuegoActual]
-        );
-        foreach ($rs as $fila) {
-            $videojuego = Self::videojuegoCrearDesdeFila($fila);
-            array_push($videojuegos, $videojuego);
+        if ($soloIdsJuegos) {
+            return $datos;
+        } else {
+            $videojuegos = [];
+            foreach ($datos as $IdvideojuegoActual) {
+            $rs = Self::ejecutarConsulta(
+                "SELECT * FROM videojuego WHERE id=?",
+                [$IdvideojuegoActual]
+            );
+            foreach ($rs as $fila) {
+                $videojuego = Self::videojuegoCrearDesdeFila($fila);
+                array_push($videojuegos, $videojuego);
+            }
+            }
         }
-    }
-}
         return $videojuegos;
+    }
+
+    public static function misJuegosBorrar(int $idUser, int $idJuego): bool
+    {
+        $datos = Self::misVideojuegoObtenerTodos($idUser,true);
+
+        for($i=0;$i<count($datos);$i++){
+            if($datos[$i] == $idJuego){
+                unset($datos[$i]);
+            }
+        }
+
+        //Contrario de explode hacer string
+        $stringIDS = implode(',',$datos);
+
+        $borrar = Self::videojuegoAnnadirIdAUsuario($stringIDS,$idUser);
+
+        if ($borrar){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static function videojuegoEliminarPorId(int $id): bool

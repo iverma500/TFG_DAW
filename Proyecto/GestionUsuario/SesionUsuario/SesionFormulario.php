@@ -78,7 +78,11 @@ entrarSiSesionIniciada("../../Menu.php");
             <label>
               Set A Password<span class="req">*</span>
             </label>
-            <input type="password" name="contrasenna" id="contrasenna" required autocomplete="off"/>
+            <input type="password" name="contrasenna" id="contrasenna"
+                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                   title="Introduce una contraseña con al menos un numero, una letra minúscula,
+                    otra mayúscula y con una longitud mínima de 8 carácteres"
+                   required autocomplete="off"/>
           </div>
 
           <button type="submit" class="button button-block" id="btnCrearCuenta"/>Empezar</button>

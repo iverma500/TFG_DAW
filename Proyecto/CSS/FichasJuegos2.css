@@ -241,3 +241,22 @@ span{
         bottom: 100%;
     }
 }
+
+.data {
+    text-align: center;
+}
+
+.data input[type=submit] {
+    padding: 20px 35px;
+    background: #99e0b2;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.line
+{
+    display: inline-block;
+}
