@@ -51,6 +51,6 @@ if (isset($_REQUEST["id"])){
         <br>
     </div>
 </div>
-<img src="../Imagenes/z_Otras/gatoUps.jpg" style="margin-left: 40%; width: 20%; height: 20%">
+<img src="Imagenes/z_Otras/gatoGammer.jpg" style="margin-left: 40%; width: 20%; height: 20%">
 </body>
 </html>

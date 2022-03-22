@@ -34,8 +34,8 @@ if (isset($_REQUEST["id"])){
     <header>
         <nav class="navegacion">
             <ul class="menu">
-                <li><a href="../Menu.php">Inicio</a></li>
-                <li><a href="../MisJuegos.php">Mis Juegos</a></li>
+                <li><a href="Menu.php">Inicio</a></li>
+                <li><a href="MisJuegos.php">Mis Juegos</a></li>
             </ul>
         </nav>
     </header>
