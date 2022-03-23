@@ -38,10 +38,14 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
         <h4>Búsqueda por nombre</h4>
         <br>
         <input type="text" id="buscar" placeholder="Buscar.." title="Buscar por Categoría">
+        <br>
+        <p id="numJuegosEncontrados"></p>
     </div>
     <div class="right" style="background-color:paleturquoise;">
         <div id="titulo">
             <h2>Mi Biblioteca</h2>
+            <br>
+            <p id="juegosTotales"></p>
         </div>
         <div id="games-container"></div>
     </div>

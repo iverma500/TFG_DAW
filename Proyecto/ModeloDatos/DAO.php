@@ -215,27 +215,38 @@ class DAO
          else return true;
      }
      /*      USUARIO */
-    public static function usuarioActualizar($id,$identificador, $nombre, $apellidos): int
+    public static function usuarioActualizar($id,$identificador, $nombre, $apellidos, $email): int
     {
-        $filasAfectadas = Self::ejecutarUpdel(
-            "UPDATE usuario SET identificador=?, nombre=?, apellidos=? WHERE id=?",
-            [$identificador, $nombre, $apellidos, $id]
-        );
+        //Si recibo email = "-" quiere decir que no hay que actualizar el email. Si recibo otra cosa, entonces si
+        if ($email == "-") {
+            $filasAfectadas = Self::ejecutarUpdel(
+                "UPDATE usuario SET identificador=?, nombre=?, apellidos=? WHERE id=?",
+                [$identificador, $nombre, $apellidos, $id]
+            );
 
-        self::refrescarDatosUsuario();
+            self::refrescarDatosUsuario();
+            return $filasAfectadas;
+        }else {
+            $filasAfectadas = Self::ejecutarUpdel(
+                "UPDATE usuario SET identificador=?, nombre=?, apellidos=?, email=? WHERE id=?",
+                [$identificador, $nombre, $apellidos, $email, $id]
+            );
 
-        return $filasAfectadas;
+            self::refrescarDatosUsuario();
+            return $filasAfectadas;
+        }
     }
 
     public static function refrescarDatosUsuario()
     {
         $rs = Self::ejecutarConsulta(
-            "SELECT identificador, nombre, apellidos FROM usuario WHERE id = ?",
+            "SELECT identificador, nombre, apellidos, email FROM usuario WHERE id = ?",
             [$_SESSION["id"]]
         );
 
            $_SESSION["nombre"] = $rs[0]["nombre"];
            $_SESSION["apellidos"] = $rs[0]["apellidos"];
+           $_SESSION["email"] = $rs[0]["email"];
            $_SESSION["identificador"] = $rs[0]["identificador"];
     }
 
@@ -247,6 +258,20 @@ class DAO
             [$_SESSION["identificador"]]
         );
         return $rs[0]["id"];
+    }
+
+    public static function existeUsuarioConEsteEmail($email)
+    {
+        //Este metodo devuelve true si existe un usuario con el email especificado y false si no
+        $rs = Self::ejecutarConsulta(
+            "SELECT id FROM usuario WHERE email = ?",
+            [$email]
+        );
+        if (empty($rs)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public static function videojuegoObtenerFiltrados($categoria): array

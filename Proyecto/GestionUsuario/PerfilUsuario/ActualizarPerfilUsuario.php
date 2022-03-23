@@ -5,5 +5,5 @@ require_once "../../ModeloDatos/DAO.php";
 
 salirSiSesionFalla("../SesionFormulario.php");
 
-echo json_encode(DAO::usuarioActualizar($_SESSION["id"], $_REQUEST["identificador"],$_REQUEST["nombre"], $_REQUEST["apellidos"]));
+echo json_encode(DAO::usuarioActualizar($_SESSION["id"], $_REQUEST["identificador"],$_REQUEST["nombre"], $_REQUEST["apellidos"], $_REQUEST["email"]));
 ?>

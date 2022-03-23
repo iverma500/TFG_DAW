@@ -15,6 +15,15 @@ salirSiSesionFalla("../SesionFormulario.php");
     <script src="../../JS/Perfil.js"></script>
 </head>
 <body>
+<header>
+    <h1>Fandom Game Library</h1>
+    <nav class="navegacion">
+        <ul class="menu">
+            <li><a href="../../Menu.php">Inicio</a></li>
+            <li><a href="../../MisJuegos.php">Mis Juegos</a></li>
+        </ul>
+    </nav>
+</header>
 <section class="sectionPerfil">
 <img class="imgRedonda" src="../../Imagenes/Usuarios/imagenPerfil.jpg">
     <br><br>
@@ -26,6 +35,11 @@ salirSiSesionFalla("../SesionFormulario.php");
         <br><br>
         <label for="apellidos">Apellidos</label>
         <input type="text" name="apellidos" id="apellidos" value=<?=$_SESSION["apellidos"]?>>
+        <br><br>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" value=<?=$_SESSION["email"]?>>
+    <br>
+    <p id="emailYaExiste"></p>
         <br><br><br><br>
         <button id="botonGuardar">Guardar cambios</button>
     <br><br>

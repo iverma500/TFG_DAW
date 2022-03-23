@@ -1,5 +1,6 @@
 body {
     background-color: rgba(19, 35, 47, 0.9);
+    position: relative;
 }
 .imgRedonda {
     width:150px;
@@ -10,8 +11,11 @@ body {
 }
 
 .sectionPerfil{
-    margin-top: 5%;
-    margin-left: 35%;
+    width: 200px;
+    height: 60px;
+    position: absolute;
+    top: 130%;
+    right: 45%;
 }
 a {
     color: green;
@@ -44,4 +48,39 @@ form > input:focus, form > input:hover {
 .botonGuardar:hover {
     background-color: #34752f;
     border-radius: 8px;
+}
+h1 {
+    color: #28DAD4;
+    /*padding-right: 30%;*/
+    text-align: center;
+    font-size: 38px;
+}
+
+.navegacion{
+    width: 60%;
+    margin: 10px auto;
+    background: #fff;
+}
+
+.navegacion ul{
+    list-style: none;
+    text-align:center;
+
+}
+.menu > li{
+    display: inline-block;
+}
+
+.menu > li > a, .menu > li > p{
+    display: block;
+    position: relative;
+    padding: 15px 20px;
+    color: #353535;
+    font-weight:bold;
+    font-family: 'Open sans';
+    text-decoration: none;
+}
+.menu li a:hover,.menu li p:hover{
+    color: #CE7D35;
+    transition: all .3s;
 }

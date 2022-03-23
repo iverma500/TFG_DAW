@@ -41,7 +41,7 @@ function haySesionRAM(): bool
 function obtenerUsuarioPorContrasenna(string $identificador, string $contrasenna): ?array
 {
     $conexion = obtenerPdoConexionBD();
-    $sql = "SELECT id, identificador, nombre, apellidos FROM usuario
+    $sql = "SELECT id, identificador, nombre, apellidos, email FROM usuario
             WHERE identificador=? AND BINARY contrasenna=?";
     $select = $conexion->prepare($sql);
     $select->execute([$identificador, $contrasenna]);
@@ -57,7 +57,7 @@ function obtenerUsuarioPorCookie(): ?array
     if (isset($_COOKIE["id"])) {
         $conexion = obtenerPdoConexionBD();
 
-        $sql = "SELECT id, identificador, nombre FROM usuario
+        $sql = "SELECT id, identificador, nombre, email FROM usuario
                 WHERE id = ? AND BINARY codigoCookie = ? AND caducidadCodigoCookie >= ?";
         $select = $conexion->prepare($sql);
         $select->execute([
@@ -83,6 +83,7 @@ function generarSesionRAM(array $usuario)
     $_SESSION["identificador"] = $usuario["identificador"];
     $_SESSION["nombre"] = $usuario["nombre"];
     $_SESSION["apellidos"] = $usuario["apellidos"];
+    $_SESSION["email"] = $usuario["email"];
 }
 
 function generarRenovarSesionCookie()

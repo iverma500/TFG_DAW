@@ -3,10 +3,14 @@ var videojuegos = [];
 var input;
 var textoAviso;
 var todosLosDatosCargados = false;
+var textoEncontrados;
+var juegosTotales;
 
 function inicializar() {
     input = document.getElementById("buscar");
     input.addEventListener("keyup", realizarBusqueda, false);
+    textoEncontrados = document.getElementById("numJuegosEncontrados");
+    juegosTotales = document.getElementById("juegosTotales");
 
     llamadaAjax("ObtenerMisJuegosBBDD.php?id=", "",
         function(texto) {
@@ -15,6 +19,7 @@ function inicializar() {
             for (let i = 0; i < videojuegos.length; i++) {
                 insertarMisVideojuego(videojuegos[i]);
             }
+            juegosTotales.textContent = "Has adquirido " + videojuegos.length + " videojuegos"
         },
         function(texto) {
             notificarUsuario("Error Ajax al cargar las tarjetas de los juegos: " + texto);
@@ -35,9 +40,15 @@ console.log("el filtro a buscar es: " + nombreActual)
                 for (var i=0; i<videojuegos.length; i++) {
                     insertarMisVideojuego(videojuegos[i]);
                 }
+                if (nombreActual != "") {
+                    textoEncontrados.textContent = videojuegos.length + " videojuegos encontrados";
+                } else {
+                    textoEncontrados.textContent = "";
+                }
             } else {
                 textoAviso = document.createElement("h3");
                 textoAviso.textContent = "No se han encontrado videojuegos que empiecen por <<"+nombreActual+">>";
+                textoEncontrados.textContent = "";
                 document.getElementById("games-container").appendChild(textoAviso);
             }
         },
