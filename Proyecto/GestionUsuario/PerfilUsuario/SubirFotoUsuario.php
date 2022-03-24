@@ -1,6 +1,7 @@
 <?php
 require_once "../../_Sesion.php";
 require_once "../../_Varios.php";
+require_once "../../ModeloDatos/DAO.php";
 
 salirSiSesionFalla("../../Menu.php");
 
@@ -26,9 +27,15 @@ if (isset($_POST['subir'])) {
                 //Cambiamos los permisos del archivo a 777 para poder modificarlo posteriormente
                 chmod('images/'.$archivo, 0777);
 
+                //actualizamos la base de datos
+                if (DAO::usuarioAnnadirFotoPerfil($_SESSION["id"])) {
+                    redireccionar("Perfil.php?archivo");
+                } else {
+                    redireccionar("Perfil.php?errorSubirArchivo");
+                }
                 //Mostramos la imagen subida
                // echo '<p><img src="images/'.$archivo.'"></p>';
-                redireccionar("Perfil.php?archivo");
+              //  redireccionar("Perfil.php?archivo");
             }
             else {
                 //Si no se ha podido subir la imagen, mostramos un mensaje de error

@@ -2,6 +2,15 @@ body {
     background-color: rgba(19, 35, 47, 0.9);
     position: relative;
 }
+.imgRedonda {
+    width:180px;
+    height:180px;
+    border-radius:150px;
+    display: flex;
+    margin-left: 8%;
+    background-size: 20px;
+}
+
 .divImgRedonda {
     width:180px;
     height:180px;

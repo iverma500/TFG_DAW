@@ -1,6 +1,7 @@
 <?php
 require_once "../../_Sesion.php";
-require_once "../../_Varios.php";
+require_once "../../ModeloDatos/DAO.php";
+
 salirSiSesionFalla("../SesionFormulario.php");
 
 $seSubeFotoOk = false;
@@ -39,6 +40,8 @@ if (isset($_REQUEST["errorSubirArchivo"])) {
 </header>
 <section class="sectionPerfil">
 
+    <?php if (!DAO::usuarioYaTieneFotoPerfil($_SESSION["id"])) {?>
+
     <div class="divImgRedonda">
     <form action="SubirFotoUsuario.php" method="POST" enctype="multipart/form-data">
             <br><br><br>
@@ -46,6 +49,11 @@ if (isset($_REQUEST["errorSubirArchivo"])) {
     <input type="submit" name="subir" value="Subir imagen"/>
     </form>
     </div>
+
+    <?php } else {?>
+        <img class="imgRedonda" src=<?="../../Imagenes/Usuarios/".$_SESSION["id"].".png"?>>
+    <?php }?>
+
     <?php if ($seSubeFotoOk) {?>
         <p style="color:#57c6ac;">Imagen actualizada con éxito</p>
     <?php } else if($fotoExtensionNoValida) {?>
@@ -67,7 +75,7 @@ if (isset($_REQUEST["errorSubirArchivo"])) {
         <input type="email" name="email" id="email" value=<?=$_SESSION["email"]?>>
     <br>
     <p id="emailYaExiste"></p>
-        <br><br><br><br>
+        <br><br><br>
         <button id="botonGuardar">Guardar cambios</button>
     <br><br>
     <p id="textoInfo"></p>
