@@ -26,7 +26,7 @@ $correoEnviado = enviarMensajeCorreo($_REQUEST["email"],$_REQUEST["nombre"]);
             <?php } else {?>
             <h4 style="color:red; font-size: medium">No se ha podido enviar un correo a la cuenta especificada</h4>
             <?php } ?>
-          <h4><a class="enlaceFormato" href="../SesionUsuario/SesionComprobar.php?identificador=<?=$_REQUEST['identificador']?>&contrasenna=<?=$_REQUEST['contrasenna']?>">Entrar en la plataforma</a></h4>
+          <h4><a class="enlaceFormato" href="SesionComprobar.php?identificador=<?=$_REQUEST['identificador']?>&contrasenna=<?=$_REQUEST['contrasenna']?>">Entrar en la plataforma</a></h4>
         </section>
             <?php } else {
             redireccionar("SesionFormulario.php?errorCreacionCuenta");

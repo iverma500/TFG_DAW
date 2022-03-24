@@ -26,7 +26,7 @@ entrarSiSesionIniciada("../../Menu.php");
 
         <div class="form">
                 <div id="signup">
-                    <form action="../ContrasennaUsuario/EnviarCorreoContrasenna.php" method="post">
+                    <form action="EnviarCorreoContrasenna.php" method="post">
                         <div class="top-row"></div>
 
                         <div class="field-wrap">
