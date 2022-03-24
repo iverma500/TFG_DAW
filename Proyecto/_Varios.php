@@ -37,3 +37,7 @@ function obtenerPdoConexionBD(): PDO
 
     return $conexion;
 }
+
+function comprobarSiElUsuarioYaTieneFoto() {
+
+}

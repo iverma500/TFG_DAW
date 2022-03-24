@@ -2,6 +2,19 @@
 require_once "../../_Sesion.php";
 require_once "../../_Varios.php";
 salirSiSesionFalla("../SesionFormulario.php");
+
+$seSubeFotoOk = false;
+$fotoExtensionNoValida = false;
+$fotoErrorSubir = false;
+if (isset($_REQUEST["archivo"])) {
+    $seSubeFotoOk = true;
+}
+if (isset($_REQUEST["errorExtArchivo"])) {
+    $fotoExtensionNoValida = true;
+}
+if (isset($_REQUEST["errorSubirArchivo"])) {
+    $fotoErrorSubir = true;
+}
 ?>
 
 
@@ -25,7 +38,21 @@ salirSiSesionFalla("../SesionFormulario.php");
     </nav>
 </header>
 <section class="sectionPerfil">
-<img class="imgRedonda" src="../../Imagenes/Usuarios/imagenPerfil.jpg">
+
+    <div class="divImgRedonda">
+    <form action="SubirFotoUsuario.php" method="POST" enctype="multipart/form-data">
+            <br><br><br>
+    <input name="archivo" id="archivo" type="file"/>
+    <input type="submit" name="subir" value="Subir imagen"/>
+    </form>
+    </div>
+    <?php if ($seSubeFotoOk) {?>
+        <p style="color:#57c6ac;">Imagen actualizada con éxito</p>
+    <?php } else if($fotoExtensionNoValida) {?>
+        <p style="color: red">No se ha podido subir la imagen (Solo se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo)</p>
+    <?php } else if($fotoErrorSubir) {?>
+        <p style="color: red">No se ha podido subir la imagen (error al subirla)</p>
+    <?php }?>
     <br><br>
         <label for="identificador">Nickname</label>
         <input type="text" name="identificador" id="identificador" value=<?=$_SESSION["identificador"]?>>
