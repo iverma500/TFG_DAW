@@ -7,7 +7,7 @@ salirSiSesionFalla("../../Menu.php");
 
 
 //Si se quiere subir una imagen
-if (isset($_POST['subir'])) {
+if (isset($_POST['subir']) && ($_REQUEST["archivo"]['size'] >= 0)) {
     //Recogemos el archivo enviado por el formulario
     $archivo = $_FILES['archivo']['name'];
     //Si el archivo contiene algo y es diferente de vacio
@@ -43,5 +43,7 @@ if (isset($_POST['subir'])) {
             }
         }
     }
+} else {
+    redireccionar("Perfil.php");
 }
 ?>

@@ -325,9 +325,20 @@ class DAO
     }
     public static function usuarioAnnadirFotoPerfil($idUsuario):bool
     {
+        //Modifico la base de datos y pongo 1 (si hay foto) en vez de 0 (no hay foto)
         $filasAfectadas = Self::ejecutarUpdel(
             "UPDATE usuario SET fotoPerfil=? WHERE id=?",
             [1, $idUsuario]
+        );
+        if ($filasAfectadas==1) return true;
+        else return false;
+    }
+    public static function usuarioEliminarFotoPerfil($idUsuario):bool
+    {
+        //Modifico la base de datos y pongo 0 (no hay foto) en vez de 1 (si hay foto)
+        $filasAfectadas = Self::ejecutarUpdel(
+            "UPDATE usuario SET fotoPerfil=? WHERE id=?",
+            [0, $idUsuario]
         );
         if ($filasAfectadas==1) return true;
         else return false;

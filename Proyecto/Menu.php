@@ -1,6 +1,7 @@
 <?php
 require_once "_Varios.php";
 require_once "_Sesion.php";
+require_once "ModeloDatos/DAO.php";
 
 salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
 ?>
@@ -17,15 +18,27 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
 </head>
 <body id="bodyPrincipal">
 <header class="cabecera">
+    <div class="divPerfilUsuario">
     <h1>Fandom Game Library</h1>
-    <nav class="navegacion">
-        <ul class="menu">
-            <li><p>Hola <?= $_SESSION["identificador"]?></p>
+        <div class="divFoto">
+            <ul class="menu">
+            <li>
+                <?php if(DAO::usuarioYaTieneFotoPerfil($_SESSION["id"])) {?>
+                    <img src=<?="Imagenes/Usuarios/".$_SESSION["id"].".png"?>>
+                <?php } else {?>
+                <img src="Imagenes/Usuarios/imagenPerfil.jpg">
+                <?php }?>
                 <ul class="submenu">
                     <li><a href="GestionUsuario/PerfilUsuario/Perfil.php">Mi Cuenta</a></li>
                     <li><a href="GestionUsuario/SesionUsuario/SesionCerrar.php">Cerrar Sesión</a></li>
                 </ul>
             </li>
+            </ul>
+        </div>
+    </div>
+
+    <nav class="navegacion">
+        <ul class="menu">
             <li><a href="Menu.php">Inicio</a></li>
             <li><a href="MisJuegos.php">Mis Juegos</a></li>
             <li><a href="#">Algo mas??¿</a></li>

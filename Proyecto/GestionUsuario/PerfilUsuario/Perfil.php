@@ -7,6 +7,7 @@ salirSiSesionFalla("../SesionFormulario.php");
 $seSubeFotoOk = false;
 $fotoExtensionNoValida = false;
 $fotoErrorSubir = false;
+$errorEliminarFoto = false;
 if (isset($_REQUEST["archivo"])) {
     $seSubeFotoOk = true;
 }
@@ -15,6 +16,9 @@ if (isset($_REQUEST["errorExtArchivo"])) {
 }
 if (isset($_REQUEST["errorSubirArchivo"])) {
     $fotoErrorSubir = true;
+}
+if (isset($_REQUEST["errorEliminarFoto"])) {
+    $errorEliminarFoto = true;
 }
 ?>
 
@@ -52,6 +56,8 @@ if (isset($_REQUEST["errorSubirArchivo"])) {
 
     <?php } else {?>
         <img class="imgRedonda" src=<?="../../Imagenes/Usuarios/".$_SESSION["id"].".png"?>>
+        <br>
+        <button><a href="BorrarFotoUsuario.php">Eliminar la foto de perfil</a></button>
     <?php }?>
 
     <?php if ($seSubeFotoOk) {?>
@@ -60,8 +66,10 @@ if (isset($_REQUEST["errorSubirArchivo"])) {
         <p style="color: red">No se ha podido subir la imagen (Solo se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo)</p>
     <?php } else if($fotoErrorSubir) {?>
         <p style="color: red">No se ha podido subir la imagen (error al subirla)</p>
+    <?php } else if($errorEliminarFoto) {?>
+    <p style="color: red">No se ha podido eliminar la imagen</p>
     <?php }?>
-    <br><br>
+    <br><br><br>
         <label for="identificador">Nickname</label>
         <input type="text" name="identificador" id="identificador" value=<?=$_SESSION["identificador"]?>>
         <br><br>
