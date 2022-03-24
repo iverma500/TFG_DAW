@@ -38,7 +38,7 @@ entrarSiSesionIniciada("../../Menu.php");
         <div id="signup">
           <h1>Regístrate gratis</h1>
 
-          <form action="../ContrasennaUsuario/GenerarNuevaCuenta.php" method="post">
+          <form action="GenerarNuevaCuenta.php" method="post">
 
           <div class="top-row">
             <div class="field-wrap">
