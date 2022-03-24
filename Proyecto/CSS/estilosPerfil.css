@@ -3,13 +3,32 @@ body {
     position: relative;
 }
 .imgRedonda {
-    width:150px;
-    height:150px;
+    width:180px;
+    height:180px;
     border-radius:150px;
     display: flex;
     margin-left: 8%;
+    background-size: 20px;
 }
 
+.divImgRedonda {
+    width:180px;
+    height:180px;
+    border-radius:150px;
+    display: flex;
+    margin-left: 8%;
+    background-image: url('../Imagenes/Usuarios/imagenPerfil.jpg');
+    align-self: center;
+    background-attachment: fixed;
+    background-size: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+.divImgRedonda input {
+    width: 90%;
+}
 .sectionPerfil{
     width: 200px;
     height: 60px;

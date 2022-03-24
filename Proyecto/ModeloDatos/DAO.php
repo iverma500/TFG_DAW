@@ -1,7 +1,6 @@
 <?php
 
 require_once "Videojuego.php";
-//require_once "Proyecto";
 session_start();
 
 class DAO
@@ -290,8 +289,6 @@ class DAO
         return $datos;
     }
 
-/* CATEGORIA VIDEOJUEGO */
-
     private static function categoriaCrearDesdeFila(array $fila): Categoria
     {
         return new Categoria($fila["id"], $fila["categoria"]);
@@ -311,5 +308,39 @@ class DAO
         }
         return $datos;
     }
+    /* GESTION IMAGENES DE PERFIL USUARIOS */
 
+    public static function usuarioYaTieneFotoPerfil($idUsuario): bool
+    {
+        //Este metodo devuelve false si el usuario tiene 0 en la columna "fotoPerfil" (es decir, no tiene foto) y true en caso contrario
+        $rs = Self::ejecutarConsulta(
+            "SELECT fotoPerfil FROM usuario WHERE id = ?",
+            [$idUsuario]
+        );
+        if ($rs[0]["fotoPerfil"] == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    public static function usuarioAnnadirFotoPerfil($idUsuario):bool
+    {
+        //Modifico la base de datos y pongo 1 (si hay foto) en vez de 0 (no hay foto)
+        $filasAfectadas = Self::ejecutarUpdel(
+            "UPDATE usuario SET fotoPerfil=? WHERE id=?",
+            [1, $idUsuario]
+        );
+        if ($filasAfectadas==1) return true;
+        else return false;
+    }
+    public static function usuarioEliminarFotoPerfil($idUsuario):bool
+    {
+        //Modifico la base de datos y pongo 0 (no hay foto) en vez de 1 (si hay foto)
+        $filasAfectadas = Self::ejecutarUpdel(
+            "UPDATE usuario SET fotoPerfil=? WHERE id=?",
+            [0, $idUsuario]
+        );
+        if ($filasAfectadas==1) return true;
+        else return false;
+    }
 }

@@ -1,7 +1,25 @@
 <?php
 require_once "../../_Sesion.php";
-require_once "../../_Varios.php";
+require_once "../../ModeloDatos/DAO.php";
+
 salirSiSesionFalla("../SesionFormulario.php");
+
+$seSubeFotoOk = false;
+$fotoExtensionNoValida = false;
+$fotoErrorSubir = false;
+$errorEliminarFoto = false;
+if (isset($_REQUEST["archivo"])) {
+    $seSubeFotoOk = true;
+}
+if (isset($_REQUEST["errorExtArchivo"])) {
+    $fotoExtensionNoValida = true;
+}
+if (isset($_REQUEST["errorSubirArchivo"])) {
+    $fotoErrorSubir = true;
+}
+if (isset($_REQUEST["errorEliminarFoto"])) {
+    $errorEliminarFoto = true;
+}
 ?>
 
 
@@ -25,8 +43,33 @@ salirSiSesionFalla("../SesionFormulario.php");
     </nav>
 </header>
 <section class="sectionPerfil">
-<img class="imgRedonda" src="../../Imagenes/Usuarios/imagenPerfil.jpg">
-    <br><br>
+
+    <?php if (!DAO::usuarioYaTieneFotoPerfil($_SESSION["id"])) {?>
+
+    <div class="divImgRedonda">
+    <form action="SubirFotoUsuario.php" method="POST" enctype="multipart/form-data">
+            <br><br><br>
+    <input name="archivo" id="archivo" type="file"/>
+    <input type="submit" name="subir" value="Subir imagen"/>
+    </form>
+    </div>
+
+    <?php } else {?>
+        <img class="imgRedonda" src=<?="../../Imagenes/Usuarios/".$_SESSION["id"].".png"?>>
+        <br>
+        <button><a href="BorrarFotoUsuario.php">Eliminar la foto de perfil</a></button>
+    <?php }?>
+
+    <?php if ($seSubeFotoOk) {?>
+        <p style="color:#57c6ac;">Imagen actualizada con éxito</p>
+    <?php } else if($fotoExtensionNoValida) {?>
+        <p style="color: red">No se ha podido subir la imagen (Solo se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo)</p>
+    <?php } else if($fotoErrorSubir) {?>
+        <p style="color: red">No se ha podido subir la imagen (error al subirla)</p>
+    <?php } else if($errorEliminarFoto) {?>
+    <p style="color: red">No se ha podido eliminar la imagen</p>
+    <?php }?>
+    <br><br><br>
         <label for="identificador">Nickname</label>
         <input type="text" name="identificador" id="identificador" value=<?=$_SESSION["identificador"]?>>
         <br><br>
@@ -40,7 +83,7 @@ salirSiSesionFalla("../SesionFormulario.php");
         <input type="email" name="email" id="email" value=<?=$_SESSION["email"]?>>
     <br>
     <p id="emailYaExiste"></p>
-        <br><br><br><br>
+        <br><br><br>
         <button id="botonGuardar">Guardar cambios</button>
     <br><br>
     <p id="textoInfo"></p>

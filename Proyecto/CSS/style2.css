@@ -167,3 +167,27 @@ header{
     visibility: visible;
     opacity: 1;
 }
+.divFotoPerfil {
+    display: flex;
+    margin-right: 30%;
+    margin-left: 30%;
+}
+.cabecera img {
+    width:80px;
+    height:80px;
+    border-radius:150px;
+    display: flex;
+    margin-left: 8%;
+    background-size: 20px;
+}
+.divPerfilUsuario {
+    display: flex;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+/*------------------*/
+.divFoto {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
