@@ -1,14 +1,10 @@
 body {
-    background: paleturquoise;
+    background: white;
     font-family: 'Titillium Web', sans-serif;
 }
 
 body p {
     padding-left: 10px;
-}
-
-* {
-    box-sizing: border-box;
 }
 
 h1{
@@ -23,16 +19,11 @@ h1{
 
 /* Left column (menu) */
 .left {
-    flex: 20%;
+   flex: 10%;
 }
-
-.left h2 {
-    padding-left: 8px;
-}
-
 /* Right column (page content) */
 .right {
-    flex: 80%;
+    flex: 90%;
 }
 
 .right h2 {
@@ -135,7 +126,6 @@ header{
     padding: 15px 20px;
     color: #353535;
     font-weight:bold;
-    font-family: 'Open sans';
     text-decoration: none;
 }
 
@@ -159,7 +149,6 @@ header{
     display: block;
     padding: 15px;
     color: #fff;
-    font-family: 'Open sans';
     text-decoration: none;
 }
 
@@ -167,27 +156,10 @@ header{
     visibility: visible;
     opacity: 1;
 }
-.divFotoPerfil {
-    display: flex;
-    margin-right: 30%;
-    margin-left: 30%;
-}
-.cabecera img {
-    width:80px;
-    height:80px;
+
+.imgPerfil {
+    width:60px;
+    height:60px;
     border-radius:150px;
-    display: flex;
-    margin-left: 8%;
     background-size: 20px;
-}
-.divPerfilUsuario {
-    display: flex;
-    margin-left: 30%;
-    margin-right: 30%;
-}
-/*------------------*/
-.divFoto {
-    position: absolute;
-    top: 0;
-    right: 0;
 }
