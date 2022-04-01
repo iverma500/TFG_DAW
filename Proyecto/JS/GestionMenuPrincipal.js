@@ -209,6 +209,7 @@ function tarjetaTitulo(videojuegoActual){
     var titulo = document.createElement("h4");
     titulo.setAttribute("class","ticket-game-titulo");
     titulo.textContent = videojuegoActual.nombre;
+    titulo.style.color = "black";
     return titulo;
 }
 

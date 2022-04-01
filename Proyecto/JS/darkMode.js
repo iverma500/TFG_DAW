@@ -19,9 +19,13 @@ function darkMode() {
 
     var content = document.getElementById("titulo");
     var  games = document.getElementById("games-container");
-
     content.className ="dark-mode";
     games.className = "dark-mode";
+
+/*var tituloJuegos = document.getElementsByClassName("ticket-game-titulo");
+    for (let i = 0; i < tituloJuegos.length; i++) {
+        tituloJuegos[i].style.color = "#28DAD4";
+    }*/
 }
 function lightMode() {
     var element = document.body;
@@ -35,4 +39,9 @@ function lightMode() {
 
     content.className ="light-mode";
     games.className = "light-mode";
+
+    /*var tituloJuegos = document.getElementsByClassName("ticket-game-titulo");
+    for (let i = 0; i < tituloJuegos.length; i++) {
+        tituloJuegos[i].style.color = "black";
+    }*/
 }
