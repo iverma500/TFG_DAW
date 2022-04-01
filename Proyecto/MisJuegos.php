@@ -1,6 +1,7 @@
 <?php
 require_once "_Varios.php";
 require_once "_Sesion.php";
+require_once "ModeloDatos/DAO.php";
 
 salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
 ?>
@@ -13,42 +14,93 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
     <link rel="stylesheet" href="CSS/myGames.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="JS/MisJuegos.js" type="text/javascript"></script>
+
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css'>
+    <link rel="stylesheet" href="CSS/darkMode.css">
+    <link rel="stylesheet" href="CSS/menu.css">
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
     <title>FGM - Inicio</title>
 </head>
-<body id="bodyPrincipal">
-<header class="cabecera">
-    <h1>Fandom Game Library</h1>
-    <nav class="navegacion">
-        <ul class="menu">
-            <li><p>Hola <?= $_SESSION["identificador"]?></p>
-                <ul class="submenu">
-                    <li><a href="GestionUsuario/PerfilUsuario/Perfil.php">Mi Cuenta</a></li>
-                    <li><a href="GestionUsuario/SesionUsuario/SesionCerrar.php">Cerrar Sesión</a></li>
-                </ul>
-            </li>
-            <li><a href="Menu.php">Inicio</a></li>
-            <li><a href="MisJuegos.php">Mis Juegos</a></li>
-            <li><a href="#">Algo mas??¿</a></li>
+<body>
+<div id="wrapper">
+    <div class="overlay"></div>
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <?php if(DAO::usuarioYaTieneFotoPerfil($_SESSION["id"])) {?>
+                        <img class="imgPerfil" src=<?="Imagenes/Usuarios/".$_SESSION["id"].".png"?>>
+                    <?php } else {?>
+                        <img src="Imagenes/Usuarios/imagenPerfil.jpg" class="imgPerfil">
+                    <?php }?>
+
+                    <a href="#"><?= $_SESSION["identificador"]?></a>
+                </div>
+            </div>
+
+            <li><a href="Menu.php#home" class="inicio">Inicio</a></li>
+            <li><a href="GestionUsuario/PerfilUsuario/Perfil.php#user">Mi cuenta</a></li>
+            <li><a href="MisJuegos.php#games">Mis Juegos</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="GestionUsuario/SesionUsuario/SesionCerrar.php#out">Cerrar Sesión</a></li>
         </ul>
     </nav>
-</header>
-<br>
-<div class="row">
-    <div class="left" style="background:paleturquoise;">
-        <h4>Búsqueda por nombre</h4>
-        <br>
-        <input type="text" id="buscar" placeholder="Buscar.." title="Buscar por Categoría">
-        <br>
-        <p id="numJuegosEncontrados"></p>
-    </div>
-    <div class="right" style="background-color:paleturquoise;">
-        <div id="titulo">
-            <h2>Mi Biblioteca</h2>
-            <br>
-            <p id="juegosTotales"></p>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container">
+            <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+
+            <div id="theme-toggler" class="fas fa-moon"></div>
         </div>
-        <div id="games-container"></div>
+        <div class="container">
+            <h1 style="text-align: center; font-size: xxx-large">Fandom Game Library</h1>
+
+            <div class="right">
+                <div id="titulo">
+                    <h1>Mis Juegos</h1>
+                    <section>
+                            <div class="busqueda">
+                                <h5 id="juegosTotales"></h5>
+                                <h4>Búsqueda por nombre</h4>
+                                <br>
+                                <div class="search-box">
+                                        <input id="buscar" type="text" class="input-search" placeholder="Type to Search...">
+                                </div>
+                                <p id="numJuegosEncontrados"></p>
+                            </div>
+                    </section>
+                </div>
+                <div id="games-container"></div>
+            </div>
+        </div>
     </div>
+    <!-- /#page-content-wrapper -->
 </div>
+<!-- /#wrapper -->
+<!-- partial -->
+<footer style="padding: 100px"></footer>
 </body>
+<script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/js/tether.min.js'></script>
+<script src="JS/panel.js"></script>
+<script src="JS/darkMode.js"></script>
 </html>
