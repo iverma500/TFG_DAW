@@ -75,18 +75,20 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
             <div class="right">
                 <div id="titulo">
                     <h1>Mis Juegos</h1>
+                    <br>
+                    <h4 id="juegosTotales"></h4>
                     <section>
                             <div class="busqueda">
-                                <h5 id="juegosTotales"></h5>
                                 <h4>Búsqueda por nombre</h4>
                                 <br>
-                                <div class="search-box">
-                                        <input id="buscar" type="text" class="input-search" placeholder="Type to Search...">
+                                <div class="search-box" style="margin-left: 20%">
+                                    <input id="buscar" type="text" class="input-search" placeholder="Type to Search...">
                                 </div>
                                 <p id="numJuegosEncontrados"></p>
                             </div>
                     </section>
                 </div>
+                <br><br><br><br>
                 <div id="games-container"></div>
             </div>
         </div>

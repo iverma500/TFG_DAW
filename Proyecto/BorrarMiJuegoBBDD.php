@@ -47,7 +47,7 @@ if (isset($_REQUEST["id"])){
         <br><br>
         <h1 style="color: orange"><?= $mensaje ?></h1>
         <br><br>
-        <h1 style="font-size: x-large">Accede a este producto en la sección de <b>"Mis Juegos"</b></h1>
+        <h1 style="font-size: x-large">Puedes volver a adquirir este o cualquier otro videojuego en la sección de <b>"Inicio"</b></h1>
         <br>
     </div>
 </div>
