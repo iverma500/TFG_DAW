@@ -261,10 +261,11 @@ class DAO
 
     public static function existeUsuarioConEsteEmail($email)
     {
+        $nickname = $_SESSION["identificador"];
         //Este metodo devuelve true si existe un usuario con el email especificado y false si no
         $rs = Self::ejecutarConsulta(
-            "SELECT id FROM usuario WHERE email = ?",
-            [$email]
+            "SELECT id FROM usuario WHERE email = ? AND identificador != ?",
+            [$email, $nickname]
         );
         if (empty($rs)) {
             return false;
