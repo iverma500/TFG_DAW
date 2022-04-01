@@ -15,7 +15,8 @@
     height: 400px;
     position: relative;
     display: inline-block;
-    margin: 20px 20px;
+    margin-left: 100px;
+    margin-bottom: 50px;
 }
 
 .poster-container {
@@ -34,7 +35,7 @@
 .ticket-container {
     background: #fff;
     width: 270px;
-    height: 375px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,4 +111,29 @@ a.enlacePagina:link, a.enlacePagina:visited, a.enlacePagina:active {
 a.enlaceBorrar:link, a.enlaceBorrar:visited, a.enlaceBorrar:active {
     text-decoration:none;
     color: red;
+}
+
+
+.search-box{
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+#buscar{
+    width: 100%;
+    font-size: 18px;
+    padding: 11px 25px 11px 11px;
+    border: 1px solid black;
+    background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat right;
+    background-size: 30px;
+    border-radius:150px;
+}
+
+#juegosTotales{
+    color: #32a21b;
+    font-weight: bold;
+}
+.busqueda {
+    float: right;
+    display: inline-block;
 }

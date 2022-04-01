@@ -1,12 +1,3 @@
-.dark-mode {
-    background-color: black;
-    color: white;
-}
-.light-mode {
-    background-color: white;
-    color: black;
-}
-
 #theme-toggler {
     position: fixed;
     top: 15px;
@@ -23,8 +14,8 @@
 
 body,
 html { height: 100%;}
-.nav .open > a, 
-.nav .open > a:hover, 
+.nav .open > a,
+.nav .open > a:hover,
 .nav .open > a:focus {background-color: transparent;}
 
 /*-------------------------------*/
@@ -93,7 +84,7 @@ html { height: 100%;}
 }
 
 .sidebar-nav li {
-    position: relative; 
+    position: relative;
     line-height: 20px;
     display: inline-block;
     width: 100%;
@@ -134,7 +125,7 @@ html { height: 100%;}
     display: block;
     color: #ddd;
     text-decoration: none;
-    padding: 10px 15px 10px 30px;    
+    padding: 10px 15px 10px 30px;
 }
 
 .sidebar-nav li a:hover,
@@ -221,7 +212,7 @@ a[href*="#out"]::before {
 
 .hamburger {
   position: fixed;
-  top: 20px;  
+  top: 20px;
   z-index: 999;
   display: block;
   width: 32px;
@@ -270,8 +261,8 @@ a[href*="#out"]::before {
 .hamburger.is-closed .hamb-bottom {
   background-color: #1a1a1a;
 }
-.hamburger.is-closed .hamb-top { 
-  top: 5px; 
+.hamburger.is-closed .hamb-top {
+  top: 5px;
   -webkit-transition: all .35s ease-in-out;
 }
 .hamburger.is-closed .hamb-middle {
@@ -279,7 +270,7 @@ a[href*="#out"]::before {
   margin-top: -2px;
 }
 .hamburger.is-closed .hamb-bottom {
-  bottom: 5px;  
+  bottom: 5px;
   -webkit-transition: all .35s ease-in-out;
 }
 
@@ -299,9 +290,9 @@ a[href*="#out"]::before {
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-bottom {
   top: 50%;
-  margin-top: -2px;  
+  margin-top: -2px;
 }
-.hamburger.is-open .hamb-top { 
+.hamburger.is-open .hamb-top {
   -webkit-transform: rotate(45deg);
   -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
 }

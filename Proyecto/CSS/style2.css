@@ -43,14 +43,6 @@ h1{
     font-size: 120%;
 }
 
-/* Style the search box */
-#buscar {
-    width: 100%;
-    font-size: 18px;
-    padding: 11px;
-    border: 1px solid black;
-}
-
 /* Style the navigation menu inside the left column */
 #menu {
     list-style-type: none;
