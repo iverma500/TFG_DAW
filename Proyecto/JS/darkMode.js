@@ -92,7 +92,7 @@ function llamadaAjax(url, parametros, manejadorOK, manejadorError) {
 function almacenarCambioModoClaroOscuro(modoActivo) {
 
     //Obtengo todos los videojuegos de la base de datos
-    llamadaAjax("ActualizarModoClaroOscuro.php?modoActivo="+modoActivo, "",
+    llamadaAjax("GestionUsuario/ModoClaroOscuro/ActualizarModoClaroOscuro.php?modoActivo="+modoActivo, "",
         function(texto) {
             // debugger
             var cambioCorrecto = JSON.parse(texto);
