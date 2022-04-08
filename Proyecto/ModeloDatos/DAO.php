@@ -344,4 +344,10 @@ class DAO
         if ($filasAfectadas==1) return true;
         else return false;
     }
+
+    /* GESTIÓN MODO CLARO/OSCURO */
+
+    public static function modificarCookieModoClaroOscuro($modoSeleccionado): bool {
+        return setcookie("modo", $modoSeleccionado, time()+24*60*60*10); //Cookie de duración = 10 días
+    }
 }

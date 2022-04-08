@@ -81,7 +81,7 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
                             <div class="busqueda">
                                 <h4>Búsqueda por nombre</h4>
                                 <br>
-                                <div class="search-box" style="margin-left: 20%">
+                                <div id="search-box" class="search-box" style="margin-left: 20%">
                                     <input id="buscar" type="text" class="input-search" placeholder="Type to Search...">
                                 </div>
                                 <p id="numJuegosEncontrados"></p>
