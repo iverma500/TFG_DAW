@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS usuario (
     nombre varchar(50) COLLATE utf8_spanish_ci NOT NULL,
     apellidos varchar(50) COLLATE utf8_spanish_ci NOT NULL,
     codVideojuegos varchar (99) COLLATE utf8_spanish_ci,
+    modo varchar(50) COLLATE utf8_spanish_ci,
     fotoPerfil int (2),
     PRIMARY KEY (id)
     )
@@ -24,12 +25,12 @@ TRUNCATE TABLE usuario;
 
 
 INSERT INTO usuario
-(id, identificador, email, contrasenna, codigoCookie, caducidadCodigoCookie, nombre, apellidos, codVideojuegos, fotoPerfil)
+(id, identificador, email, contrasenna, codigoCookie, caducidadCodigoCookie, nombre, apellidos, codVideojuegos, modo, fotoPerfil)
 VALUES
-    (1, 'pLotudo', 'pepelot@gmail.com', 'pp', NULL, NULL, 'Pepe',   'Lotudo', '1,3,5,2',0),
-    (2, 'Josian', 'jositron2@gmail.com', 'josian', NULL, NULL, 'Josian',   'Galtor','2,5',0),
-    (3, 'ManCa', 'carrasMan@gmail.com', 'mc', NULL, NULL, 'Manuela',   'Carrasco','10,11',0),
-    (4, 'Iverma', 'dbdtodoeldia@gmail.com', 'iv', NULL, NULL, 'Ivan',   'Delas','1,2,13',0);
+    (1, 'pLotudo', 'pepelot@gmail.com', 'pp', NULL, NULL, 'Pepe',   'Lotudo', '1,3,5,2', 'oscuro',0),
+    (2, 'Josian', 'jositron2@gmail.com', 'josian', NULL, NULL, 'Josian',   'Galtor','2,5', 'claro',0),
+    (3, 'ManCa', 'carrasMan@gmail.com', 'mc', NULL, NULL, 'Manuela',   'Carrasco','10,11','claro', 0),
+    (4, 'Iverma', 'dbdtodoeldia@gmail.com', 'iv', NULL, NULL, 'Ivan',   'Delas','1,2,13', 'claro', 0);
 
 
 /*  tabla videojuego   */

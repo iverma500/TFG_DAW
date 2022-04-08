@@ -1,19 +1,17 @@
 addEventListener("load", inicializar, false);
 
 function inicializar() {
-    //Pregunto si hay cookies
-    if (document.cookie) {
-        //Accedo al nombre de la cookie del modo y compruebo cual tiene
-        if (document.cookie.split(";")[0].split("=")[1] == "oscuro") {
+    let themeToggler = document.getElementById('theme-toggler');
+
+        if (themeToggler.className == "fas fa-moon fa-sun") {
+            console.log("el modo oscuro esta activado");
             darkMode();
-            let themeToggler = document.getElementById('theme-toggler');
-            themeToggler.className = "fas fa-moon fa-sun";
-        } else {
+        } else if (themeToggler.className == "fas fa-moon") {
+            console.log("el modo claro esta activado");
             lightMode();
-            let themeToggler = document.getElementById('theme-toggler');
-            themeToggler.className = "fas fa-moon";
+        } else {
+            console.log("algo raro pasa. Ningún modo activado");
         }
-    }
 }
 
 let themeToggler = document.getElementById('theme-toggler');
@@ -22,10 +20,10 @@ themeToggler.onclick = () => {
     themeToggler.classList.toggle('fa-sun');
 
     if (themeToggler.classList.contains('fa-sun')) {
-        almacenarCambioModoEnCookie("oscuro");
+        almacenarCambioModoClaroOscuro("oscuro");
         darkMode();
     } else {
-        almacenarCambioModoEnCookie("claro");
+        almacenarCambioModoClaroOscuro("claro");
         lightMode();
     }
 };
@@ -91,10 +89,10 @@ function llamadaAjax(url, parametros, manejadorOK, manejadorError) {
 }
 
 
-function almacenarCambioModoEnCookie(modoActivo) {
+function almacenarCambioModoClaroOscuro(modoActivo) {
 
     //Obtengo todos los videojuegos de la base de datos
-    llamadaAjax("CambioModoEnCookie.php?modoActivo="+modoActivo, "",
+    llamadaAjax("ActualizarModoClaroOscuro.php?modoActivo="+modoActivo, "",
         function(texto) {
             // debugger
             var cambioCorrecto = JSON.parse(texto);

@@ -67,7 +67,14 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
                 <span class="hamb-bottom"></span>
             </button>
 
+            <?php if ($_SESSION["modo"] == "claro") {?>
             <div id="theme-toggler" class="fas fa-moon"></div>
+            <?php } else if ($_SESSION["modo"] == "oscuro"){?>
+                <div id="theme-toggler" class="fas fa-moon fa-sun"></div>
+            <?php } else {?>
+                <div id="theme-toggler" class="---"></div>
+            <?php }?>
+
         </div>
         <div class="container">
             <h1 style="text-align: center; font-size: xxx-large">Fandom Game Library</h1>
