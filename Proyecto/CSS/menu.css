@@ -4,8 +4,8 @@
     right: 25px;
     padding: 15px 20px;
     font-size: 30px;
-    background: var(--secondary-bg-color);
-    color: var(--primary-text-color);
+    background: #4bb3d9;
+    color: white;
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
@@ -259,7 +259,7 @@ a[href*="#out"]::before {
 .hamburger.is-closed .hamb-top,
 .hamburger.is-closed .hamb-middle,
 .hamburger.is-closed .hamb-bottom {
-  background-color: #1a1a1a;
+  background-color: white;
 }
 .hamburger.is-closed .hamb-top {
   top: 5px;
@@ -285,7 +285,7 @@ a[href*="#out"]::before {
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-middle,
 .hamburger.is-open .hamb-bottom {
-  background-color: #1a1a1a;
+  background-color: white;
 }
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-bottom {

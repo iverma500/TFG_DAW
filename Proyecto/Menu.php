@@ -60,18 +60,20 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-        <div class="container">
-            <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
-                <span class="hamb-top"></span>
-                <span class="hamb-middle"></span>
-                <span class="hamb-bottom"></span>
-            </button>
+        <header id="cabecera">
+            <div class="container" >
+                <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+                    <span class="hamb-top"></span>
+                    <span class="hamb-middle"></span>
+                    <span class="hamb-bottom"></span>
+                </button>
+                <h1 style="text-align: center; font-size: xxx-large">Fandom Game Library</h1>
 
-            <div id="theme-toggler" class="fas fa-moon"></div>
-        </div>
-        <div class="container">
-            <h1 style="text-align: center; font-size: xxx-large">Fandom Game Library</h1>
+                <div id="theme-toggler" class="fas fa-moon"></div>
+            </div>
+        </header>
 
+        <div class="container">
             <div class="right">
                 <div id="titulo">
                     <h1>Catálogo</h1>
@@ -93,7 +95,7 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
 </div>
 <!-- /#wrapper -->
 <!-- partial -->
-<footer style="padding: 100px"></footer>
+<footer style="padding: 50px"></footer>
 </body>
 <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
