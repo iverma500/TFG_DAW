@@ -347,7 +347,15 @@ class DAO
 
     /* GESTIÓN MODO CLARO/OSCURO */
 
-    public static function modificarCookieModoClaroOscuro($modoSeleccionado): bool {
-        return setcookie("modo", $modoSeleccionado, time()+24*60*60*10); //Cookie de duración = 10 días
+    public static function actualizarModoClaroOscuro($id, $modoSeleccionado): bool {
+       // return setcookie("modo", $modoSeleccionado, time()+24*60*60*10); //Cookie de duración = 10 días
+
+        //Modifico la base de datos y pongo el modo que el usuario ha seleccionado
+        $filasAfectadas = Self::ejecutarUpdel(
+            "UPDATE usuario SET modo=? WHERE id=?",
+            [$modoSeleccionado, $id]
+        );
+        if ($filasAfectadas==1) return true;
+        else return false;
     }
 }
