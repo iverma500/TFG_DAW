@@ -24,12 +24,13 @@
     position: absolute;
     top: 0;
     left: 20px;
-    z-index: 9999;
+    z-index: 1;
 }
 
 .poster {
     width: 100%;
     box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+    z-index:0;
 }
 
 .ticket-container {
@@ -74,6 +75,7 @@
     color: gray;
     text-decoration: line-through;
     margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
 .ticket-btn-jugar {
