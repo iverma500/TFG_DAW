@@ -60,12 +60,13 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-        <div class="container">
+        <header id="cabecera">
             <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
                 <span class="hamb-top"></span>
                 <span class="hamb-middle"></span>
                 <span class="hamb-bottom"></span>
             </button>
+            <h1 style="text-align: center; font-size: xxx-large">Fandom Game Library</h1>
 
             <?php if ($_SESSION["modo"] == "claro") {?>
                 <div id="theme-toggler" class="fas fa-moon"></div>
@@ -74,11 +75,8 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
             <?php } else {?>
                 <div id="theme-toggler" class="---"></div>
             <?php }?>
-
-        </div>
+        </header>
         <div class="container">
-            <h1 style="text-align: center; font-size: xxx-large">Fandom Game Library</h1>
-
             <div class="right">
                 <div id="titulo">
                     <h1>Mis Juegos</h1>
