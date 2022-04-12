@@ -9,6 +9,7 @@ var juegosTotales;
 function inicializar() {
     input = document.getElementById("buscar");
     input.addEventListener("keyup", realizarBusqueda, false);
+    input.addEventListener("focusout", quitarFiltrado, false);
     textoEncontrados = document.getElementById("numJuegosEncontrados");
     juegosTotales = document.getElementById("juegosTotales");
 
@@ -26,10 +27,17 @@ function inicializar() {
         });
 }
 
-
+function  quitarFiltrado() {
+    input.value = "";
+    textoEncontrados.textContent = "";
+    eliminarTodosLosHijosDivDatos();
+    for (let i = 0; i < videojuegos.length; i++) {
+        insertarMisVideojuego(videojuegos[i]);
+    }
+}
 function realizarBusqueda() {
     nombreActual = input.value;
-console.log("el filtro a buscar es: " + nombreActual)
+console.log("el filtro a buscar es: " + nombreActual);
     llamadaAjax("BuscarJuegoPorNombre.php?nombreActual="+nombreActual.toUpperCase(), "",
         function(texto) {
             // debugger

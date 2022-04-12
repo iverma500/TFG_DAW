@@ -65,9 +65,9 @@ if (isset($_REQUEST["errorEliminarFoto"])) {
             </div>
 
             <li><a href="../../Menu.php#home" class="inicio">Inicio</a></li>
-            <li><a href="../../GestionUsuario/PerfilUsuario/Perfil.php#user">Mi cuenta</a></li>
+            <li><a href="../../GestionUsuario/PerfilUsuario/Perfil.php#user">Mi Cuenta</a></li>
             <li><a href="../../MisJuegos.php#games">Mis Juegos</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Acerca de</a></li>
             <li><a href="../../GestionUsuario/SesionUsuario/SesionCerrar.php#out">Cerrar Sesión</a></li>
         </ul>
     </nav>
@@ -123,17 +123,17 @@ if (isset($_REQUEST["errorEliminarFoto"])) {
                         <p style="color: red">No se ha podido eliminar la imagen</p>
                     <?php }?>
                     <br><br><br>
-                    <label for="identificador">Nickname</label>
-                    <input type="text" name="identificador" id="identificador" value=<?=$_SESSION["identificador"]?>>
+                    <label for="identificador" class="labels">Nickname</label>
+                    <input type="text" name="identificador" id="identificador" class="inputs" value=<?=$_SESSION["identificador"]?>>
                     <br><br>
-                    <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" value=<?=$_SESSION["nombre"]?>>
+                    <label for="nombre" class="labels">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="inputs" value=<?=$_SESSION["nombre"]?>>
                     <br><br>
-                    <label for="apellidos">Apellidos</label>
-                    <input type="text" name="apellidos" id="apellidos" value=<?=$_SESSION["apellidos"]?>>
+                    <label for="apellidos" class="labels">Apellidos</label>
+                    <input type="text" name="apellidos" id="apellidos" class="inputs" value=<?=$_SESSION["apellidos"]?>>
                     <br><br>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" value=<?=$_SESSION["email"]?>>
+                    <label for="email" class="labels">Email</label>
+                    <input type="email" name="email" id="email" class="inputs" value=<?=$_SESSION["email"]?>>
                     <br>
                     <p id="emailYaExiste"></p>
                     <br><br><br>

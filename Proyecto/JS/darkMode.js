@@ -42,11 +42,29 @@ function darkMode() {
         option.className = "dark-mode";
     }
 
-
-    var content = document.getElementById("titulo");
-    var  games = document.getElementById("games-container");
-    content.className ="dark-mode";
-    games.className = "dark-mode";
+    //Me aseguro de que no nos encontremos en "Perfil.php" ya que carece de los elementos que se quieren obtener
+    if (location.pathname.split("/")[location.pathname.split("/").length - 1] == "Perfil.php") {
+        //En caso de que estemos en "Perfil.php" modifico el color de los elementos acorde al modo Claro
+        var inputs = document.getElementsByClassName("inputs");
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].style.backgroundColor = "rgba(19, 35, 47, 0.9)";
+            inputs[i].style.color = "#77d9ba";
+        }
+        var labels = document.getElementsByClassName("labels");
+        for (let i = 0; i < labels.length; i++) {
+            labels[i].style.color = "#77d9ba";
+        }
+        var botonGuardar = document.getElementById("botonGuardar");
+        var textoInfo = document.getElementById("textoInfo");
+        botonGuardar.style.color = "white";
+        botonGuardar.style.backgroundColor = "#1ab188";
+        textoInfo.style.backgroundColor = "#212529";
+    }else {
+        var content = document.getElementById("titulo");
+        var  games = document.getElementById("games-container");
+        content.className ="dark-mode";
+        games.className = "dark-mode";
+    }
 
 }
 function lightMode() {
@@ -65,8 +83,30 @@ function lightMode() {
     var content = document.getElementById("titulo");
     var  games = document.getElementById("games-container");
 
-    content.className ="light-mode";
-    games.className = "light-mode";
+
+    if (location.pathname.split("/")[location.pathname.split("/").length - 1] == "Perfil.php") {
+        //En caso de que estemos en "Perfil.php" modifico el color de los elementos acorde al modo Claro
+        var inputs = document.getElementsByClassName("inputs");
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].style.backgroundColor = "#212529";
+            inputs[i].style.color = "white";
+        }
+        var labels = document.getElementsByClassName("labels");
+        for (let i = 0; i < labels.length; i++) {
+            labels[i].style.color = "#212529";
+        }
+        var botonGuardar = document.getElementById("botonGuardar");
+        var textoInfo = document.getElementById("textoInfo");
+        botonGuardar.style.color = "white";
+        botonGuardar.style.backgroundColor = "black";
+        textoInfo.style.backgroundColor = "#212529";
+    } else {
+        var content = document.getElementById("titulo");
+        var  games = document.getElementById("games-container");
+        content.className ="light-mode";
+        games.className = "light-mode";
+
+    }
 
 }
 
@@ -90,9 +130,16 @@ function llamadaAjax(url, parametros, manejadorOK, manejadorError) {
 
 
 function almacenarCambioModoClaroOscuro(modoActivo) {
+    var peticionURL = "";
+    //Antes de realizar la petición compruebo en que fichero estoy para hacer la ruta correctamente.
+    if (location.pathname.split("/")[location.pathname.split("/").length - 1] == "Perfil.php") {
+        peticionURL = "../ModoClaroOscuro/ActualizarModoClaroOscuro.php?modoActivo="+modoActivo;
+    } else {
+        peticionURL = "GestionUsuario/ModoClaroOscuro/ActualizarModoClaroOscuro.php?modoActivo="+modoActivo;
+    }
 
     //Obtengo todos los videojuegos de la base de datos
-    llamadaAjax("GestionUsuario/ModoClaroOscuro/ActualizarModoClaroOscuro.php?modoActivo="+modoActivo, "",
+    llamadaAjax(peticionURL, "",
         function(texto) {
             // debugger
             var cambioCorrecto = JSON.parse(texto);
