@@ -227,9 +227,11 @@ function tarjetaEnlaceFicha(videojuegoActual){
     if (videojuegoActual.id == 1 || videojuegoActual.id == 2){
         enlaceFicha.setAttribute("href", "../Proyecto/Games/" +
             videojuegoActual.id + "/index.html");
+        enlaceFicha.setAttribute("target", "_blank");
     } else {
         enlaceFicha.setAttribute("href", "../Proyecto/Games/" +
             videojuegoActual.id + "/dist/index.html");
+        enlaceFicha.setAttribute("target", "_blank");
     }
 
     enlaceFicha.textContent = "Jugar";

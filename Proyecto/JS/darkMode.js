@@ -40,9 +40,10 @@ function darkMode() {
     } else if (location.pathname.split("/")[location.pathname.split("/").length - 1] == "MisJuegos.php") {
         var option = document.getElementById("search-box");
         option.className = "dark-mode";
+        var textoBusquedaFiltro = document.getElementById("buscar");
+        textoBusquedaFiltro.style.color = "white";
     }
 
-    //Me aseguro de que no nos encontremos en "Perfil.php" ya que carece de los elementos que se quieren obtener
     if (location.pathname.split("/")[location.pathname.split("/").length - 1] == "Perfil.php") {
         //En caso de que estemos en "Perfil.php" modifico el color de los elementos acorde al modo Claro
         var inputs = document.getElementsByClassName("inputs");
@@ -78,6 +79,8 @@ function lightMode() {
     }else if (location.pathname.split("/")[location.pathname.split("/").length - 1] == "MisJuegos.php") {
         var option = document.getElementById("search-box");
         option.className = "light-mode";
+        var textoBusquedaFiltro = document.getElementById("buscar");
+        textoBusquedaFiltro.style.color = "black";
     }
 
     var content = document.getElementById("titulo");
