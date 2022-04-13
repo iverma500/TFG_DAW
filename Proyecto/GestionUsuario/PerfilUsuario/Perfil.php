@@ -67,7 +67,7 @@ if (isset($_REQUEST["errorEliminarFoto"])) {
             <li><a href="../../Menu.php#home" class="inicio">Inicio</a></li>
             <li><a href="../../GestionUsuario/PerfilUsuario/Perfil.php#user">Mi Cuenta</a></li>
             <li><a href="../../MisJuegos.php#games">Mis Juegos</a></li>
-            <li><a href="#contact">Acerca de</a></li>
+            <li><a href="../../AcercaDe.php#about">Acerca de</a></li>
             <li><a href="../../GestionUsuario/SesionUsuario/SesionCerrar.php#out">Cerrar Sesión</a></li>
         </ul>
     </nav>
@@ -95,6 +95,10 @@ if (isset($_REQUEST["errorEliminarFoto"])) {
 
         <div class="container">
             <div class="right">
+                <div id="titulo" style="height: 20px">
+                    <h1>Mi Cuenta</h1>
+                </div>
+                <br>
                 <section class="sectionPerfil">
 
                     <?php if (!DAO::usuarioYaTieneFotoPerfil($_SESSION["id"])) {?>

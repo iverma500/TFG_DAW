@@ -27,7 +27,7 @@ if (isset($_REQUEST['cod'])){
 </head>
 <body>
     <section class="form">
-        <h2 style="color:green; font-size: xx-large">Sesión creada con éxito.</h2>
+        <h2 style="color:green; font-size: xx-large">Un paso más cerca.</h2>
         <br>
         <?php if ($correoEnviado) {?>
             <h4 style="color:green; font-size: medium">Se ha enviado un correo a la cuenta especificada</h4>
@@ -47,8 +47,14 @@ if (isset($_REQUEST['cod'])){
             </form>
         <?php } else {?>
             <h4 style="color:red; font-size: medium">No se ha podido enviar un correo a la cuenta especificada</h4>
+            <br>
+            <button class="btnVolver">
+                <a href="SesionFormulario.php">Volver al Inicio de Sesión</a>
+            </button>
         <?php } ?>
     </section>
+<br><br>
+
 </body>
 <script src="../../JS/ValidacionCodigoRecuperacion.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="../../JS/script.js"></script>

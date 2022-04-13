@@ -13,7 +13,6 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
     <link rel="stylesheet" href="CSS/style2.css">
     <link rel="stylesheet" href="CSS/myGames.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="JS/MisJuegos.js" type="text/javascript"></script>
 
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css'>
@@ -21,13 +20,14 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css'>
     <link rel="stylesheet" href="CSS/darkMode.css">
     <link rel="stylesheet" href="CSS/menu.css">
+    <link rel="stylesheet" href="CSS/AcercaDe.css">
 
     <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
     />
     <title>FGM - Inicio</title>
 </head>
@@ -76,27 +76,43 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
                 <div id="theme-toggler" class="---"></div>
             <?php }?>
         </header>
+
         <div class="container">
             <div class="right">
                 <div id="titulo">
-                    <h1>Mis Juegos</h1>
                     <br>
-                    <h4 id="juegosTotales"></h4>
-                    <section>
-                            <div class="busqueda">
-                                <h4>Búsqueda por nombre</h4>
-                                <br>
-                                <div id="search-box" class="search-box" style="margin-left: 20%">
-                                    <input id="buscar" type="text" class="input-search" placeholder="Type to Search...">
-                                </div>
-                                <p id="numJuegosEncontrados"></p>
-                            </div>
-                    </section>
+                    <br>
+                    <h1>Una plataforma web en plena forma</h1>
+                    <br><br><br><br>
+                    <div class="descripcion">
+                        <ul>
+                            <li><h5>La Fandom Game Library es una plataforma web
+                                    sin ánimo de lucro que nació a finales de 2021</h5></li>
+                            <br>
+                            <li><h5>El objetivo es simple: <b>proveer de videojuegos desarrollados por fans
+                                        para los fans</b>.</h5></li>
+                            <br>
+                            <li><h5>Actualmente contamos con más de una docena de divertidos títulos a la carta,</h5></li>
+                            <br>
+                            <li><h5>algunos clasicos, otros innovadores, pero...
+                                    <br><br>
+                                    <h4>¡todos gratuitos y a tú entera disposición!</h4>
+                                </h5></li>
+                        </ul>
+                    </div>
+                    <br><br>
+                    <div class="creadores">
+                        <h3>Desarrolladores:</h3>
+                        <ul>
+                            <li><h5>Iván de las Heras</h5></li>
+                            <li><h5>José Galea</h5></li>
+                        </ul>
+                    </div>
                 </div>
-                <br><br><br><br>
-                <div id="games-container"></div>
+
             </div>
         </div>
+
     </div>
     <!-- /#page-content-wrapper -->
 </div>

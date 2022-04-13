@@ -14,6 +14,9 @@ entrarSiSesionIniciada("../../Menu.php");
         <link rel="stylesheet" href="../../CSS/style.css">
     </head>
     <body>
+    <header id="cabecera">
+        <h1 style="text-align: center; font-size: xxx-large;">Fandom Game Library</h1>
+    </header>
         <section class="bloqueInfoSesion">
             <?php if (isset($_REQUEST["sesionCerrada"])) {?>
                 <p style="color: blue">Se ha cerrado correctamente la sesión.</p>

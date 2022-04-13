@@ -17,13 +17,17 @@ entrarSiSesionIniciada("../../Menu.php");
 
 </head>
 <body>
+
+<header id="cabecera">
+    <h1 style="text-align: center; font-size: xxx-large;">Fandom Game Library</h1>
+</header>
 <section class="bloqueInfoSesion">
     <?php if (isset($_REQUEST["sesionCerrada"])) {?>
-        <p style="color: blue">Se ha cerrado correctamente la sesión.</p>
+        <p style="background-color: blue">Se ha cerrado la sesión.</p>
      <?php } if (isset($_REQUEST["error"])) {?>
-        <p style='color:red;'>Error al introducir los datos<p>;
+        <p style='background-color:red;'>Error al introducir los datos<p>
        <?php } if (isset($_REQUEST["errorCreacionCuenta"])) {?>
-        <p style='color:red;'>Se ha producido un error inesperado. Por favor, vuelve a introducir los datos<p>;
+        <p style='background-color:red;'>Se ha producido un error inesperado. Por favor, vuelve a introducir los datos<p>
         <?php }?>
 </section>
 <!-- partial:index.partial.html -->

@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS usuario (
     nombre varchar(50) COLLATE utf8_spanish_ci NOT NULL,
     apellidos varchar(50) COLLATE utf8_spanish_ci NOT NULL,
     codVideojuegos varchar (99) COLLATE utf8_spanish_ci,
-    modo varchar(50) COLLATE utf8_spanish_ci,
-    fotoPerfil int (2),
+    modo varchar(50) COLLATE utf8_spanish_ci default 'oscuro',
+    fotoPerfil int (2) default 0,
     PRIMARY KEY (id)
     )
     ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
