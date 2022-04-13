@@ -60,6 +60,8 @@ function darkMode() {
         botonGuardar.style.color = "white";
         botonGuardar.style.backgroundColor = "#1ab188";
         textoInfo.style.backgroundColor = "#212529";
+        var titulo = document.getElementById("titulo");
+        titulo.style.backgroundColor = "rgba(19, 35, 47, 0.9)";
     }else {
         var content = document.getElementById("titulo");
         var  games = document.getElementById("games-container");
@@ -83,9 +85,6 @@ function lightMode() {
         textoBusquedaFiltro.style.color = "black";
     }
 
-    var content = document.getElementById("titulo");
-    var  games = document.getElementById("games-container");
-
 
     if (location.pathname.split("/")[location.pathname.split("/").length - 1] == "Perfil.php") {
         //En caso de que estemos en "Perfil.php" modifico el color de los elementos acorde al modo Claro
@@ -103,6 +102,8 @@ function lightMode() {
         botonGuardar.style.color = "white";
         botonGuardar.style.backgroundColor = "black";
         textoInfo.style.backgroundColor = "#212529";
+        var titulo = document.getElementById("titulo");
+        titulo.style.backgroundColor = "white";
     } else {
         var content = document.getElementById("titulo");
         var  games = document.getElementById("games-container");

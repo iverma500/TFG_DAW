@@ -95,6 +95,10 @@ if (isset($_REQUEST["errorEliminarFoto"])) {
 
         <div class="container">
             <div class="right">
+                <div id="titulo" style="height: 20px">
+                    <h1>Mi Cuenta</h1>
+                </div>
+                <br>
                 <section class="sectionPerfil">
 
                     <?php if (!DAO::usuarioYaTieneFotoPerfil($_SESSION["id"])) {?>
