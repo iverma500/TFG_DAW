@@ -7,7 +7,8 @@ html {
 }
 
 body {
-  background: #c1bdba;
+  background-color: rgba(19, 35, 47, 0.9);
+ /* background: #c1bdba;*/
   font-family: 'Titillium Web', sans-serif;
 }
 
@@ -186,4 +187,29 @@ textarea {
 
 .mostrar {
   display: block;
+}
+
+/*----------------------------------*/
+
+.bloqueInfoSesion > p {
+  text-align: center;
+  font-size: large;
+  color: white;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+
+#cabecera {
+  /*position: fixed;*/
+  top: 0;
+  width: 100%;
+  background-color: #1a1a1a;
+  color: #FFFFFF;
+  z-index:2;
+  padding-bottom: 5px;
+}
+.btnVolver {
+  margin-left: 30%;
+  margin-right: 30%;
+  background-color: rgba(24, 23, 23, 0.85);
 }
