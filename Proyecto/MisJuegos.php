@@ -95,18 +95,23 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
                 </div>
                 <br><br><br><br>
                 <div id="games-container"></div>
+                <br><br<br><br><br<br><br><br<br><br><br<br>
             </div>
         </div>
     </div>
     <!-- /#page-content-wrapper -->
 </div>
+<br><br>
 <!-- /#wrapper -->
 <!-- partial -->
-<footer style="padding-bottom: 30px; background-color: black; text-align: center">
-    <hr style="height:4px;border-width:0;color:gray;background-color:gray">
-    <h6 style="color: white">© 2022 theFGL@gmail.es</h6>
-    <h6 style="color: white">Todos los derechos reservados a sus respectivos dueños.</h6>
-</footer>
+<div id="pieDePagina">
+    <footer>
+        <hr style="height:4px;border-width:0;color:gray;background-color:gray">
+        <h6 style="color: white">© 2022  The FGL Association</h6>
+        <h6 style="color: white">Todos los derechos reservados a sus respectivos dueños.</h6>
+    </footer>
+</div>
+
 </body>
 <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>

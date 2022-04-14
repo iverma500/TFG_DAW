@@ -150,11 +150,9 @@ if (isset($_REQUEST["errorEliminarFoto"])) {
         </div>
     </div>
     <!-- /#page-content-wrapper -->
-
 </div>
 <!-- /#wrapper -->
 <!-- partial -->
-<footer style="padding: 50px"></footer>
 </body>
 <script src="../../JS/Perfil.js"></script>
 <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
