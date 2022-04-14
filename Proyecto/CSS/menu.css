@@ -198,8 +198,8 @@ a[href*="#user"]::before {
   content: "\f007" !important;
 }
 
-a[href*="#contact"]::before {
-  content: "\f086" !important;
+a[href*="#about"]::before {
+  content: "\f2bb" !important;
 }
 
 a[href*="#out"]::before {
