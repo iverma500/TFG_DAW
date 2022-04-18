@@ -1,35 +1,7 @@
 <?php
-
 require_once "ModeloDatos/Videojuego.php";
 require_once  "ModeloDatos/DAO.php";
-
-//salirSiSesionFalla();
-
-if (isset($_REQUEST["id"])){
-    $idJuego = $_REQUEST["id"];
-    $resultado = DAO::misJuegosBorrar(DAO::usuarioObtenerId(),$idJuego);
-
-    $mensaje = "";
-    if ($resultado){
-        $mensaje = "JUEGO ELIMINADO CORRECTAMENTE";
-    } else {
-        $mensaje = "ERROR,El juego no ha sido posible de elimar";
-    }
-
-} else {
-    redireccionar("MisJuegos.php");
-}
-
 ?>
-<?php
-require_once "_Varios.php";
-require_once "_Sesion.php";
-require_once "ModeloDatos/DAO.php";
-
-salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
-?>
-
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -43,7 +15,6 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css'>
     <link rel="stylesheet" href="CSS/darkMode.css">
     <link rel="stylesheet" href="CSS/menu.css">
-    <link rel="stylesheet" href="CSS/AcercaDe.css">
 
     <link
             rel="stylesheet"
@@ -63,9 +34,9 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
             <div class="sidebar-header">
                 <div class="sidebar-brand">
                     <?php if(DAO::usuarioYaTieneFotoPerfil($_SESSION["id"])) {?>
-                        <img class="imgPerfil" src=<?="Imagenes/Usuarios/".$_SESSION["id"].".png"?>>
+                    <img class="imgPerfil" src=<?="Imagenes/Usuarios/".$_SESSION["id"].".png"?>>
                     <?php } else {?>
-                        <img src="Imagenes/Usuarios/imagenPerfil.jpg" class="imgPerfil">
+                    <img src="Imagenes/Usuarios/imagenPerfil.jpg" class="imgPerfil">
                     <?php }?>
 
                     <a href="#"><?= $_SESSION["identificador"]?></a>
@@ -92,11 +63,11 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
             <h1 style="text-align: center; font-size: xxx-large">Fandom Game Library</h1>
 
             <?php if ($_SESSION["modo"] == "claro") {?>
-                <div id="theme-toggler" class="fas fa-moon"></div>
+            <div id="theme-toggler" class="fas fa-moon"></div>
             <?php } else if ($_SESSION["modo"] == "oscuro"){?>
-                <div id="theme-toggler" class="fas fa-moon fa-sun"></div>
+            <div id="theme-toggler" class="fas fa-moon fa-sun"></div>
             <?php } else {?>
-                <div id="theme-toggler" class="---"></div>
+            <div id="theme-toggler" class="---"></div>
             <?php }?>
         </header>
 
@@ -105,17 +76,18 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
                 <div id="titulo">
                     <br>
                     <br>
-                    <h1 style="color: orange"><?= $mensaje ?></h1>
-                    <br><br><br><br>
+                    <br><br>
                     <div class="row">
                         <div class="left">
+                            <br>
+                            <h1 style="color: orange">Ya dispones de este videojuego</h1>
                             <br><br>
-                            <h1 style="font-size: x-large">Puedes volver a adquirir este o cualquier otro videojuego en la sección de <b><a href="Menu.php">Inicio</a></b></h1>
+                            <h1 style="font-size: x-large">Accede a este producto en la sección de <b><a href="MisJuegos.php">Mis Juegos</a></b></h1>
                             <br>
                         </div>
                     </div>
                     <br><br>
-                    <img src="Imagenes/z_Otras/gatoGammer.jpg" style="align-items: center">
+                    <img src="Imagenes/z_Otras/gatoUps.jpg" style="align-items: center; height: 30%; width: 30%">
                 </div>
 
             </div>

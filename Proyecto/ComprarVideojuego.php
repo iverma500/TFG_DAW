@@ -31,11 +31,11 @@ if (!$yaComprado) {
 echo "lo que mando a la BBDD es: ". $stringCodJuegos;
 //ACTUALIZO EL NUEVO LISTADO EN LA BASE DE DATOS
     if (DAO::videojuegoAnnadirIdAUsuario($stringCodJuegos,DAO::usuarioObtenerId())) {
-        redireccionar("../Proyecto/z_fichasVideojuegos/JuegoCompradoExito.html");
+        redireccionar("JuegoCompradoExito.php");
     } else {
-        redireccionar("../Proyecto/z_fichasVideojuegos/JuegoCompraError.html");
+        redireccionar("JuegoCompraError.php");
     }
 //echo json_encode($resultado);
 } else {
-    redireccionar("../Proyecto/z_fichasVideojuegos/JuegoYaCompradoDeAntes.html");
+    redireccionar("JuegoYaCompradoDeAntes.php");
 }

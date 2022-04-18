@@ -1,35 +1,7 @@
 <?php
-
 require_once "ModeloDatos/Videojuego.php";
 require_once  "ModeloDatos/DAO.php";
-
-//salirSiSesionFalla();
-
-if (isset($_REQUEST["id"])){
-    $idJuego = $_REQUEST["id"];
-    $resultado = DAO::misJuegosBorrar(DAO::usuarioObtenerId(),$idJuego);
-
-    $mensaje = "";
-    if ($resultado){
-        $mensaje = "JUEGO ELIMINADO CORRECTAMENTE";
-    } else {
-        $mensaje = "ERROR,El juego no ha sido posible de elimar";
-    }
-
-} else {
-    redireccionar("MisJuegos.php");
-}
-
 ?>
-<?php
-require_once "_Varios.php";
-require_once "_Sesion.php";
-require_once "ModeloDatos/DAO.php";
-
-salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
-?>
-
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -43,7 +15,6 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css'>
     <link rel="stylesheet" href="CSS/darkMode.css">
     <link rel="stylesheet" href="CSS/menu.css">
-    <link rel="stylesheet" href="CSS/AcercaDe.css">
 
     <link
             rel="stylesheet"
@@ -105,17 +76,20 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
                 <div id="titulo">
                     <br>
                     <br>
-                    <h1 style="color: orange"><?= $mensaje ?></h1>
-                    <br><br><br><br>
+                    <br><br>
                     <div class="row">
                         <div class="left">
+                            <br>
+                            <h1 style="color: red">Se ha producido un error en la compra del videojuego</h1>
                             <br><br>
-                            <h1 style="font-size: x-large">Puedes volver a adquirir este o cualquier otro videojuego en la sección de <b><a href="Menu.php">Inicio</a></b></h1>
+                            <h1 style="font-size: x-large">No ha sido posible comprar el videojuego. Inténtelo de nuevo más tarde</h1>
+                            <br>
+                            <h1 style="color: red; font-size: x-large">Disculpa las molestias</h1>
                             <br>
                         </div>
                     </div>
                     <br><br>
-                    <img src="Imagenes/z_Otras/gatoGammer.jpg" style="align-items: center">
+                    <img src="Imagenes/z_Otras/gatoLlorando.jpg" style="align-items: center; height: 25%; width: 25%">
                 </div>
 
             </div>
