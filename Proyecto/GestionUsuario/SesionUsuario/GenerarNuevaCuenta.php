@@ -1,7 +1,6 @@
 <?php
 require_once '../../_Sesion.php';
 require_once '../../_Varios.php';
-//TODO hay que hacer algun tipo de control para asegurar que no hay dos usuarios iguales (con el mismo nombre, email, etc)
 $filasNuevas = crearNuevoUsuario($_REQUEST["identificador"], $_REQUEST["email"],$_REQUEST["contrasenna"],$_REQUEST["nombre"], $_REQUEST["apellidos"]);
 
 //TODO si tenemos tiempo podemos intentar mejorar este metodo
