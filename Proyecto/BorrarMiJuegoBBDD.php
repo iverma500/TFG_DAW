@@ -11,9 +11,9 @@ if (isset($_REQUEST["id"])){
 
     $mensaje = "";
     if ($resultado){
-        $mensaje = "JUEGO ELIMINADO CORRECTAMENTE";
+        $mensaje = "VIDEOJUEGO ELIMINADO CORRECTAMENTE";
     } else {
-        $mensaje = "ERROR,El juego no ha sido posible de elimar";
+        $mensaje = "ERROR, no ha sido posible eliminar el videojuego";
     }
 
 } else {
