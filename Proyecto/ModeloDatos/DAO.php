@@ -216,16 +216,7 @@ class DAO
      /*      USUARIO */
     public static function usuarioActualizar($id,$identificador, $nombre, $apellidos, $email): int
     {
-        //Si recibo email = "-" quiere decir que no hay que actualizar el email. Si recibo otra cosa, entonces si
-        if ($email == "-") {
-            $filasAfectadas = Self::ejecutarUpdel(
-                "UPDATE usuario SET identificador=?, nombre=?, apellidos=? WHERE id=?",
-                [$identificador, $nombre, $apellidos, $id]
-            );
-
-            self::refrescarDatosUsuario();
-            return $filasAfectadas;
-        }else {
+        if ($identificador != '-' && $email != '-') {
             $filasAfectadas = Self::ejecutarUpdel(
                 "UPDATE usuario SET identificador=?, nombre=?, apellidos=?, email=? WHERE id=?",
                 [$identificador, $nombre, $apellidos, $email, $id]
@@ -233,6 +224,8 @@ class DAO
 
             self::refrescarDatosUsuario();
             return $filasAfectadas;
+        } else {
+            return 0;
         }
     }
 
@@ -266,6 +259,21 @@ class DAO
         $rs = Self::ejecutarConsulta(
             "SELECT id FROM usuario WHERE email = ? AND identificador != ?",
             [$email, $nickname]
+        );
+        if (empty($rs)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public static function existeUsuarioConEsteNickName($nickname)
+    {
+        $id = $_SESSION["id"];
+        //Este metodo devuelve true si existe un usuario con el nickname especificado y false si no
+        $rs = Self::ejecutarConsulta(
+            "SELECT id FROM usuario WHERE identificador = ? AND id != ?",
+            [$nickname, $id]
         );
         if (empty($rs)) {
             return false;

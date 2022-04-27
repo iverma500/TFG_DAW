@@ -5,21 +5,29 @@ var nombre;
 var apellidos;
 var email;
 var textoAvisoEmail;
+var textoAvisoNickName;
 function inicializar() {
     textoInfo = document.getElementById("textoInfo");
     textoAvisoEmail = document.getElementById("emailYaExiste");
+    textoAvisoNickName = document.getElementById("nicknameYaExiste");
    document.getElementById("botonGuardar").addEventListener("click", comprobarEmail, false);
+    //document.getElementById("botonGuardar").addEventListener("click", comprobarNickName, false);
 }
-function actualizarDatosUsuario(actualizarEmail) {
-    identificador = document.getElementById("identificador").value;
-    nombre = document.getElementById("nombre").value;
-    apellidos = document.getElementById("apellidos").value;
-    if (actualizarEmail) {
+function actualizarDatosUsuario(actualizarDatos) {
+  //Si todos los datos pasan los filtros se envian sino se envia "-" por cada uno
+    if (actualizarDatos) {
+        identificador = document.getElementById("identificador").value;
         email = document.getElementById("email").value;
+        nombre = document.getElementById("nombre").value;
+        apellidos = document.getElementById("apellidos").value;
     } else {
-     email = "-";
+        identificador = "-";
+        email = "-";
+        nombre = "-";
+        apellidos = "-";
     }
     console.log("A la hora de actualizar los datos el email es: " + email);
+    console.log("A la hora de actualizar los datos el nickname es: " + identificador);
 
     llamadaAjax("ActualizarPerfilUsuario.php?identificador="+identificador+"&nombre="+nombre+"&apellidos="+apellidos+"&email="+email, "",
         function(texto) {
@@ -41,6 +49,8 @@ function actualizarDatosUsuario(actualizarEmail) {
             notificarUsuario("Error Ajax: " + texto);
         });
 }
+
+
 function comprobarEmail() {
     email = document.getElementById("email").value;
     //Antes de nada compruebo que el texto introducido sea valido como email
@@ -57,8 +67,8 @@ function comprobarEmail() {
                     actualizarDatosUsuario(false);
                 } else {
                     textoAvisoEmail.innerHTML = "";
-                    //Si la validacion del email es correcta entonces procedo a actualizar los datos
-                    actualizarDatosUsuario(true);
+                    //Si la validacion del email es correcta entonces procedo a validar el nickname
+                    comprobarNickName();
                 }
             },
             function (texto) {
@@ -69,6 +79,32 @@ function comprobarEmail() {
         textoAvisoEmail.style.color = "red";
     }
 }
+
+function comprobarNickName() {
+    nickname = document.getElementById("identificador").value;
+    //Antes de nada compruebo que el texto introducido sea valido como email
+        llamadaAjax("ComprobarNickNameAlActualizarlo.php?identificador=" + nickname, "",
+            function (texto) {
+                // debugger
+                var existeNickName = JSON.parse(texto);
+                console.log("NICKNAME Esto envio: ComprobarNickNameAlActualizarlo.php?identificador=" + nickname)
+                console.log("recibo de PHP esto: " + existeNickName)
+                if (existeNickName) {
+                    textoAvisoNickName.innerHTML = "El nickname ya esta en uso, introduzca otro";
+                    textoAvisoNickName.style.color = "red";
+                    actualizarDatosUsuario(false);
+                } else {
+                    textoAvisoNickName.innerHTML = "";
+                    //Si la validacion del nickname es correcta entonces procedo a actualizar los datos
+                    actualizarDatosUsuario(true);
+                }
+            },
+            function (texto) {
+                notificarUsuario("Error Ajax: " + texto);
+            });
+}
+
+
 function validarEmail(email) {
     if (/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(email)){
         console.log("La dirección de email " + email + " es valida.");

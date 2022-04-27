@@ -129,7 +129,8 @@ if (isset($_REQUEST["errorEliminarFoto"])) {
                     <br><br><br>
                     <label for="identificador" class="labels">Nickname</label>
                     <input type="text" name="identificador" id="identificador" class="inputs" value=<?=$_SESSION["identificador"]?>>
-                    <br><br>
+                    <p id="nicknameYaExiste"></p>
+
                     <label for="nombre" class="labels">Nombre</label>
                     <input type="text" name="nombre" id="nombre" class="inputs" value=<?=$_SESSION["nombre"]?>>
                     <br><br>
