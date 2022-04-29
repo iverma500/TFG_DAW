@@ -20,7 +20,7 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.4/css/tether.min.css'>
     <link rel="stylesheet" href="CSS/darkMode.css">
     <link rel="stylesheet" href="CSS/menu.css">
-    <link rel="stylesheet" href="CSS/AcercaDe.css">
+    <link rel="stylesheet" href="CSS/ComprarPuntos.css">
 
     <link
         rel="stylesheet"
@@ -53,7 +53,7 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
             <li><a href="GestionUsuario/PerfilUsuario/Perfil.php#user">Mi Cuenta</a></li>
             <li><a href="MisJuegos.php#games">Mis Juegos</a></li>
             <li><a href="AcercaDe.php#about">Acerca de</a></li>
-            <li><a href="ComprarPuntos.php#about">Comprar Puntos</a></li>
+            <li><a href="ComprarPuntos.php#points">Comprar Puntos</a></li>
             <li><a href="GestionUsuario/SesionUsuario/SesionCerrar.php#out">Cerrar Sesión</a></li>
         </ul>
     </nav>
@@ -80,37 +80,35 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
 
         <div class="container">
             <div class="right">
-                <div id="titulo">
+                <div id="titulo" style="display:inline-block;vertical-align:top;">
                     <br>
                     <br>
-                    <h1>Una plataforma web en plena forma</h1>
-                    <br><br><br><br>
-                    <div class="descripcion">
-                        <ul>
-                            <li><h5>La Fandom Game Library es una plataforma web
-                                    sin ánimo de lucro que nació a finales de 2021</h5></li>
-                            <br>
-                            <li><h5>El objetivo es simple: <b>proveer de videojuegos desarrollados por fans
-                                        para los fans</b>.</h5></li>
-                            <br>
-                            <li><h5>Actualmente contamos con más de una docena de divertidos títulos a la carta,</h5></li>
-                            <br>
-                            <li><h5>algunos clasicos, otros innovadores, pero...
-                                    <br><br>
-                                    <h4>¡todos gratuitos y a tú entera disposición!</h4>
-                                </h5></li>
-                        </ul>
-                    </div>
+                    <h1>¡Compra puntos para obtener videojuegos con tus puntos!</h1>
+                    <br>
+                    <p style="color: red; font-weight: bold">Esta característica está actualmente en desarrollo</p>
+                    <img src="Imagenes/ImagenPuntos/gifWork.gif" height="200px" width="200px">
                     <br><br>
-                    <div class="creadores">
-                        <h3>Desarrolladores:</h3>
-                        <ul>
-                            <li><h5>Iván de las Heras</h5></li>
-                            <li><h5>José Galea</h5></li>
-                        </ul>
+                    <div class="comprar">
+                        <div id="pack1">
+                            <button id="pto500" class="btnpto">
+                                <img src="Imagenes/ImagenPuntos/puntos.png" height="200px" width="200px">
+                            </button>
+                            <h3>500 puntos</h3>
+                        </div>
+                        <div id="pack2">
+                            <button id="pto1000" class="btnpto">
+                                <img src="Imagenes/ImagenPuntos/puntos.png" height="200px" width="200px">
+                            </button>
+                            <h3>1000 puntos</h3>
+                        </div>
+                        <div id="pack3">
+                            <button id="pto1500" class="btnpto">
+                                <img src="Imagenes/ImagenPuntos/puntos.png" height="200px" width="200px">
+                            </button>
+                            <h3>1500 puntos</h3>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

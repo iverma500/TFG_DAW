@@ -68,6 +68,7 @@ if (isset($_REQUEST["errorEliminarFoto"])) {
             <li><a href="../../GestionUsuario/PerfilUsuario/Perfil.php#user">Mi Cuenta</a></li>
             <li><a href="../../MisJuegos.php#games">Mis Juegos</a></li>
             <li><a href="../../AcercaDe.php#about">Acerca de</a></li>
+            <li><a href="ComprarPuntos.php#points">Comprar Puntos</a></li>
             <li><a href="../../GestionUsuario/SesionUsuario/SesionCerrar.php#out">Cerrar Sesión</a></li>
         </ul>
     </nav>

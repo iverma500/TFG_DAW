@@ -1,0 +1,28 @@
+.comprar{
+    text-align: center;
+    align-items: center;
+}
+
+.btnpto{
+    opacity: 0.3;
+}
+
+.btnpto:hover{
+    opacity: 1;
+}
+
+#pack1{
+    float:left;
+    width:33.3%;
+}
+
+#pack2{
+    float:left;
+    width:33.3%;
+}
+
+#pack3{
+    float:left;
+    width:33.3%;
+}
+

@@ -202,6 +202,10 @@ a[href*="#about"]::before {
   content: "\f2bb" !important;
 }
 
+a[href*="#points"]::before {
+    content: "\f1c0" !important;
+}
+
 a[href*="#out"]::before {
     content: "\f01e" !important;
 }
