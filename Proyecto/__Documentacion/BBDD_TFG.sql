@@ -55,7 +55,7 @@ VALUES
     (2, 'PLATFORMS WORLD','Explora la Realidad Pixel para lograr escapar.', 0.00 , 450, 1),
     (3, 'THE DUNGEON GAME', 'Avanza rápidamente por niveles muy difíciles.', 0.00 , 300, 1),
     (4, 'COLORON','Cambia de color todas las plataformas para que la pelota logre avanzar.', 0.00 , 100, 4),
-    (5, 'COPYCAT','Consigue pasar los niveles con dos personajes.', 0.00 , '200', 1),
+    (5, 'COPYCAT','Consigue pasar los niveles con dos personajes.', 0.00 , 200, 1),
     (6, 'EL AHORCADO','Adivina la palabra antes de que sea demasiado tarde.', 0.00 , 200, 4),
     (7, 'INFINITE RUNNER','Consigue pasar todas las platafomas rápidamente.', 0.00 , 350, 1),
     (8, 'MARBLE LABYRINTH','Usa el ratón para mover la canica por distintos niveles.', 0.00 , 350, 1),
