@@ -4,9 +4,14 @@ require_once "_Sesion.php";
 require_once "ModeloDatos/DAO.php";
 
 salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
+$videojuegos = DAO::videojuegoObtenerTodos();
+$usuarios = DAO::usuariosObtenerNombres();
+$numUsuarios = sizeof($usuarios);
+$numJuegos = sizeof($videojuegos);
 ?>
 
 <!DOCTYPE html>
+<!--PAGINA WEB QUE NO APARECE COMO ENLACE. SOLO SE PUEDE ACCEDER SI SABES LA RUTA-->
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -83,32 +88,52 @@ salirSiSesionFalla("GestionUsuario/SesionUsuario/SesionFormulario.php");
                 <div id="titulo">
                     <br>
                     <br>
-                    <h1>Una plataforma web en plena forma</h1>
+                    <h1>INFO del sistema</h1>
                     <br><br><br><br>
                     <div class="descripcion">
                         <ul>
-                            <li><h5>La Fandom Game Library es una plataforma web
-                                    sin ánimo de lucro que nació a finales de 2021</h5></li>
-                            <br>
-                            <li><h5>El objetivo es simple: <b>proveer de videojuegos desarrollados por fans
-                                        para los fans</b>.</h5></li>
-                            <br>
-                            <li><h5>Actualmente contamos con más de una docena de divertidos títulos a la carta,</h5></li>
-                            <br>
-                            <li><h5>algunos clasicos, otros innovadores, pero...
-                                    <br><br>
-                                    <h4>¡todos gratuitos y a tú entera disposición!</h4>
-                                </h5></li>
-                        </ul>
-                    </div>
-                    <br><br>
-                    <div class="creadores">
-                        <h3>Desarrolladores:</h3>
-                        <ul>
-                            <li><h5>Iván de las Heras</h5></li>
-                            <li><h5>José Galea</h5></li>
-                        </ul>
-                    </div>
+                            <div class="creadores">
+                                <h3><?=$numUsuarios?> Usuarios registrados</h3>
+                                <ul>
+                                    <?php
+                                    foreach ($usuarios as $usuarioActual) {
+                                        echo "<div style='border-color: #ec7600; border-style: solid'>";
+                                        echo "<br>";
+                                        echo "<br>";
+                                        echo "<li>Identificador: <b>".explode(";", $usuarioActual)[0]."</b></li>";
+                                        echo "<br>";
+                                        echo "<br>";
+                                        echo "<li>Nombre: ".explode(";", $usuarioActual)[1]."</li>";
+                                        echo "<br>";
+                                        echo "<br>";
+                                        echo "<li>Apellidos: ".explode(";", $usuarioActual)[2]."</li>";
+                                        echo "<br>";
+                                        echo "<br>";
+                                        echo "<li>Email: <b>".explode(";", $usuarioActual)[3]."</b></li>";
+                                        echo "<br>";
+                                        echo "<br>";
+                                        echo "</div>";
+                                    }
+                                    ?>
+                                </ul>
+                            </div>
+                            <br><br><br>    <br><br><br>
+                            <div class="creadores">
+                                <h3><?=$numJuegos?> videojuegos</h3>
+                                <ul>
+                                   <?php
+                                   foreach ($videojuegos as $videojuegoActual) {
+                                       echo "<div style='border-color: #1ab188; border-style: solid'>";
+                                       echo "<br>";
+                                       echo "<br>";
+                                       echo "<li>Nombre: <b>".$videojuegoActual->getNombre()."</b></li>";
+                                       echo "<br>";
+                                       echo "<br>";
+                                       echo "</div>";
+                                   }
+                                   ?>
+                                </ul>
+                            </div>
                 </div>
 
             </div>

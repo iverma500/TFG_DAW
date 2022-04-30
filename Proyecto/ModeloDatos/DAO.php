@@ -353,6 +353,25 @@ class DAO
         else return false;
     }
 
+
+    public static function usuariosObtenerNombres():array
+    //Este metodo se utiliza unicamente para obtener información del sistema
+    {
+        $rs = Self::ejecutarConsulta(
+            "SELECT nombre, apellidos, identificador, email FROM usuario ORDER BY nombre",
+            []
+        );
+
+        $datos = [];
+
+        foreach ($rs as $fila) {
+            $textoInfo = $fila["identificador"].";".$fila["nombre"].";".$fila["apellidos"].";".$fila["email"];
+            array_push($datos, $textoInfo);
+        }
+
+        return $datos;
+    }
+
     /* GESTIÓN MODO CLARO/OSCURO */
 
     public static function actualizarModoClaroOscuro($id, $modoSeleccionado): bool {

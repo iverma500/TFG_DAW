@@ -59,7 +59,7 @@ VALUES
     (6, 'EL AHORCADO','Adivina la palabra antes de que sea demasiado tarde.', 0.00 , 200, 4),
     (7, 'INFINITE RUNNER','Consigue pasar todas las platafomas rápidamente.', 0.00 , 350, 1),
     (8, 'MARBLE LABYRINTH','Usa el ratón para mover la canica por distintos niveles.', 0.00 , 350, 1),
-    (9, 'MAZE GRIDPURE','Usa el raon para pasar por distintos laberintos.', 0.00 , 400, 1),
+    (9, 'MAZE GRIDPURE','Usa el ratón para pasar por distintos laberintos.', 0.00 , 400, 1),
     (10, 'OUTRUN','Consigue conduciendo todas las monedas posibles.', 0.00 , 400, 7),
     (11, 'STICK HERO','Crea puentes para avanzar por las distintas plataformas.', 0.00 , 250, 1),
     (12, 'SWEET MEMORY','Busca las parejas de las distintas cartas.', 0.00 , 250, 1),
