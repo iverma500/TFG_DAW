@@ -235,7 +235,7 @@ function tarjetaPrecioActual(videojuegoActual){
 function tarjetaPrecioViejo(videojuegoActual){
     var precioViejo = document.createElement("p");
     precioViejo.setAttribute("class","ticket-precio-viejo");
-    precioViejo.textContent = videojuegoActual.precioViejo + "€";
+    precioViejo.textContent = videojuegoActual.precioViejo + " Puntos";
 
     return precioViejo;
 }

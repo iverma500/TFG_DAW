@@ -38,8 +38,8 @@ CREATE TABLE IF NOT EXISTS videojuego (
     id int(11) NOT NULL AUTO_INCREMENT,
     nombre varchar(90) COLLATE utf8_spanish_ci NOT NULL,
     descripcion varchar(200) COLLATE utf8_spanish_ci NOT NULL,
-    precioActual DOUBLE(10,2) COLLATE utf8_spanish_ci NOT NULL,
-    precioViejo DOUBLE(10,2) COLLATE utf8_spanish_ci NOT NULL,
+    puntosActual DOUBLE(10,2) COLLATE utf8_spanish_ci NOT NULL,
+    puntosViejo int (10) COLLATE utf8_spanish_ci NOT NULL,
     categoriaId int(4) COLLATE utf8_spanish_ci NOT NULL,
     KEY fk_categoriaIdIdx (categoriaId),
     PRIMARY KEY (id)
@@ -49,22 +49,22 @@ TRUNCATE TABLE videojuego;
 
 /*LA IDEA ES QUE el identificador de la foto sea el nombre de la foto (ej: la foto se llama 5.png; pues su identificador de foto es AC1)*/
 INSERT INTO videojuego
-(id, nombre, descripcion, precioActual,precioViejo, categoriaId)
+(id, nombre, descripcion, puntosActual,puntosViejo, categoriaId)
 VALUES
-    (1, 'RUN & JUMP', 'Divertido videojuego endless-runner con tabla de clasificación online', 0.00, 11.99, 1),
-    (2, 'PLATFORMS WORLD','Explora la Realidad Pixel para lograr escapar.', 0.00 , 4.99, 1),
-    (3, 'THE DUNGEON GAME', 'Avanza rápidamente por niveles muy difíciles.', 0.00 , 9.99, 1),
-    (4, 'COLORON','Cambia de color todas las plataformas para que la pelota logre avanzar.', 0.00 , 7.99, 4),
-    (5, 'COPYCAT','Consigue pasar los niveles con dos personajes.', 0.00 , 14.99, 1),
-    (6, 'EL AHORCADO','Adivina la palabra antes de que sea demasiado tarde.', 0.00 , 4.99, 4),
-    (7, 'INFINITE RUNNER','Consigue pasar todas las platafomas rápidamente.', 0.00 , 6.99, 1),
-    (8, 'MARBLE LABYRINTH','Usa el ratón para mover la canica por distintos niveles.', 0.00 , 12.99, 1),
-    (9, 'MAZE GRIDPURE','Usa el raon para pasar por distintos laberintos.', 0.00 , 4.99, 1),
-    (10, 'OUTRUN','Consigue conduciendo todas las monedas posibles.', 0.00 , 19.99, 7),
-    (11, 'STICK HERO','Crea puentes para avanzar por las distintas plataformas.', 0.00 , 11.99, 1),
-    (12, 'SWEET MEMORY','Busca las parejas de las distintas cartas.', 0.00 , 5.99, 1),
-    (13, 'TOWER BLOCKS','Consigue crear la torre más alta posible.', 0.00 , 16.99, 4),
-    (14, 'PLATFORMS GAME','Encuentra el camino para avanzar de nivel.', 0.00 , 24.99, 1);
+    (1, 'RUN & JUMP', 'Divertido videojuego endless-runner con tabla de clasificación online', 0.00, 450, 1),
+    (2, 'PLATFORMS WORLD','Explora la Realidad Pixel para lograr escapar.', 0.00 , 450, 1),
+    (3, 'THE DUNGEON GAME', 'Avanza rápidamente por niveles muy difíciles.', 0.00 , 300, 1),
+    (4, 'COLORON','Cambia de color todas las plataformas para que la pelota logre avanzar.', 0.00 , 100, 4),
+    (5, 'COPYCAT','Consigue pasar los niveles con dos personajes.', 0.00 , '200', 1),
+    (6, 'EL AHORCADO','Adivina la palabra antes de que sea demasiado tarde.', 0.00 , 200, 4),
+    (7, 'INFINITE RUNNER','Consigue pasar todas las platafomas rápidamente.', 0.00 , 350, 1),
+    (8, 'MARBLE LABYRINTH','Usa el ratón para mover la canica por distintos niveles.', 0.00 , 350, 1),
+    (9, 'MAZE GRIDPURE','Usa el raon para pasar por distintos laberintos.', 0.00 , 400, 1),
+    (10, 'OUTRUN','Consigue conduciendo todas las monedas posibles.', 0.00 , 400, 7),
+    (11, 'STICK HERO','Crea puentes para avanzar por las distintas plataformas.', 0.00 , 250, 1),
+    (12, 'SWEET MEMORY','Busca las parejas de las distintas cartas.', 0.00 , 250, 1),
+    (13, 'TOWER BLOCKS','Consigue crear la torre más alta posible.', 0.00 , 350, 4),
+    (14, 'PLATFORMS GAME','Encuentra el camino para avanzar de nivel.', 0.00 , 400, 1);
 
 
 

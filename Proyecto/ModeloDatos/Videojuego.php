@@ -6,19 +6,19 @@ class Videojuego extends Dato
 
     protected string $nombre;
     protected string $descripcion;
-    protected float  $precioActual;
-    protected float  $precioViejo;
+    protected float  $puntosActual;
+    protected float  $puntosViejo;
     protected string $identificadorFoto;
     protected int    $categoriaId;
 
 
-    public function __construct($id, $nombre, $descripcion, $precioActual, $precioViejo, $categoriaId)
+    public function __construct($id, $nombre, $descripcion, $puntosActual, $puntosViejo, $categoriaId)
     {
         $this->id = $id;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
-        $this->precioActual = $precioActual;
-        $this->precioViejo = $precioViejo;
+        $this->puntosActual = $puntosActual;
+        $this->puntosViejo = $puntosViejo;
         $this->categoriaId = $categoriaId;
     }
 
@@ -65,7 +65,7 @@ class Videojuego extends Dato
     /**
      * @return float
      */
-    public function getPrecioActual(): float
+    public function getPuntosActual(): float
     {
         return $this->precioActual;
     }
@@ -73,7 +73,7 @@ class Videojuego extends Dato
     /**
      * @param float $precioActual
      */
-    public function setPrecioActual(float $precioActual): void
+    public function setPuntosActual(float $precioActual): void
     {
         $this->precioActual = $precioActual;
     }
@@ -81,7 +81,7 @@ class Videojuego extends Dato
     /**
      * @return float
      */
-    public function getPrecioViejo(): float
+    public function getPuntosViejo(): float
     {
         return $this->precioViejo;
     }
@@ -89,7 +89,7 @@ class Videojuego extends Dato
     /**
      * @param float $precioViejo
      */
-    public function setPrecioViejo(float $precioViejo): void
+    public function setPuntosViejo(float $precioViejo): void
     {
         $this->precioActual = $precioViejo;
     }
@@ -118,8 +118,8 @@ class Videojuego extends Dato
             "id" => $this->id,
             "nombre" => $this->nombre,
             "descripcion" => $this->descripcion,
-            "precioActual" => $this->precioActual,
-            "precioViejo" => $this->precioViejo,
+            "precioActual" => $this->puntosActual,
+            "precioViejo" => $this->puntosViejo,
             "categoriaId" => $this->categoriaId,
             ];
     }

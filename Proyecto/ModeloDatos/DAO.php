@@ -82,8 +82,8 @@ class DAO
         return new Videojuego($fila["id"],
                               $fila["nombre"],
                               $fila["descripcion"],
-                              $fila["precioActual"],
-                              $fila["precioViejo"],
+                              $fila["puntosActual"],
+                              $fila["puntosViejo"],
                               $fila["categoriaId"]);
     }
 
