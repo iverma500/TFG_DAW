@@ -27,10 +27,10 @@ TRUNCATE TABLE usuario;
 INSERT INTO usuario
 (id, identificador, email, contrasenna, codigoCookie, caducidadCodigoCookie, nombre, apellidos, codVideojuegos, modo, fotoPerfil)
 VALUES
-    (1, 'pLotudo', 'pepelot@gmail.com', 'pp', NULL, NULL, 'Pepe',   'Lotudo', '1,3,5,2', 'oscuro',0),
-    (2, 'Josian', 'jositron2@gmail.com', 'josian', NULL, NULL, 'Josian',   'Galtor','2,5', 'claro',0),
-    (3, 'ManCa', 'carrasMan@gmail.com', 'mc', NULL, NULL, 'Manuela',   'Carrasco','10,11','claro', 0),
-    (4, 'Iverma', 'dbdtodoeldia@gmail.com', 'iv', NULL, NULL, 'Ivan',   'Delas','1,2,13', 'claro', 0);
+    (1, 'pLotudo', 'pepelot@gmail.com', 'c483f6ce851c9ecd9fb835ff7551737c', NULL, NULL, 'Pepe',   'Lotudo', '1,3,5,2', 'oscuro',0),
+    (2, 'Josian', 'jositron2@gmail.com', '8a89e5e5072e7ceb40c02b3c3d0fd977', NULL, NULL, 'Josian',   'Galtor','2,5', 'claro',0),
+    (3, 'ManCa', 'carrasMan@gmail.com', 'd6fd0924e324f50669ae0295adf59567', NULL, NULL, 'Manuela',   'Carrasco','10,11','claro', 0),
+    (4, 'Iverma', 'dbdtodoeldia@gmail.com', 'f0b53b2da041fca49ef0b9839060b345', NULL, NULL, 'Ivan',   'Delas','1,2,13', 'claro', 0);
 
 
 /*  tabla videojuego   */

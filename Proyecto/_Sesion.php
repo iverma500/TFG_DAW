@@ -40,11 +40,14 @@ function haySesionRAM(): bool
 
 function obtenerUsuarioPorContrasenna(string $identificador, string $contrasenna): ?array
 {
+    //Primero cifro la contraseña
+    $contrasennaCifrada = cifrarContrasenna($contrasenna);
+
     $conexion = obtenerPdoConexionBD();
     $sql = "SELECT id, identificador, nombre, apellidos, email, modo FROM usuario
             WHERE identificador=? AND BINARY contrasenna=?";
     $select = $conexion->prepare($sql);
-    $select->execute([$identificador, $contrasenna]);
+    $select->execute([$identificador, $contrasennaCifrada]);
     $filasObtenidas = $select->rowCount();
 
     if ($filasObtenidas == 0) return null;
@@ -124,6 +127,10 @@ function cerrarSesion()
 function crearNuevoUsuario($identificador, $email, $contrasenna, $nombre, $apellidos): int
 {
 
+    /*Primero cifro la contraseña del usuario*/
+    $contrasennaCifrada = cifrarContrasenna($contrasenna);
+
+
     /*SIGNIFICADOS RETURNS:
     -3 -> Error al crear la cuenta (se ha realizado el "INSERT" pero algo ha salido mal) ERROR
     1 ->  Operación realizada con ÉXITO
@@ -134,7 +141,7 @@ function crearNuevoUsuario($identificador, $email, $contrasenna, $nombre, $apell
     //En caso de que no esten repetidos. Creo el nuevo usuario en la BBDD
     $sql = "INSERT INTO usuario (identificador, email, contrasenna, codigoCookie, caducidadCodigoCookie, nombre, apellidos) VALUES (?,?,?,?,?,?,?)";
     $select = $conexion->prepare($sql);
-    $select->execute([$identificador, $email, $contrasenna, null, null, $nombre, $apellidos]);
+    $select->execute([$identificador, $email, $contrasennaCifrada, null, null, $nombre, $apellidos]);
     $numRegistros = $select->rowCount();
     if ($numRegistros == 1) {
         //Devuelvo 1 que quiere decir que la operacion ha salido bien
@@ -213,6 +220,11 @@ function obtenerCodigo(string $identificador, string $email): ?array
 
     if ($filasObtenidas == 0) return null;
     else return $select->fetch();
+}
+
+function cifrarContrasenna($contrasenna): string
+{
+   return hash('md5', $contrasenna, false);
 }
 
 function enviarMensajeCorreo($email, $nombre):bool
