@@ -24,17 +24,14 @@ function validarCampos() {
     llamadaAjax("ValidacionPassword.php",nickname, email,"",
         function(texto) {
             // debugger
-            var numOperacion = JSON.parse(texto);
-            // console.log("numOperacion es: " + numOperacion);
-            if(numOperacion == -1) {
-                document.getElementById("pErrorNickName").innerHTML = "El nickname introducido NO EXISTE, por favor, introduce otro";
-                document.getElementById("btnReestablecerPassword").setAttribute("disabled", "true");
-                document.getElementById("btnReestablecerPassword").style.color = "grey";
-            }else if (numOperacion == -2) {
-                document.getElementById("pErrorEmail").innerHTML = "El email introducido NO EXISTE, por favor, introduce otro";
-                document.getElementById("btnReestablecerPassword").setAttribute("disabled", "true");
-                document.getElementById("btnReestablecerPassword").style.color = "grey";
-            }},
+                var numOperacion = JSON.parse(texto);
+                // console.log("numOperacion es: " + numOperacion);
+                if(numOperacion == -1) {
+                    document.getElementById("pErrorNickName").innerHTML = "Los datos introducidos NO COINCIDEN, por favor, introduce otro";
+                    document.getElementById("btnReestablecerPassword").setAttribute("disabled", "true");
+                    document.getElementById("btnReestablecerPassword").style.color = "grey";
+                }
+            },
         function(texto) {
             notificarUsuario("Error Ajax al cargar personas al inicializar: " + texto);
         }

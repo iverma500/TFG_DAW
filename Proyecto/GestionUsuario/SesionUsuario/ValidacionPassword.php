@@ -10,26 +10,18 @@ function validarUsuario($identificador, $email): int
     */
     $conexion = obtenerPdoConexionBD();
 
-//Primero compruebo que no exista el identificador ni el email en la BBDD
-    $sql = "SELECT * FROM usuario WHERE BINARY identificador=?";
+    // compruebar que no exista el identificador ni el email en la BBDD
+    $sql = "SELECT * FROM usuario WHERE BINARY identificador=? AND BINARY email=?";
     $select = $conexion->prepare($sql);
-    $select->execute([$identificador]);
+    $select->execute([$identificador, $email]);
     $numRegistros = $select->rowCount();
     if ($numRegistros == 0) {
-        //Devuelvo -1 que quiere decir que el nickname NO EXISTE
+        //Devuelvo -1 que quiere decir que el nickname o email
+        // NO EXISTE o NO COINCIDEN
         return -1;
     } else {
-        $sql = "SELECT * FROM usuario WHERE BINARY email=?";
-        $select = $conexion->prepare($sql);
-        $select->execute([$email]);
-        $numRegistros = $select->rowCount();
-        if ($numRegistros == 0) {
-            //Devuelvo -2 que quiere decir que el email NO EXISTE
-            return -2;
-        } else {
-            //Devuelvo 0 que quiere decir que Los datos son correctos
-            return 0;
-        }
+        //Devuelvo 0 datos son correctos
+        return 0;
     }
 }
 echo json_encode(validarUsuario($_REQUEST["identificador"], $_REQUEST["email"]));

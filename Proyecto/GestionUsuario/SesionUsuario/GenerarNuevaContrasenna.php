@@ -18,8 +18,8 @@ $filasNuevas = crearNuevaContrasenna($_REQUEST["identificador"], $_REQUEST["emai
 <?php if ($filasNuevas == 1) {?>
     <section class="form">
         <h2 style="color:green; font-size: xx-large">Contraseña cambiada con éxito.</h2>
+        <h3>Pulsa <a href="SesionFormulario.php">aquí</a> para Iniciar Sesión</h3>
     </section>
-    <button><a href="SesionFormulario.php"></a></button>
 <?php } else {
     redireccionar("SesionFormulario.php?errorCreacionCuenta");
 }?>

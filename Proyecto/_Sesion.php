@@ -154,10 +154,12 @@ function crearNuevoUsuario($identificador, $email, $contrasenna, $nombre, $apell
 
 function crearNuevaContrasenna($identificador, $email, $contrasenna): int
 {
+    $contrasennaCifrada = cifrarContrasenna($contrasenna);
+
     $conexion = obtenerPdoConexionBD();
     $sql = "UPDATE usuario SET contrasenna = ? WHERE email = ? AND identificador = ?";
     $select = $conexion->prepare($sql);
-    $select->execute([$contrasenna, $email, $identificador]);
+    $select->execute([$contrasennaCifrada, $email, $identificador]);
     $numRegistros = $select->rowCount();
     if ($numRegistros == 1) {
         //Devuelvo 1 que quiere decir que la operacion ha salido bien
