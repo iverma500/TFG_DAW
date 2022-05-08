@@ -33,9 +33,6 @@ if (isset($_POST['subir']) && ($_REQUEST["archivo"]['size'] >= 0)) {
                 } else {
                     redireccionar("Perfil.php?errorSubirArchivo");
                 }
-                //Mostramos la imagen subida
-               // echo '<p><img src="images/'.$archivo.'"></p>';
-              //  redireccionar("Perfil.php?archivo");
             }
             else {
                 //Si no se ha podido subir la imagen, mostramos un mensaje de error
