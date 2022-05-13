@@ -8,8 +8,8 @@ USE bbdd_tfg;
 DROP TABLE IF EXISTS usuario;
 CREATE TABLE IF NOT EXISTS usuario (
     id int(11) NOT NULL AUTO_INCREMENT,
-    identificador varchar(90) COLLATE utf8_spanish_ci NOT NULL,
-    email varchar(40) COLLATE utf8_spanish_ci NOT NULL,
+    identificador varchar(90) COLLATE utf8_spanish_ci NOT NULL UNIQUE,
+    email varchar(40) COLLATE utf8_spanish_ci NOT NULL UNIQUE,
     contrasenna varchar(80) COLLATE utf8_spanish_ci NOT NULL,
     codigoCookie varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
     caducidadCodigoCookie timestamp NULL DEFAULT NULL,
