@@ -98,6 +98,8 @@ CREATE TABLE IF NOT EXISTS codigos (
     identificador varchar(90) COLLATE utf8_spanish_ci NOT NULL,
     email varchar(40) COLLATE utf8_spanish_ci NOT NULL,
     codigo varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+    KEY fk_nicknameUserx (identificador),
+    KEY fk_emailUserx (email),
     PRIMARY KEY (id)
     )
     ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
