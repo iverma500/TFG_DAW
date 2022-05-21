@@ -101,6 +101,24 @@ label.highlight {
   color: #ffffff;
 }
 
+.checkbox{
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.checkboxLabel {
+  position: absolute;
+  transform: translateY(6px);
+  left: 30px;
+  bottom: 5px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.25s ease;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+  font-size: 22px;
+}
+
 input, textarea {
   font-size: 22px;
   display: block;

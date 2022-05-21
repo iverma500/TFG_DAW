@@ -87,6 +87,11 @@ entrarSiSesionIniciada("../../Menu.php");
                    title="Introduce una contraseña con al menos un numero, una letra minúscula,
                     otra mayúscula y con una longitud mínima de 8 carácteres"
                    required autocomplete="off"/>
+              <br><br>
+              <label class="checkboxLabel">
+                  Mostrar Contraseña
+              </label>
+              <input type="checkbox" onclick="Toggle()" class="checkbox">
           </div>
 
           <button type="submit" class="button button-block" id="btnCrearCuenta"/>Empezar</button>
@@ -94,6 +99,7 @@ entrarSiSesionIniciada("../../Menu.php");
           </form>
 
         </div>
+
 
         <div id="login">   
           <h1>¡Bienvenido de nuevo!</h1>
@@ -111,7 +117,12 @@ entrarSiSesionIniciada("../../Menu.php");
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password" name="contrasenna" required autocomplete="off"/>
+            <input type="password" name="contrasenna" id="contrasenna2" required autocomplete="off"/>
+              <br><br>
+              <label class="checkboxLabel">
+                  Mostrar Contraseña
+              </label>
+              <input type="checkbox" onclick="Toggle1()" class="checkbox">
           </div>
           
           <p class="forgot"><a href="NuevaContrasenna.php">¿Contraseña Olvidada?</a></p>
@@ -127,5 +138,7 @@ entrarSiSesionIniciada("../../Menu.php");
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="../../JS/script.js"></script>
 <script src="../../JS/ValidacionFormularioSesion.js"></script>
+<script src="../../JS/MostrarPassword.js"></script>
+
 </body>
 </html>

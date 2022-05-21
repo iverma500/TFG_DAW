@@ -57,6 +57,12 @@
                        title="Introduce una contraseña con al menos un numero, una letra minúscula,
                     otra mayúscula y con una longitud mínima de 8 carácteres"
                        required autocomplete="off"/>
+
+                <br><br>
+                <label class="checkboxLabel">
+                    Mostrar Contraseña
+                </label>
+                <input type="checkbox" onclick="Toggle2()" class="checkbox">
             </div>
 
             <button type="submit" class="button button-block" id="btnReestablecerPassword"/>Reestablecer</button>
@@ -66,5 +72,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="../../JS/script.js"></script>
     <script src="../../JS/ValidacionFormularioPassword.js"></script>
     <script src="../../JS/ConfirmacionPassword.js"></script>
+    <script src="../../JS/MostrarPassword.js"></script>
+
 </body>
 </html>
