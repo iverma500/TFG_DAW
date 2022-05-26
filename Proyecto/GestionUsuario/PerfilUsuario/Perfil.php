@@ -55,7 +55,7 @@ if (isset($_REQUEST["errorEliminarFoto"])) {
             <div class="sidebar-header">
                 <div class="sidebar-brand">
                     <?php if(DAO::usuarioYaTieneFotoPerfil($_SESSION["id"])) {?>
-                        <img class="imgPerfil" src=<?="Imagenes/Usuarios/".$_SESSION["id"].".png"?>>
+                        <img class="imgPerfil" src=<?="../../Imagenes/Usuarios/".$_SESSION["id"].".png"?>>
                     <?php } else {?>
                         <img src="../../Imagenes/Usuarios/imagenPerfil.jpg" class="imgPerfil">
                     <?php }?>

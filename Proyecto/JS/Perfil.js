@@ -28,6 +28,8 @@ function actualizarDatosUsuario(actualizarDatos) {
     }
     console.log("A la hora de actualizar los datos el email es: " + email);
     console.log("A la hora de actualizar los datos el nickname es: " + identificador);
+    console.log("A la hora de actualizar los datos el nombre es: " + nombre);
+    console.log("A la hora de actualizar los datos el apellido es: " + apellidos);
 
     llamadaAjax("ActualizarPerfilUsuario.php?identificador="+identificador+"&nombre="+nombre+"&apellidos="+apellidos+"&email="+email, "",
         function(texto) {
