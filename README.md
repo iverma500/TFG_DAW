@@ -2,7 +2,7 @@
 
 José Galea Torrecilla   Iván De Las Heras Martín
 ------------------------------------------------
-Versión 0.8
+Versión 1.0
 -----------
 
 1. Preparación y redacción de la estructura básica de la documentación
